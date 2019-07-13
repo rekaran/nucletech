@@ -1,0 +1,125 @@
+{% extends 'home/master.html' %}
+
+{% load staticfiles %}
+
+{% block metatag %}
+{% endblock %}
+
+{% block title %}
+    Nucletech | SignUp
+{% endblock %}
+
+{% block css %}
+<style>
+    @media (max-width: 767px) {
+        .nt-register-img, .nt-register{
+            display: none;
+        }.nt-register-mobile{
+            display: inherit !important;
+        }.nt-register-container{
+            padding-top: 3rem;
+        }.uk-width-1-4\@m {
+            width: 100% !important;
+        }
+    }
+    /* all */
+    [class*='uk-inline'] {
+        width: 100%;
+    }.nt-register-container{
+        padding-left: 45px;
+        padding-right: 15px;
+    }.nt-register button, .nt-register-mobile button{
+        width: 100% !important;
+    }.nt-register button span, .nt-register-mobile button span{
+        vertical-align: text-top;
+    }.nt-text-small{
+        font-size: 14px;
+    }h4{
+        margin-bottom: 0;
+        border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+        width: max-content;
+    }.nt-register-mobile{
+        display: none;
+    }.nt-register-img{
+        height: 100vh;
+    }.uk-width-3-4\@m {
+        width: 66.67%;
+    }.uk-width-1-4\@m{
+        width: 33.33%;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="uk-container uk-container-expand">
+    <div class="" uk-grid>
+        <div class="uk-width-1-4@m uk-margin-large-top nt-register-container">
+            <h4>Register </h4>
+            <span class="nt-text-small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit</span>
+            <form class="nt-register" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="uk-margin-top">
+                        <label class="uk-form-label" for="{{ field.id_for_label }}">{{ field.label }}</label><br>
+                        <div class="uk-inline">
+                            {% if field.html_name in "email" %}
+                                <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                            {% elif field.html_name in "first_name" %}
+                                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                            {% elif field.html_name in "last_name" %}
+                                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                            {% elif field.html_name in "mobile" %}
+                                <span class="uk-form-icon" uk-icon="icon: receiver"></span>
+                            {% elif field.html_name in "domain" %}
+                                <span class="uk-form-icon" uk-icon="icon: link"></span>
+                            {% elif field.html_name in "password1" %}
+                                <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                            {% elif field.html_name in "password2" %}
+                                <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                            {% endif %}
+                            <input class="uk-input" id="{{ field.id_for_label }}" name="{{ field.html_name }}" type="{{ field.field.widget.input_type }}" uk-tooltip="title: {{ field.help_text }}; pos: right" required autofocus={{field.field.widget.attrs.autofocus}}>
+                        </div>
+                        {{ field.errors }}
+                    </div>
+                {% endfor %}
+                <button class="uk-button uk-button-primary uk-margin-top" type="submit">REGISTER <span uk-icon="icon: arrow-right; ratio: 1.1"></span></button><br>
+            </form>
+            <form class="nt-register-mobile" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="uk-margin-top">
+                        <label class="uk-form-label" for="{{ field.id_for_label }}">{{ field.label }}</label><br>
+                        <div class="uk-inline">
+                            {% if field.html_name in "email" %}
+                                <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                            {% elif field.html_name in "first_name" %}
+                                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                            {% elif field.html_name in "last_name" %}
+                                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                            {% elif field.html_name in "mobile" %}
+                                <span class="uk-form-icon" uk-icon="icon: receiver"></span>
+                            {% elif field.html_name in "domain" %}
+                                <span class="uk-form-icon" uk-icon="icon: link"></span>
+                            {% elif field.html_name in "password1" %}
+                                <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                            {% elif field.html_name in "password2" %}
+                                <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                            {% endif %}
+                            <input class="uk-input" id="{{ field.id_for_label }}" name="{{ field.html_name }}" type="{{ field.field.widget.input_type }}" uk-tooltip="title: {{ field.help_text }}; pos: top" required autofocus={{field.field.widget.attrs.autofocus}}>
+                        </div>
+                        {{ field.errors }}
+                    </div>
+                {% endfor %}
+                <button class="uk-button uk-button-primary uk-margin-top" type="submit">REGISTER <span uk-icon="icon: arrow-right; ratio: 1.1"></span></button><br>
+            </form>
+            <div class="uk-text-center nt-text-small uk-text-muted uk-margin-small-top">
+                    By clicking "REGISTER" you confirm that you accept all the <a href="">Terms & Conditions</a>
+            </div>
+        </div>
+        <div class="uk-width-3-4@m nt-register-img">asd</div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'home/master.html' %}
+
+{% load staticfiles %}
+
+{% block metatag %}
+<!-- http://ogp.me/#types
+     https://neilpatel.com/blog/open-graph-meta-tags/ -->
+<meta name="robots" content="noindex, nofollow">
+{% endblock %}
+
+{% block title %}
+    Contact - Nucletech | Intelligent By Nature
+{% endblock %}
+
+{% block css %}
+<style>
+    h1, h3{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 800;
+    }.nt-contact{
+        font-size: 14px;
+    }.nt-button-disp .uk-button{
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        background: linear-gradient(to right top, rgb(255, 217, 0), rgb(255, 242, 62));
+    }.nt-contact-diff p{
+        font-size: 14px;
+        color: rgba(0,0,0,0.35);
+    }.nt-contact-text .uk-button{
+        background: linear-gradient(to right top,rgb(0, 162, 255), rgb(0, 204, 255));
+        color: white;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="uk-container uk-container-expand">
+    <div class="nt-contact uk-flex-center uk-margin-large-top" uk-grid>
+        <div class="uk-width-1-2@m uk-margin-xlarge-top nt-contact-text">
+            <h1 class="uk-margin-remove-bottom">About Us</h1>
+            We create a delight for customer by handcrafting every bots we make.<br>
+            Our every bots are intelligent and make use of all the resources at its best to porvide a best in class conversation, and be the first of its kind.
+        </div>
+        <div class="uk-width-1-3@m uk-margin-large-top">
+            <img src="{% static 'home/img/about.png' %}" alt="">
+        </div>
+    </div>
+    <div class="uk-flex-center" uk-grid>
+        <div class="uk-width-3-4@m uk-text-justify nt-button-disp">
+            <div uk-grid>
+                <div class="uk-width-1-2@m">
+                    <h3 class="uk-margin-top uk-margin-bottom">Our Mission</h3>
+                    <p>To make the next-generation of the conversational chatbot available for everyone and every buisness at an affordable rate so that their customer could have a ease in exploring their buisness. We empower buisness to create and establish communication with thir customers.</p>
+                </div>
+                <div class="uk-width-1-2@m">
+                    <h3 class="uk-margin-top uk-margin-bottom">Our Vision</h3>
+                    <p>To enable and empower buisness with the power of AI with our conversational chatbot.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="uk-flex-center" uk-grid>
+        <div class="uk-text-justify uk-width-3-4@m">
+            <h3 class="uk-margin-top uk-margin-bottom">What do we believe in?</h3>
+            <p>We believe in doing the right thing in the smartest possible way as integrity is the bedrock of our practice. Since perfection is not possible we believe to improve is to change. We don’t assume that we know it all as we are constantly learning and widening our legal field of experience. >We are upfront and visible with the decision taken by us as we believe that transparency is the foundation of trust with both our new and existing users. Our team brainstorms for new ideas as we believe in innovation not imitation. We invest in user centric approach using the internet and artificial intelligence to cultivate a better business relationship with our friendly users. Learning is a process that cannot be stopped as we are poised to delivering the best in the legal field by widening our field of experience at every opportunity. Our thirst for constant improvement drives us to give you a world class solution by brainstorming legal issues across several practice areas thereby increasing your value for time.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}

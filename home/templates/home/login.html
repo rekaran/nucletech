@@ -1,0 +1,90 @@
+{% extends 'home/master.html' %}
+
+{% load staticfiles %}
+
+{% block metatag %}
+{% endblock %}
+
+{% block title %}
+    Nucletech | Login
+{% endblock %}
+
+{% block css %}
+<style>
+    /*mobile*/
+    @media (max-width: 767px) {
+        .nt-login-container{
+            padding-top: 5rem;
+            /* min-height: 80vh; */
+        }.nt-login-img{
+            display: none;
+        }.uk-width-1-4\@m {
+            width: 100% !important;
+        }
+    }
+    /* all */
+    [class*='uk-inline'] {
+        width: 100%;
+    }.nt-login-container{
+        padding-left: 45px;
+        padding-right: 15px;
+    }.nt-login button{
+        width: 100% !important;
+    }.nt-login button span{
+        vertical-align: text-top;
+    }.nt-text-small{
+        font-size: 14px;
+    }h4{
+        margin-bottom: 0;
+        border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+        width: max-content;
+    }.nt-login-img{
+        height: 100vh;
+    }.uk-width-3-4\@m {
+        width: 66.67%;
+    }.uk-width-1-4\@m {
+        width: 33.33%;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+<div class="uk-container uk-container-expand">
+    <div class="" uk-grid>
+        <div class="uk-margin-xlarge-top uk-width-1-4@m nt-login-container">
+            <h4>Login </h4>
+            <span class="nt-text-small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit</span>
+            <form class="nt-login" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="uk-margin-top">
+                        <label class="uk-form-label" for="{{ field.id_for_label }}">{{ field.label }}</label><br>
+                        <div class="uk-inline">
+                            {% if field.html_name in 'id_username' %}
+                            <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                            <input class="uk-input" id="{{ field.id_for_label }}" name="{{ field.html_name }}" type="email" placeholder="Email ID" autofocus required>
+                            {% else %}
+                            <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                            <input class="uk-input" id="{{ field.id_for_label }}" name="{{ field.html_name }}" type="{{ field.field.widget.input_type }}" placeholder="Password" required><br>
+                            {% endif %}
+                        </div>
+                        {{ field.errors }}
+                    </div>
+                {% endfor %}
+                <a href="#" class="nt-text-small">Forgot Password?</a>
+                <button class="uk-button uk-button-primary uk-margin-top" type="submit">LOGIN <span uk-icon="icon: arrow-right; ratio: 1.1"></span></button><br>
+                <div class="uk-margin-small-top uk-text-center">
+                    <a href="#" class="">Register Now</a>
+                </div>
+            </form>
+        </div>
+        <div class="uk-width-3-4@m nt-login-img">
+            asdadad
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}

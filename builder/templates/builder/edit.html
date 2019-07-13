@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nucletech | Builder - {{project_name}}</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'home/img/favicon.png' %}"/>
+    <!-- CSS Code -->
+    <link rel="stylesheet" href="{% static 'home/css/nucletech.css' %}">
+    <link rel="stylesheet" href="{% static 'builder/css/main.css' %}">
+    <!-- Google Font for Logo -->
+    <link href="https://fonts.googleapis.com/css?family=Paytone+One|Poppins" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143786996-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-143786996-1');
+    </script>
+</head>
+<body>
+    <!-- Navigation Bar uk-background-default-->
+    <nav class="uk-navbar-container uk-navbar-sticky" uk-navbar> 
+        <div class="uk-navbar-left">
+            <a class="uk-navbar-item uk-logo uk-margin-large-left uk-visible@s" href="https://www.nucletech.com">nucletech</a>
+            <a class="uk-navbar-item uk-logo uk-margin-left uk-hidden@s" href="https://www.nucletech.com">nucletech</a>
+        </div>
+        <div class="uk-navbar-right uk-hidden@s">
+            <span class="uk-margin-right side-nav-toggle nav-icon-menu" uk-icon="icon: menu; ratio: 1.75"></span>
+            <span class="uk-margin-right side-nav-toggle nav-hidden nav-icon-close" uk-icon="icon: close; ratio: 1.5"></span>
+        </div>
+        <div id="side-nav">
+            <div class="side-nav-content">
+                <a class="uk-navbar-item uk-logo uk-hidden@s uk-margin-small-top side-nav-logo" href="https://www.nucletech.com">nucletech</a>
+                <ul class="uk-margin-top">
+                    <li class="uk-active"><a href="https://www.nucletech.com/builder"><span uk-icon="icon: home; ratio: 1" class="uk-margin-right"></span> EDIT</a></li>
+                    <li><a href="https://www.nucletech.com/builder/billing"><span uk-icon="icon: info; ratio: 1" class="uk-margin-right"></span> TEST</a></li>
+                    <li><a href="https://www.nucletech.com/builder/profile"><span uk-icon="icon: sign-in; ratio: 1" class="uk-margin-right"></span> SETTING</a></li>
+                    <li><a href="https://www.nucletech.com/logout"><span uk-icon="icon: commenting; ratio: 1" class="uk-margin-right"></span> LOGOUT</a></li>
+                </ul>
+                <span class="side-nav-bottom">
+                    <span class="nt-slogan">Intelligent By Nature</span>
+                    <span class="nt-reg">® NUCLETECH Pvt. Ltd.</span>
+                    Social Media Logos
+                </span>
+            </div>
+        </div>
+        <div class="uk-navbar-right uk-visible@s uk-margin-large-right">
+            <ul class="uk-navbar-nav">
+                <li><a href="https://www.nucletech.com/builder/"><span uk-icon="file-text"></span></a></li>
+                <li><a href="https://www.nucletech.com/builder/"><span uk-icon="bell"></span></a></li>
+                <li class="nt-user"><a href=""><img src="https://s-media-cache-ak0.pinimg.com/originals/b1/bb/ec/b1bbec499a0d66e5403480e8cda1bcbe.png" alt="">{{request.user.get_full_name}}</a></li>
+                <li><a href="https://www.nucletech.com/builder/"><span uk-icon="chevron-left" uk-tooltip="title: Go back to projects; pos: bottom;"></span></a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- /Navigation Bar -->
+    <div id="nt-app">
+        <div class="nt-left-nav">  
+            <div class="nt-content">
+                <div class="nt-project-name"><span>PROJECT NAME</span>{{project_name}}</div>
+                <div class="nt-left-settings uk-margin-small-top" v-on:click="home_view()"><span class="uk-margin-small-right" uk-icon="icon: home; ratio: 0.8"></span> HOME</div>                       
+                <ul uk-accordion>
+                    <li class="uk-open">
+                        <a class="uk-accordion-title">FLOW MANAGER <span uk-tooltip="title: Add Flow; pos: right" uk-icon="icon: plus-circle; ratio: 0.9" v-on:click.stop="enable_flow('new')"></span></a>
+                        <div class="uk-accordion-content uk-margin-remove-top">
+                            <div class="uk-margin-small-top" uk-grid>
+                                <div class="uk-width-1-1 nt-folder-flow nt-disable">
+                                    <span uk-icon="icon: folder; ratio: 0.8"></span> auto answer
+                                </div>
+                            </div>
+                            <div class="uk-margin-small-top" uk-grid v-for="(f, idx) in flow">
+                                <div class="uk-width-1-1 nt-folder-flow" v-on:click.stop="enable_flow(idx)">
+                                    <span uk-icon="icon: folder; ratio: 0.8"></span> <% f.name %>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="uk-accordion-title">FAQ MANAGER</a>
+                        <div class="uk-accordion-content uk-margin-remove-top">
+                            <div class="uk-margin-small-top" uk-grid>
+                                <div class="uk-width-1-1 nt-folder-flow">
+                                    <span uk-tooltip="title: Comming Soon; pos: right;"><span uk-icon="icon: folder; ratio: 0.8" ></span> open sheet <sup>BETA</sup></span>
+                                </div>
+                            </div>
+                            <div class="uk-margin-small-top" uk-grid>
+                                <div class="uk-width-1-1 nt-folder-flow" v-on:click="enable_faq('smalltalks')">
+                                    <span uk-icon="icon: folder; ratio: 0.8"></span> small talks
+                                </div>
+                            </div>
+                            <div class="uk-margin-small-top" uk-grid>
+                                <div class="uk-width-1-1 nt-folder-flow" v-on:click="enable_faq('custom')">
+                                    <span uk-icon="icon: folder; ratio: 0.8"></span> custom faq
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul> 
+                <div class="nt-left-settings" v-on:click="enable_setting()"><span class="uk-margin-small-right" uk-icon="icon: cog; ratio: 0.8"></span> SETTINGS</div>
+                <div class="nt-left-settings uk-margin-small-top"><span class="uk-margin-small-right" uk-icon="icon: commenting; ratio: 0.8"></span> TEST BOT</div>                       
+                <div class="nt-left-settings uk-margin-small-top"><span class="uk-margin-small-right" uk-icon="icon: server; ratio: 0.8"></span> PUBLISH</div>                       
+                <div class="nt-left-settings uk-margin-small-top"><span class="uk-margin-small-right" uk-icon="icon: refresh; ratio: 0.8"></span> RETRAIN</div>                       
+                <div class="nt-left-settings uk-margin-small-top"><span class="uk-margin-small-right" uk-icon="icon: users; ratio: 0.8"></span> COLLABORATE</div>                       
+                <div class="nt-left-settings uk-margin-small-top"><span class="uk-margin-small-right" uk-icon="icon: history; ratio: 0.8"></span> CHANGE LOG</div>                       
+                <div class="nt-left-settings uk-margin-small-top" v-on:click="save_changes()"><span class="uk-margin-small-right" uk-icon="icon: check; ratio: 0.8"></span> SAVE CHANGES</div>                       
+            </div>     
+        </div>
+        <div class="nt-secret-hidden">
+            <input type="hidden" name="csrf_token" id="csrf_token" value="{{ csrf_token }}">
+            <input type="hidden" name="project_key" id="project_key" value="{{ project_key }}">
+            <input type="hidden" name="project_name" id="project_name" value="{{ project_name }}">
+            <input type="hidden" name="project_hash" id="project_hash" value="{{ project_hash }}">
+            <input type="hidden" name="user_key" id="user_key" value="{{ api_key }}">
+        </div>
+        <div class="nt-main-body">
+            <div class="nt-content" v-if="is_home">
+                <div uk-grid>
+                    <div class="uk-width-1-4@m">
+                        <div class="nt-builder-card">
+                            <br><span>10</span><br>COLLABORATERS
+                        </div>
+                    </div>
+                    <div class="uk-width-1-4@m">
+                        <div class="nt-builder-card">
+                                <br><span>EN</span><br>LANGUAGES
+                        </div>
+                    </div>
+                    <div class="uk-width-1-4@m">
+                        <div class="nt-builder-card">
+                                <br><span>UTC</span><br>TIMEZONE
+                        </div>
+                    </div>
+                    <div class="uk-width-1-4@m">
+                        <div class="nt-builder-card">
+                                <br><span>Dec 10, 95</span><br>LAST UPDATED
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-margin-medium-top" uk-grid>
+                    <div class="uk-width-1-4@m">
+                        <div class="nt-bot-card">
+                            <div class="nt-bot-image">
+                                <img src="https://media.licdn.com/dms/image/C4D0BAQE4ehxR3kewXQ/company-logo_200_200/0?e=2159024400&v=beta&t=LgpHS-dduxn9sG4S5oRgr-D1jAoqOZw9_A1i8GeYfJk" alt=""><span class="nt-edit" uk-icon="pencil"></span>
+                            </div>
+                            <div class="nt-bot-name">
+                                PRAKZ
+                            </div>
+                            <div class="nt-bot-desc">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id eius officiis facere, molestiae itaque quaerat at corporis sapiente voluptatibus iste maiores illo cupiditate.....
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-width-3-4@m">
+                        <div class="nt-bot-card">
+                            Presonality Builder
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nt-content" v-if="is_flow">
+                <div uk-grid>
+                    <div class="uk-width-3-4@m">
+                        <div class="nt-flow-name"><!-- Name of the flow and its variations-->
+                            <div uk-grid>
+                                <div class="uk-width-4-5@s">
+                                    <div class="uk-margin">
+                                        <label for="flow-name">FLOW NAME:</label> 
+                                        <input class="uk-input" type="text" id="flow-name" v-model="current_flow_name"> 
+                                    </div>
+                                </div>
+                                <div class="uk-width-1-5@s">
+                                    <button uk-toggle="target: #nt-variations" class="uk-button nt-add-variation" uk-tooltip="title: You can add all the possible variations that can be entered by the users to this flow, this will make easy for the customers to trigger the flow.; pos: right"><span uk-icon="icon:plus-circle; ratio: 0.8" class="uk-margin-small-right"></span>VARIATIONS</button>
+                                    <!-- Variations modal -->
+                                    <div id="nt-variations" uk-modal>
+                                        <div class="uk-modal-dialog uk-modal-body">
+                                            <h5 class="uk-margin-remove-bottom">ADD VARIATIONS</h5>
+                                            <p class="uk-margin-remove-top">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
+                                            <div uk-grid>
+                                                <div class="uk-width-2-3@s">
+                                                    <div class="uk-margin">
+                                                        <label for="add-variation">VARIATION</label> 
+                                                        <input class="uk-input" type="text" id="add-variation"> 
+                                                        <span class="uk-text-danger" v-if="variation_validation_error!=''"><% variation_validation_error %></span>
+                                                    </div>
+                                                </div>
+                                                <div class="uk-width-1-3@s nt-padding-small-left">
+                                                    <button class="uk-button nt-add-variation" v-on:click="add_flow_variation()">ADD VARIATION</button>
+                                                </div>
+                                            </div>
+                                            <table class="nt-table uk-table-justify uk-table uk-table-hover uk-table-divider">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Varition</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr v-for="(variation, idx) in flow_variations">
+                                                        <td><% idx+1 %></td>
+                                                        <td><% variation %></td>
+                                                        <td><span class="uk-text-danger" style="cursor: pointer;" uk-icon="icon: trash; ratio: 0.8" v-on:click="delete_vatiation(idx)"></span></td>
+                                                    </tr>
+                                                    <tr v-if="flow_variations.length==0">
+                                                        <td colspan="3">No Variations Available</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <p class="uk-text-right">
+                                                <button class="uk-button uk-button-default uk-modal-close" type="button">CANCEL</button>
+                                                <button class="uk-button uk-button-primary uk-modal-close" type="button">SAVE</button>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nt-flow-view"><!-- View of the stages inside the flow -->
+                            <div class="nt-stage" v-for="stage in current_stages">
+                                <div class="nt-stage-actions">
+                                    <span uk-icon="icon: pencil; ratio: 0.8;"></span>
+                                    <span uk-icon="icon: chevron-up; ratio: 0.8;"></span>
+                                    <span uk-icon="icon: chevron-down; ratio: 0.8;"></span>
+                                    <span class="uk-text-danger" uk-icon="icon: trash; ratio: 0.8;"></span>
+                                </div>
+                                <div class="nt-stage-name">#<% stage.stage_name %></div>
+                                <div class="nt-bot-says">
+                                    <div class="nt-bot-image">
+                                        <img src="https://media.licdn.com/dms/image/C4D0BAQE4ehxR3kewXQ/company-logo_200_200/0?e=2159024400&v=beta&t=LgpHS-dduxn9sG4S5oRgr-D1jAoqOZw9_A1i8GeYfJk" alt="">
+                                    </div>
+                                    <div class="nt-bot-message">
+                                        <div class="nt-bot-greetings" v-if="stage.bot_greeting!=''"><% stage.bot_greeting %></div>
+                                        <div><% stage.bot_message %></div>
+                                    </div>
+                                    <div class="nt-bot-buttons" v-if="stage.user_input_type=='buttons'">
+                                        <div v-for="btn in stage.user_input"><% btn.text %></div>
+                                    </div>
+                                    <div class="nt-bot-carousels" v-if="stage.user_input_type=='carousels'">
+                                        <div v-for="carousel in stage.user_input"><% carousel.text %><button>Select</button></div>
+                                    </div>
+                                </div>
+                                <div class="nt-user-says">
+                                    <div class="nt-user-message">
+                                        <img src="{% static 'home/img/user-loading.svg' %}" alt="">
+                                    </div>
+                                    <div class="nt-user-image">
+                                        <img src="https://media.licdn.com/dms/image/C4D0BAQE4ehxR3kewXQ/company-logo_200_200/0?e=2159024400&v=beta&t=LgpHS-dduxn9sG4S5oRgr-D1jAoqOZw9_A1i8GeYfJk" alt="">
+                                    </div>
+                                </div>
+                                <div class="nt-user-input-validation">
+                                    <div uk-grid>
+                                        <div class="uk-width-1-2@s">
+                                            Validation Type: <% stage.input_validation_type %> Validation
+                                        </div>
+                                        <div class="uk-width-1-2@s" v-if="stage.input_validation_type!='no'">
+                                            Validation Source: <% stage.input_validation %>
+                                        </div>
+                                    </div>
+                                    <div v-if="stage.input_validation_type!='no'">
+                                        Invalid Message: <span class="uk-text-danger"><% stage.invalid_message %></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-width-1-4@m">
+                        <div class="nt-builder-card nt-flow">
+                            Flow Name will help you to analyze and detect the most used flows by the user.
+                        </div>
+                        <div class="nt-add-flow uk-margin-top" v-if="current_stages.length!=0" v-on:click="add_flow()">
+                            <div v-if="flow_index_type=='new'"><span uk-icon="icon: plus-circle"></span> ADD TO FLOW MANAGER</div>
+                            <div v-if="flow_index_type=='exist'"><span uk-icon="icon: push"></span> UPDATE FLOW MANAGER</div>
+                        </div>
+                    </div>
+                </div>
+                <div uk-grid>
+                    <div class="uk-width-3-4@s">
+                        <div class="nt-flow-builder uk-form-horizontal"><!-- Flow builder to add stages -->
+                            <span uk-icon="icon: cog; ratio: 0.8" class="nt-flow-setting" uk-tooltip="title: Add validation to User Input so that user don't enter any invalid inputs.; pos: right" v-on:click="is_validation=true"></span>
+                            <div class="nt-flow-validation" v-if="is_validation">
+                                <div class="nt-user-button-close" v-on:click="is_validation=false"><span uk-icon="close"></span></div>
+                                <div class="uk-margin" uk-grid>
+                                    <div class="uk-width-1-2@s">
+                                        <label for="nt-validation-type">VALIDATION TYPE</label>
+                                        <select class="uk-select" v-model="user_validation_type" id="nt-validation-type" uk-tooltip="title: Set validation to the user input so that you dont have problem assessing the user.; pos: right">
+                                            <option>No Validation</option>
+                                            <option>API Validation</option>
+                                            <option>Regex Validation</option>
+                                            <!-- <option>Predefined Validation</option> -->
+                                        </select>
+                                    </div>
+                                    <div class="uk-width-1-2@s">
+                                        <label for="nt-validated">ON USER VALID</label>
+                                        <select class="uk-select" id="nt-validated" uk-tooltip="title: Action to be happened if user meets the validation criteria.; pos: right">
+                                            <option>Continue Flow</option>
+                                            <option>Exit Flow</option>
+                                            <option>Jump To</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div v-if="user_validation_type=='Regex Validation'">
+                                    <div class="uk-margin">
+                                        <label for="nt-regex-validation">REGEX PATTERN</label>
+                                        <input type="text" id="nt-regex-validation" class="uk-input" uk-tooltip="title: Enter the reges pattern that you want to validate like for mobile number regex pattern will be '/^(\+\d{1,3}[- ]?)?\d{10}$/'; pos: right">
+                                        <span class="uk-text-danger"><% bot_validation_error %></span>
+                                    </div>
+                                </div>
+                                <div v-if="user_validation_type=='API Validation'">
+                                    <div class="uk-margin">
+                                        <label for="nt-api-validation">API URL</label>
+                                        <input type="text" id="nt-api-validation" class="uk-input" uk-tooltip="title: A post request will be made to the URL with JSON data as {data: message}; pos: right">
+                                        <span class="uk-text-danger"><% bot_validation_error %></span>
+                                    </div>
+                                </div>
+                                <div v-if="user_validation_type!='No Validation'">
+                                    <div class="uk-margin">
+                                        <label for="nt-invalid-message">INVALID MESSAGE</label>
+                                        <input type="text" id="nt-invalid-message" class="uk-input uk-text-danger" uk-tooltip="title: This message will be prompt to user on invalid user input.; pos: right" value="I'm not able to understand you input.">
+                                    </div>
+                                </div>
+                                <button v-on:click="add_user_validation()" class="uk-button" style="float: right; background: linear-gradient(to right top, rgb(255, 217, 0), rgb(255, 244, 93)); color: rgba(0,0,0,0.8)">DONE</button>
+                            </div>
+                            <div uk-grid>
+                                <div class="uk-width-1-2@s">
+                                    <div class="uk-margin">
+                                        <label for="nt-stage-name">STAGE NAME</label>
+                                        <input type="text" id="nt-stage-name" class="uk-input" uk-tooltip="title: This will help you make jumps from one stage to another; pos: right" :value="'Stage'+current_stages.length">
+                                    </div>
+                                </div>
+                            </div>
+                            <div uk-grid v-if="is_bot_greetings">
+                                <div class="uk-width-1-1@s">
+                                    <div class="uk-margin">
+                                        <label for="nt-bot-greeting">GREETINGS MESSAGE</label>
+                                        <textarea name="bot-greeting" id="nt-bot-greeting" cols="30" rows="2" class="uk-textarea"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div uk-grid v-if="current_stages.length==0">
+                                <div class="uk-width-4-5@s">
+                                    <div class="uk-margin">
+                                        <label for="nt-bot-says">BOT SAYS</label>
+                                        <textarea name="bot-says" id="nt-bot-says" cols="30" rows="2" class="uk-textarea"></textarea>
+                                        <span class="uk-text-danger"><% bot_says_error %></span>
+                                    </div>
+                                </div>
+                                <div class="uk-width-1-5@s">
+                                    <button v-if="!is_bot_greetings" v-on:click="is_bot_greetings=!is_bot_greetings" class="uk-button nt-add-greeting" uk-tooltip="title: Greeting message will help you to have engagement with your user when they directly starts the flow.; pos: right"><span uk-icon="icon:plus-circle; ratio: 0.8" class="uk-margin-small-right"></span>GREETINGS</button>
+                                    <button v-if="is_bot_greetings" v-on:click="is_bot_greetings=!is_bot_greetings" class="uk-button nt-add-greeting" uk-tooltip="title: Greeting message will be removed from above.; pos: right"><span uk-icon="icon:minus-circle; ratio: 0.8" class="uk-margin-small-right"></span>GREETINGS</button>
+                                </div>
+                            </div>
+                            <div uk-grid  v-if="current_stages.length!=0">
+                                <div class="uk-width-1-1@s">
+                                    <div class="uk-margin">
+                                        <label for="nt-bot-says">BOT SAYS</label>
+                                        <textarea name="bot-says" id="nt-bot-says" cols="30" rows="2" class="uk-textarea"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div uk-grid>
+                                <div class="uk-width-3-5@s">
+                                    <div class="uk-margin" v-if="user_input_type=='Text'">
+                                        <label for="nt-user-input">USER INPUT</label>
+                                        <input type="text" id="ny-user-input" class="uk-input" disabled value="User will only give text as input.">
+                                    </div>
+                                    <div class="uk-margin" v-if="user_input_type=='Text + Buttons'">
+                                        <label for="nt-user-input" style="display: block">USER INPUT BUTTONS</label>
+                                        <div class="nt-user-buttons">
+                                            <div v-for="(user_button, idx) in user_input_buttons" :data-describe="user_button.value" :uk-tooltip="'title: Button Value: '+user_button.value+';pos: top'"><% user_button.text %><span v-on:click="delete_button(idx)" class="uk-text-danger uk-margin-small-left" uk-icon="icon: trash; ratio: 0.8"></span></div>
+                                        </div>
+                                        <div class="nt-user-add-button">
+                                            <div class="nt-user-add-button-element" v-if="user_add_button">
+                                                <div class="nt-user-button-close" v-on:click="user_add_button=false"><span uk-icon="close"></span></div>
+                                                <div class="uk-margin">
+                                                    <label for="nt-user-button-text">BUTTON DISPLAY TEXT</label>
+                                                    <input class="uk-input" type="text" id="nt-user-button-text">
+                                                </div>
+                                                <div class="uk-margin">
+                                                    <label for="nt-user-button-bot-text">BUTTON BOT TEXT</label>
+                                                    <input class="uk-input" type="text" id="nt-user-button-bot-text">
+                                                </div>
+                                                <div uk-grid>
+                                                    <div class="uk-width-1-2@s">
+                                                        <label for="nt-user-button-bot-jump">JUMP TO</label>
+                                                        <input class="uk-input" type="text" id="nt-user-button-bot-jump" uk-tooltip="title: You can use jumps to skip the stages that are not relevent to the flow or jump to any other flow.">
+                                                    </div>
+                                                    <div class="uk-width-1-2@s">
+                                                        <button v-on:click="add_user_button()" class="uk-button" style="width: 100%; margin-top: 20px; float: right; background: linear-gradient(to right top, rgb(255, 217, 0), rgb(255, 244, 93)); color: rgba(0,0,0,0.8)">ADD</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button class="nt-user-button" v-on:click="user_add_button=true"><span class="uk-margin-small-right" uk-icon="icon: plus-circle; ratio: 0.8"></span>ADD BUTTONS</button>
+                                        </div>
+                                        <span class="uk-text-danger"><% bot_buttons_error %></span>
+                                    </div>
+                                    <div class="uk-margin" v-if="user_input_type=='Text + Carousels'">
+                                        <label for="nt-user-input" style="display: block">USER INPUT CAROUSELS</label>
+                                        <div class="nt-user-carousels">
+                                            <div class="nt-carousel" v-for="(user_carousel, idx) in user_input_carousels" :data-describe="user_carousel.value"><% user_carousel.text %> <span class="nt-carousel-remove uk-text-danger" uk-icon="icon: trash; ratio: 0.7" v-on:click="delete_carousel(idx)"></span> <br><button :uk-tooltip="'title: Button Value: '+user_carousel.value+';pos: top'">SELECT</button></div>
+                                        </div>
+                                        <div class="nt-user-add-carousel">
+                                            <div class="nt-user-add-carousel-element" v-if="user_add_carousel">
+                                                <div class="nt-user-button-close" v-on:click="user_add_carousel=false"><span uk-icon="close"></span></div>
+                                                <div class="uk-margin">
+                                                    <div class="uk-margin">
+                                                        <label for="nt-user-carousel-text">CAROUSEL DISPLAY TEXT</label>
+                                                        <input class="uk-input" type="text" id="nt-user-carousel-text">
+                                                    </div>
+                                                    <div class="uk-margin">
+                                                        <label for="nt-user-carousel-bot-text">SELECT BUTTON VALUE</label>
+                                                        <input class="uk-input" type="text" id="nt-user-carousel-bot-text">
+                                                    </div>
+                                                </div>
+                                                <div uk-grid>
+                                                    <div class="uk-width-1-2@s">
+                                                        <label for="nt-user-carousel-bot-jump">JUMP TO</label>
+                                                        <input class="uk-input" type="text" id="nt-user-carousel-bot-jump" uk-tooltip="title: You can use jumps to skip the stages that are not relevent to the flow.">
+                                                    </div>
+                                                    <div class="uk-width-1-2@s">
+                                                        <button v-on:click="add_user_carousel()" class="uk-button" style="width: 100%; margin-top: 20px; float: right; background: linear-gradient(to right top, rgb(255, 217, 0), rgb(255, 244, 93)); color: rgba(0,0,0,0.8)">ADD</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button class="nt-user-button" v-on:click="user_add_carousel=true"><span class="uk-margin-small-right" uk-icon="icon: plus-circle; ratio: 0.8"></span>ADD CAROUSELS</button>
+                                        </div>
+                                        <span class="uk-text-danger"><% bot_carousels_error %></span>
+                                    </div>
+                                </div>
+                                <div class="uk-width-2-5@s">
+                                    <div class="uk-margin">
+                                        <label for="nt-user-inpu-type">USER INPUT TYPE</label>
+                                        <select class="uk-select" v-model="user_input_type" uk-tooltip="title: This specify the type of input user is going to enter.; pos: right" >
+                                            <option>Text</option>
+                                            <option>Text + Buttons</option>
+                                            <option>Text + Carousels</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div uk-grid>
+                                <div class="uk-margin nt-add-stages">
+                                    <button class="uk-button nt-add-stage" v-on:click="add_stage()"><span uk-icon="icon: plus; ratio: 0.8" class="uk-margin-small-right"></span>ADD STAGE</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-width-1-4@s">
+                        <div class="nt-builder-card nt-flow" style="margin-top: 100%;">
+                            Creating a flow will increase you customer experience and add a conversational element to your page. It will help you in establishing the credibility with your customer.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nt-content" v-if="is_faq">
+                <div uk-grid>
+                    <div class="uk-width-3-4@m">
+                        <div class="nt-float-right"><button class="uk-button" uk-tooltip="title: Guidelines to be followed for creating FAQs.; pos: top;">GUIDE</button> <button class="uk-button nt-add-faq" uk-toggle="target: #nt-faqmodal" v-if="current_faq_type!='SMALLTALK'"><span uk-icon="icon: plus-circle; ratio: 0.8"></span> ADD FAQ</button></div>
+                        <!-- FAQ modal -->
+                        <div id="nt-faqmodal" uk-modal>
+                            <div class="uk-modal-dialog uk-modal-body">
+                                <div class="uk-margin">
+                                    <label for="faq-name">FAQ NAME</label> 
+                                    <input class="uk-input" type="text" id="faq-name">
+                                    <span class="uk-text-danger" v-if="faq_name_validation_error!=''"><% faq_name_validation_error %></span>
+                                </div>
+                                <div class="uk-margin">
+                                    <label for="faq-answer">FAQ ANSWER</label> 
+                                    <textarea class="uk-textarea" type="text" id="faq-answer"></textarea>
+                                    <span class="uk-text-danger" v-if="faq_answer_validation_error!=''"><% faq_answer_validation_error %></span>
+                                </div>
+                                <div uk-grid>
+                                    <div class="uk-width-2-3@s">
+                                        <div class="uk-margin">
+                                            <label for="faq-variation">VARIATION</label> 
+                                            <input class="uk-input" type="text" id="faq-variation"> 
+                                            <span class="uk-text-danger" v-if="faq_variation_validation_error!=''"><% faq_variation_validation_error %></span>
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-1-3@s nt-padding-small-left">
+                                        <button class="uk-button nt-add-variation" v-on:click="add_faq_variation()">ADD VARIATION</button>
+                                    </div>
+                                </div>
+                                <table class="nt-table uk-table-justify uk-table uk-table-hover uk-table-divider">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Varition</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(variation, idx) in faq_variations">
+                                            <td><% idx+1 %></td>
+                                            <td><% variation %></td>
+                                            <td><span class="uk-text-danger" style="cursor: pointer;" uk-icon="icon: trash; ratio: 0.8" v-on:click="delete_faq_variation(idx)"></span></td>
+                                        </tr>
+                                        <tr v-if="faq_variations.length==0">
+                                            <td colspan="3">No Variations Available</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p class="uk-text-right">
+                                    <button class="uk-button uk-button-default uk-modal-close" type="button">CANCEL</button>
+                                    <button class="uk-button uk-button-primary" type="button" v-on:click="add_faq()">SAVE</button>
+                                </p>
+                            </div>
+                        </div>
+                        <h4 class="nt-heading"><% current_faq_type %> FAQ</h4>
+                        <p class="nt-describe">Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>Dolore saepe officia eum consectetur non impedit expedita.</p>
+                        <table class="nt-table nt-faq-table uk-table-justify uk-table uk-table-hover uk-table-divider">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>NAME</th>
+                                    <th>VARIATION</th>
+                                    <th>ANSWER</th>
+                                    <th width="15%">ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-if="current_faq.length==0">
+                                    <td colspan="5">No FAQ Available</td>
+                                </tr>
+                                <tr v-for="(faq, idx) in current_faq">
+                                    <td><% idx+1 %></td>
+                                    <td><% faq.name %></td>
+                                    <td><% faq.variation.length %></td>
+                                    <td><% faq.answer %></td>
+                                    <td>
+                                        <div class="nt-button nt-r" id="nt-button">
+                                            <input type="checkbox" class="nt-checkbox" v-model="faq.active">
+                                            <div class="nt-knobs"></div>
+                                            <div class="nt-layer"></div>
+                                        </div>
+                                        <span class="uk-margin-small-right uk-margin-small-left" uk-icon="icon: pencil; ratio: 0.8;" v-if="current_faq_type!='SMALLTALK'"></span><span class="uk-text-danger" uk-icon="icon: trash; ratio: 0.8;" v-if="current_faq_type!='SMALLTALK'"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="uk-width-1-4@m">
+                        <div class="nt-builder-card nt-flow">
+                            Creating a flow will increase you customer experience and add a conversational element to your page. It will help you in establishing the credibility with your customer.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nt-content" v-if="is_settings">
+                <div uk-grid>
+                    <div class="uk-width-3-4@m">
+                        <div class="uk-margin nt-setting">
+                            <div class="nt-heading">GLOBAL SETTINGS</div>
+                            <div uk-grid>
+                                <div class="uk-width-1-1@m">
+                                    asd
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-width-1-4@m">
+                        <div class="nt-builder-card nt-flow">
+                            Creating a flow will increase you customer experience and add a conversational element to your page. It will help you in establishing the credibility with your customer.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>       
+    </div>
+    <!-- Javascript Code -->
+    <script src="{% static 'home/js/uikit.min.js' %}"></script>
+    <script src="{% static 'home/js/uikit-icons.min.js' %}"></script>
+    <script src="{% static 'builder/js/vue.min.js' %}"></script>
+    <script src="{% static 'builder/js/app.js' %}"></script>
+</body>
+</html>

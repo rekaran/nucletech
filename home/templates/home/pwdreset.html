@@ -1,0 +1,25 @@
+{% extends 'home/master.html' %}
+
+{% load staticfiles %}
+
+{% block metatag %}
+{% endblock %}
+
+{% block title %}
+    Nucletech | SignUp
+{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block body %}
+<h2>Password Reset</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Reset</button>
+</form>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}

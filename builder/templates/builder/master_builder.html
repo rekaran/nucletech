@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block metatag %} {% endblock %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'home/img/favicon.png' %}"/>
+    <title>{% block title %} {% endblock %}</title>
+    <!-- CSS Code -->
+    <link rel="stylesheet" href="{% static 'home/css/nucletech.css' %}">
+    <link rel="stylesheet" href="{% static 'builder/css/main.css' %}">
+    <!-- Google Font for Logo -->
+    <link href="https://fonts.googleapis.com/css?family=Paytone+One|Poppins" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143786996-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-143786996-1');
+    </script>
+    {% block css %} {% endblock %}
+</head>
+<body>
+    <!-- Navigation Bar uk-background-default-->
+    <nav class="uk-navbar-container uk-navbar-sticky" uk-navbar> 
+        <div class="uk-navbar-left">
+            <a class="uk-navbar-item uk-logo uk-margin-large-left uk-visible@s" href="https://www.nucletech.com">nucletech</a>
+            <a class="uk-navbar-item uk-logo uk-margin-left uk-hidden@s" href="https://www.nucletech.com">nucletech</a>
+        </div>
+        <div class="uk-navbar-right uk-hidden@s">
+            <span class="uk-margin-right side-nav-toggle nav-icon-menu" uk-icon="icon: menu; ratio: 1.75"></span>
+            <span class="uk-margin-right side-nav-toggle nav-hidden nav-icon-close" uk-icon="icon: close; ratio: 1.5"></span>
+        </div>
+        <div id="side-nav">
+            <div class="side-nav-content">
+                <a class="uk-navbar-item uk-logo uk-hidden@s uk-margin-small-top side-nav-logo" href="https://www.nucletech.com">nucletech</a>
+                <ul class="uk-margin-top">
+                    <li class="uk-active"><a href="https://www.nucletech.com/builder"><span uk-icon="icon: home; ratio: 1" class="uk-margin-right"></span> EDIT</a></li>
+                    <li><a href="https://www.nucletech.com/builder/billing"><span uk-icon="icon: info; ratio: 1" class="uk-margin-right"></span> TEST</a></li>
+                    <li><a href="https://www.nucletech.com/builder/profile"><span uk-icon="icon: sign-in; ratio: 1" class="uk-margin-right"></span> SETTING</a></li>
+                    <li><a href="https://www.nucletech.com/logout"><span uk-icon="icon: commenting; ratio: 1" class="uk-margin-right"></span> LOGOUT</a></li>
+                </ul>
+                <span class="side-nav-bottom">
+                    <span class="nt-slogan">Intelligent By Nature</span>
+                    <span class="nt-reg">® NUCLETECH Pvt. Ltd.</span>
+                    Social Media Logos
+                </span>
+            </div>
+        </div>
+        <div class="uk-navbar-right uk-visible@s uk-margin-large-right">
+            <ul class="uk-navbar-nav">
+                <li><a href="https://www.nucletech.com/builder/">EXIT</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- /Navigation Bar -->
+    <div class="uk-container uk-container-expand uk-padding-remove">
+        <div class="nt-main-grid">
+            <div class="nt-left-nav">
+                <div class="uk-margin-small-top" uk-grid>
+                    <div class="uk-width-1-1">
+                        <div class="nt-project">{{project_name}}</div>
+                    </div>
+                </div>
+                <ul class="uk-margin-remove" uk-accordion>
+                    <li>
+                        <a class="uk-accordion-title nt-heading" href="#">FLOW MANAGER</a>
+                        <div class="uk-accordion-content uk-margin-remove">
+                            <div id="nt-flow-manager">
+                                <div class="uk-margin-small-top" uk-grid>
+                                    <div class="uk-width-1-1 nt-folder-flow">
+                                        <span uk-icon="folder"></span> flow
+                                    </div>
+                                </div>
+                                <div class="uk-margin-small-top" uk-grid>
+                                    <div class="uk-width-1-1 nt-folder-flow">
+                                        <span uk-icon="folder"></span> flow
+                                    </div>
+                                </div>
+                                <div class="uk-margin-small-top" uk-grid>
+                                    <div class="uk-width-1-1 nt-folder-flow">
+                                        <span uk-icon="folder"></span> flow
+                                    </div>
+                                </div>
+                                <div class="uk-margin-small-top" uk-grid>
+                                    <div class="uk-width-1-1 nt-folder-flow">
+                                        <span uk-icon="folder"></span> flow
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="uk-open">
+                        <a class="uk-accordion-title nt-heading" href="#">FAQ MANAGER</a>
+                        <div class="uk-accordion-content uk-margin-remove">
+                            <div id="nt-flow-manager">
+                                <div class="uk-margin-small-top" uk-grid>
+                                    <div class="uk-width-1-1 nt-folder-flow">
+                                        <span uk-icon="folder"></span> open sheet
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div uk-grid>
+                    <div class="uk-width-1-1 nt-left-snip">
+                        <span uk-icon="cog"></span> SETTINGS
+                    </div>
+                </div>
+                <div class="uk-margin-small-top nt-left-snip" uk-grid>
+                    <div class="uk-width-1-1">
+                        <span uk-icon="commenting"></span> TEST BOT
+                    </div>
+                </div>
+                <div class="uk-margin-small-top nt-left-snip" uk-grid>
+                    <div class="uk-width-1-1">
+                        <span uk-icon="user"></span> ASSISTANCE
+                    </div>
+                </div>
+                <div class="uk-margin-small-top nt-left-snip" uk-grid>
+                    <div class="uk-width-1-1">
+                        <span uk-icon="sign-out"></span> EXIT
+                    </div>
+                </div>
+            </div>
+            <div class="nt-flow">
+asd
+            </div>
+            <div class="nt-right-nav">
+asd
+            </div>
+        </div>
+    </div>
+    {% block body %} {% endblock %}
+    <!-- Javascript Code -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{% static 'home/js/uikit.min.js' %}"></script>
+    <script src="{% static 'home/js/uikit-icons.min.js' %}"></script>
+    <script src="{% static 'builder/js/main.js' %}"></script>
+    {% block javascript %} {% endblock %}
+</body>
+</html>

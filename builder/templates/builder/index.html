@@ -1,0 +1,267 @@
+{% extends 'builder/master.html' %}
+
+{% load staticfiles %}
+
+{% block metatag %}
+{% endblock %}
+
+{% block title %}
+    Nucletech | Builder
+{% endblock %}
+
+{% block css %}
+<style>
+    /* mobile */
+    @media (max-width: 767px) {
+        .nt-home-builder{
+            padding: 8rem 2.5rem !important;
+            padding-bottom: 2rem !important;
+        }.nt-table{
+            display: none !important;
+        }.nt-mobile-project{
+            display: block !important;
+        }
+    }
+
+    /* tablet */
+    @media (min-width: 768px) and (max-width: 991px) {
+
+    }
+
+    /* desktop */
+    @media (min-width: 992px) {
+
+    }
+    /* all */
+    .uk-navbar-container{
+        z-index: 999 !important;
+    }.nt-home-builder{
+        min-height: 150px;
+        padding: 8rem 5.3rem;
+        background: linear-gradient(to bottom,rgb(0, 162, 255), rgb(0, 204, 255));
+        color: rgba(0, 0, 0, 0.6);
+        z-index: 1 !important;
+        position: relative;
+    }.nt-right-home-builder h2{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 800;
+        margin-bottom: 0;
+        color: #FFF;
+    }.nt-right-home-builder .uk-button{
+        background-color: rgb(255, 230, 55);
+    } input{
+        background: #FFF !important;
+    }input:focus{
+        border: none !important;
+    }.uk-button{
+        width: 100%;
+    }.nt-right-home-builder .uk-button{
+        padding: 0 10px;
+    }.nt-right-home-builder .uk-button span{
+        vertical-align: text-top;
+        z-index: 1 !important;
+    }.nt-left-home-builder{
+        position: relative;
+        z-index: 1 !important;
+    }.nt-left-home-builder span{
+        color: #FFF;
+        position: absolute;
+        z-index: 1 !important;
+    }.nt-left-home-builder .nt-quote{
+        padding: 1rem;
+        padding-top: 1.5rem;
+        z-index: 1 !important;
+    }.nt-testimonial{
+        z-index: 1 !important;
+    }.nt-table{
+        padding: 3rem;
+        background: #F9F9F9;
+    }.nt-table table, .uk-checkbox{
+        border: 1px solid #e5e5e5;
+        background: #FFF;
+    }.nt-table .uk-table-justify th:first-child, .uk-table-justify td:first-child{
+        padding: 16px 12px !important;
+    }.nt-table .uk-table-justify th, .uk-table-justify td{
+        border-right: 1px solid #e5e5e5;
+    }.nt-table .uk-table-justify th:last-child, .uk-table-justify td:last-child{
+        border-right: none;
+    }input.nt-switch {
+        font-size:.8rem;
+        margin-top:0;
+        position:relative;
+        -webkit-appearance:none;
+        outline:none;
+        width:4em;
+        height:2.4em;
+        border:2px solid #D6D6D6;
+        border-radius: 3em;
+        box-shadow:inset 5em 0 0 0 #DDD;
+        flex-shrink: 0;
+    }input.nt-switch:after {
+        content:"";
+        position:absolute;
+        top:.25em;
+        left:.25em;
+        background:#FFF;
+        width:1.6em;
+        height:1.6em;
+        border-radius:50%;
+        transition:all 250ms ease 20ms;
+        box-shadow:.05em .25em .5em rgba(0,0,0,0.2);
+    }input.nt-switch:checked {
+        background-color: transparent;
+        box-shadow:inset 5em 0 0 0 #4ed164;
+        border-color:#67bba5;
+    }input.nt-switch:checked:after {
+        left:1.85em;
+        box-shadow:0 0 1em rgba(0,0,0,0.2);
+    }.nt-mobile-project{
+        display: none;
+        position: relative;
+        background-color: #F9F9F9;
+        padding-bottom: 2rem;
+    }.nt-mobile-project .nt-curve-top{
+        width: 100%;
+        left: 0;
+        top: 0;
+        background: #00CCFF;
+    }.nt-mobile-project .nt-curve-top svg path{
+        fill: #F9F9F9;
+        box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.6);
+    }.nt-mobile-project .uk-grid{
+        margin-left: auto !important;
+        padding: 2rem;
+        padding-bottom: 0;
+        margin-top: 0 !important;
+    }.nt-mobile-project .uk-width-1-1\@s{
+        padding: 1rem;
+        border-radius: 10px;
+        border: solid 1px rgba(0,0,0,0.035);
+        position: relative;
+    }.nt-mobile-project .nt-project-name{
+        font-weight: 400;
+        font-size: 18px;
+        color: rgba(0, 0, 0, 0.8);
+    }.nt-mobile-project .nt-project-status{
+        position: absolute;
+        top: 1rem;
+        right: 10px;
+        padding: 0px 10px;
+        text-transform: uppercase;
+        border-radius: 100px;
+        font-size: 13px;
+        line-height: 20px;
+    }.nt-mobile-project .nt-project-status.live{
+        background: #64DD17;
+    }.nt-mobile-project .nt-project-status.dev{
+        background: #FFC107;
+    }.nt-mobile-project .nt-chats-handled, .nt-mobile-project .nt-users{
+        display: inline-block;
+        width: calc(50% - 5px);
+        font-size: 18px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.4);
+    }.nt-mobile-project .nt-describe{
+        font-size: 12px;
+        line-height: 4px;
+        color: rgba(0, 0, 0, 0.2);
+    }.nt-mobile-project .nt-retrain{
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 14px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }.nt-mobile-project .nt-analyze, .nt-mobile-project .nt-human, .nt-mobile-project .nt-setting, .nt-mobile-project .nt-edit, .nt-mobile-project .nt-delete{
+        display: inline-block;
+        width: 18.5%;
+        text-align: center
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="uk-container uk-container-expand uk-padding-remove">
+    <div class="nt-home-builder" uk-grid>
+        <div class="uk-width-1-2@m nt-left-home-builder">
+            <div class="nt-testimonial">
+                <span uk-icon="icon: quote-right; ratio: 2"></span>
+                <div class="nt-quote uk-text-left uk-dropcap">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint iure nam facere. Rerum, dolor distinctio! Dolore nemo dignissimos laboriosam consequuntur accusantium repellat explicabo blanditiis a. Esse dolor nam rem maiores.
+                </div>
+            </div>
+        </div>
+        <div class="uk-width-1-2@m nt-right-home-builder">
+            <h2>Create Project</h2>
+            <span>Aquiring, engaging and retaining customers was never easy before, what are you waiting for?</span><br>
+            <form class="uk-grid-small uk-margin-medium-top" uk-grid method="POST">
+                {% csrf_token %}
+                <div class="uk-width-2-3@s">
+                    <input class="uk-input" type="text" placeholder="Your Project Name" name="project-name">
+                </div>
+                <div class="uk-width-1-3@s">
+                    <button class="uk-button">CREATE PROJECT <span uk-icon="icon: chevron-right; ratio: 1"></span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="nt-table">
+        <table class="uk-table uk-table-divider uk-table-hover uk-table-justify">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>ICON</th>
+                    <th>PROJECT NAME</th>
+                    <th>STATUS</th>
+                    <th>CHATS HANDLED</th>
+                    <th>TOTAL USER</th>
+                    <th>ANALYZE</th>
+                    <th>HUMAN</th>
+                    <th>RETRAIN DATE</th>
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for project in projects %}
+                    <tr>
+                        <td>1</td>
+                        <td></td>
+                        <td>{{project.name}}</td>
+                        <td>{% if project.status == True%}Live{% else %}Development{% endif %}</td>
+                        <td class="uk-text-center">{{ project.chats }}</td>
+                        <td class="uk-text-center">{{ project.user }}</td>
+                        <td class="uk-text-center"><a href="" uk-icon="icon: bolt"></a></td>
+                        <td class="uk-text-center"><a href="" uk-icon="icon: users"></a></td>
+                        <td>{{ project.retrain }}</td>
+                        <td><a href="" uk-icon="commenting" class="uk-margin-small-right"></a> <a href="https://www.nucletech.com/builder/{{project.name|lower}}/" uk-icon="pencil" class="uk-margin-small-right"></a> <a href="" uk-icon="trash" class="uk-text-danger"></a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="nt-mobile-project">
+        <div class="nt-curve-top">
+            <svg viewBox="0 0 40 5">
+                <path d="M0 5 Q 20 0, 40 5" />
+            </svg>
+        </div>
+        {% for project in projects %}
+            <div uk-grid>
+                <div class="uk-width-1-1@s uk-background-default uk-box-shadow-medium">
+                    <div class="nt-project-name">{{project.name}}</div>
+                    <div class="nt-project-status {% if project.status == True%}live{% else %}dev{% endif %}">{% if project.status == True%}Live{% else %}Dev{% endif %}</div>
+                    <div class="nt-chats-handled">{{ project.chats }}<div class="nt-describe">CHATS HANDLED</div></div>
+                    <div class="nt-users">{{ project.user }}<div class="nt-describe">USERS</div></div>
+                    <div class="nt-retrain">RETRAIN DATE - {{ project.retrain }}</div>
+                    <div class="nt-analyze"><a href="" uk-icon="icon: bolt; ratio: 1.15"></a></div>
+                    <div class="nt-human"><a href="" uk-icon="icon: users; ratio: 1.15"></a></div>
+                    <div class="nt-setting"><a href="" uk-icon="icon: commenting; ratio: 1.15"></a></div>
+                    <div class="nt-edit"><a href="" uk-icon="icon: pencil; ratio: 1.15"></a></div>
+                    <div class="nt-delete"><a href="" uk-icon="icon: trash; ratio: 1.15"></a></div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}
