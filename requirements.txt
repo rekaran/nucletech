@@ -6,3 +6,4 @@ redis
 requests
 pandas
 numpy
+pillow
