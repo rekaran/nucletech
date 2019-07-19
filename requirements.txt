@@ -4,3 +4,5 @@ gunicorn
 pymongo
 redis
 requests
+pandas
+numpy
