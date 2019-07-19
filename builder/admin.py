@@ -27,7 +27,14 @@ class BillingHistoryAdmin(admin.ModelAdmin):
     search_fields = ('user', 'amount', 'mode')
     list_per_page = 50
 
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'api_key', 'is_company', 'coupon')
+    list_display_links = ('user', 'id')
+    search_fields = ('user', 'coupon', 'is_company')
+    list_per_page = 50
+
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Ipaddress, IpAdmin)
 admin.site.register(ProjectAuth, ProjectAuthAdmin)
 admin.site.register(BillingHistory, BillingHistoryAdmin)
+admin.site.register(Profile, ProfileAdmin)

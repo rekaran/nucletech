@@ -100,4 +100,5 @@ def edit(request, name):
         profile = Profile.objects.get(user=request.user)
         return render(request, 'builder/edit.html', {'project_name': name, "project_key": project.project_hash, "project_hash": project.project_id, "api_key": profile.api_key})
     except Exception as e:
+        print(e)
         return redirect('builder.index')

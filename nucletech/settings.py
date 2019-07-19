@@ -23,10 +23,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '624m7xrg%#et&!qi)l*+^=u)gqxau9!w%m8^(+dbo@kp#42%dy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["www.nucletech.com"]
+ALLOWED_HOSTS = ["*"]
 
+# CSRF headers settings
+
+# CSRF_HEADER_NAME = "HTTP_X_NUCLETECH_TOKEN"
+# CSRF_COOKIE_NAME = "nucletechtoken"
+# CSRF_COOKIE_DOMAIN = "nucletech.com"
+# CSRF_COOKIE_SECURE = True # In Prod
 
 # Application definition
 
@@ -41,8 +47,7 @@ INSTALLED_APPS = [
     'builder.apps.BuilderConfig', # A platform to create and manage the bot.
     'human.apps.HumanConfig', # A platform to manage unhandled queries by a agent.
     'analytics.apps.AnalyticsConfig', # A platform to track the performance of the bot.
-    'bot.apps.BotConfig', # A platform that will intract with the bot and establish wss connection with the client, temporary app, later to made as an API and hosted on another server for better performance and security.
-    'demo.apps.DemoConfig', # A place where the clients can view the demo of multiple types of bot.
+    'bot.apps.BotConfig', # A place where the clients can view the demo of multiple types of bot.
     'datamanager.apps.DatamanagerConfig', # Will manage the data of the project that need to be loaded while client/browser loads the script, will authenticate the token that gets refreshed daily in resource manager that can be managed from builder and the domain from which the request is been made, and send the enc. data and token as a response to the browser. It will also manage both SQL and MongoDb data.
     'resourcemanager.apps.ResourcemanagerConfig', # Will manage the files of projects, with tokens and urls inside the file and obfuscate them while loading it and various setting can be managed from builder.
     'api.apps.ApiConfig', # A platform where all the API will published for the user to use with demo and endpoints like Pipedrive.

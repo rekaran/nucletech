@@ -194,6 +194,12 @@ var app = new Vue({
         let jump = button_jump.value;
         if(jump==""){
           jump = "next";
+        }else{
+          self.current_stages.forEach((stg, idx)=>{
+            if(stg.stage_name==jump){
+              jump = idx;
+            }
+          });
         }
         self.user_input_buttons.push({value: button_value.value, text: button_text.value, jump: jump});
         button_text.value = "";
@@ -209,6 +215,12 @@ var app = new Vue({
         let jump = carrousel_jump.value;
         if(jump==""){
           jump = "next";
+        }else{
+          self.current_stages.forEach((stg, idx)=>{
+            if(stg.stage_name==jump){
+              jump = idx;
+            }
+          });
         }
         self.user_input_carousels.push({value: carousel_value.value, text: carousel_text.value, jump: jump});
         carousel_text.value = "";

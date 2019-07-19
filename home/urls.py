@@ -12,7 +12,6 @@ urlpatterns = [
     url(r"^about/$", login_forbidden(views.about), name="home.about"),
     url(r"^careers/$", login_forbidden(views.commingsoon), name="home.careers"),
     url(r"^faq/$", login_forbidden(views.commingsoon), name="home.faq"),
-    url(r"^bots/$", login_forbidden(views.commingsoon), name="home.bots"),
     url(r"^casestudy/$", login_forbidden(views.commingsoon), name="home.casestudy"),
     url(r"^blogs/$", login_forbidden(views.commingsoon), name="home.blogs"),
     url(r"^sitemap /$", login_forbidden(views.commingsoon), name="home.sitemap"),

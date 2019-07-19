@@ -92,7 +92,7 @@ def mlTensor(dataset):
     tensor_word_intent_ = (tensor_word_intent.T/tensor_word_intent.sum(axis=1)).T
     tensor_word_intent_ = np.nan_to_num(tensor_word_intent_) # Required
     pheremone = {
-        "vocab": [v for v in vocab if v[0]!="#"],
+        "vocab": vocab,
         "tensor_word": tensor_word_.tolist(),
         "ner_keys": ner_keys,
         "tensor_word_intent": tensor_word_intent_.tolist(),
@@ -157,22 +157,25 @@ def savedata(request, name):
                 start_time = time.time()
                 train_data = {}
                 encode_data = {}
+                flow_data_ = {}
                 for flow in flow_data:
-                    train_data[flow["name"]] = flow["variation"]
-                    
+                    flow_name = "flow_"+flow["name"].replace(" ", "_").lower()
+                    train_data[flow_name] = flow["variation"]
+                    stage_data = {idx: stage for idx, stage in enumerate(flow["stages"])}
+                    flow_data_[flow_name] = stage_data
                 for faq in faq_data:
                     if faq["active"]:
-                        train_data[faq["name"]] = faq["variation"]
-                        encode_data[faq["name"]] = faq["answer"]
+                        train_data["faq_"+faq["name"]] = faq["variation"]
+                        encode_data["faq_"+faq["name"]] = faq["answer"]
                 for st in st_data:
                     if st["active"]:
-                        train_data[st["name"]] = st["variation"]
-                        encode_data[faq["name"]] = faq["answer"]
+                        train_data["faq_"+st["name"]] = st["variation"]
+                        encode_data["faq_"+st["name"]] = st["answer"]
                 pheremone, p_size, intent, variation = mlTensor(train_data)
                 train_time = time.time()-start_time
                 print(train_time, p_size)
                 timestamp = int(datetime.timestamp(datetime.today()))
-                post = requests.post(url="https://www.nuclechat.com/encode/nucletech.com".format(request.user.domain), data={"data": json.dumps(encode_data), "key": project_hash, "hash": project.project_key, "intent": intent, "variation": json.dumps(variation)}, headers={"Authorization": project_hash, "origin": "nucletech.com"})
+                post = requests.post(url="https://www.nuclechat.com/encode/nucletech.com".format(request.user.domain), data={"data": json.dumps(encode_data), "key": project_hash, "hash": project.project_key, "intent": json.dumps(intent), "variation": json.dumps(variation), "flow": json.dumps(flow_data_)}, headers={"Authorization": project_hash, "origin": "nucletech.com"})
                 shielded = json.loads(post.text)
                 post = dbflowpool.insert_one({"projectId": project_id, "projectHash": project_hash,"data": flow_data, "timestamp": timestamp, "domain": request.user.domain}).inserted_id
                 post = dbfaqpool.insert_one({"projectId": project_id, "projectHash": project_hash, "data": faq_data, "timestamp": timestamp, "domain": request.user.domain}).inserted_id

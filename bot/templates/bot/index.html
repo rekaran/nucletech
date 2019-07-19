@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="mobile-web-app-capable" content="yes">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="robots" content="index">
-    {% block metatag %} {% endblock %}
+    <meta name="robots" content="noindex, nofollow">
     <link rel="shortcut icon" type="image/png" href="{% static 'home/img/favicon.png' %}"/>
-    <title>{% block title %} {% endblock %}</title>
+    <title>Bots @ Nucletech</title>
     <!-- CSS Code -->
     <link rel="stylesheet" href="{% static 'home/css/nucletech.css' %}" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
     <link rel="stylesheet" href="{% static 'home/css/main.css' %}" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
@@ -23,8 +22,65 @@
         gtag('js', new Date());
         gtag('config', 'UA-143786996-1');
     </script>
-
-    {% block css %} {% endblock %}
+    <style>
+        :focus{
+            outline: none !important;
+        }.nt-anchor{
+            color: #FFFFFF;
+        }.nt-anchor:hover{
+            text-decoration: none;
+            color: #FFFFFF;
+        }.nt-bot-display{
+            height: 350px;
+            width: 100%;
+            background-size: cover;
+            background-position: center center;
+            transition: all 0.3s ease-in-out;
+            -webkit-transition: all 0.3s ease-in-out;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+            display: block;
+            border-radius: 1rem;
+        }.nt-bot-display:hover{
+            transform: translateY(-10px);
+            -webkit-transform: translateY(-10px);
+            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.65);
+        }.nt-bot-display h3{
+            color: #FFFFFF;
+            font-size: 28px;
+            padding-left: 1rem;
+            padding-top: 250px;
+            font-weight: 800;
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.75);
+        }.nt-realestate{
+            background-image: url("{% static 'bot/img/realestate_display.png' %}");
+        }.nt-food{
+            background-image: url("{% static 'bot/img/food_display.png' %}");
+        }.nt-shopping{
+            background-image: url("{% static 'bot/img/shopping_display.png' %}");
+        }h2{
+            position: relative;
+            color: rgba(0, 0, 0, 0.75);
+            font-weight: 900;
+            font-family: 'Poppins', sans-serif;
+        }h2 .nt-heading-underline{
+            position: absolute;
+            width: 100px;
+            height: 5px;
+            bottom: 0;
+            background: linear-gradient(to right top,rgb(0, 162, 255), rgb(0, 204, 255));
+            transition: all 0.3s ease-in-out;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+        }h2:hover .nt-heading-underline{
+            transform: translateX(-20px);
+        }p{
+            color: rgba(0, 0, 0, 0.4);
+        }.uk-margin-large-top{
+            margin-top: 6.5rem !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation Bar uk-background-default-->
@@ -67,8 +123,41 @@
         </nav>
     <!-- </div> -->
     <!-- /Navigation Bar -->
-
-    {% block body %} {% endblock %}
+    <div  class="uk-container uk-container-expand">
+        <div class="uk-margin-large-top" uk-grid>
+            <div class="uk-text-center uk-width-1-1@m">
+                <h2><span class="nt-heading-underline"></span>Demo Bots</h2>
+                <p>* This converstional bots are only build for demo purposes, <br>     any thing in this Accelerated Web Pages has nothing to do with the real world.</p>
+            </div>
+        </div>
+        <div class="uk-flex-center uk-margin-medium-top" uk-grid>
+            <div class="uk-width-3-4@m">
+                <div class="uk-flex-center" uk-grid>
+                    <div class="uk-width-1-3@m">
+                        <a class="nt-anchor" href="https://www.nucletech.com/bots/realestate">
+                            <div class="nt-bot-display nt-realestate">
+                                <h3>Real Estate</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="uk-width-1-3@m">
+                        <a class="nt-anchor" href="https://www.nucletech.com/bots/foodordering">
+                            <div class="nt-bot-display nt-food">
+                                <h3>Food Ordering</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="uk-width-1-3@m">
+                        <a class="nt-anchor" href="https://www.nucletech.com/bots/onlineshopping">
+                            <div class="nt-bot-display nt-shopping">
+                                <h3>Online Shopping</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Cookie POP up -->
     <div class="nt-cookie"></div>
     <!-- /Cookie POP up -->
@@ -116,14 +205,10 @@
     <script src="{% static 'home/js/uikit-icons.min.js' %}" async></script>
     <script src="{% static 'home/js/main.js' %}"></script>
     <script>
-        // var projectKey = {};
-        // var context = {};
-        // const projectkey = "NDIyZDllNDZlOTRiYTFmOWNkZWEzNjZhYzNjNDczMzc5YjY0ZDQ0YzBiZDA5MWFkMTBiM2IxM2NlYTM3OTAzNGFhNWY1MzVkNTJlOGNlODdmMWI3ZWE0ZTY1ZDJjNWZjZWNkNjFkMzgzZjgwYTVjZjhkN2I5ZmEyNmYwNzZjYzc=";
-        var _0x145c=['NDIyZDllNDZlOTRiYTFmOWNkZWEzNjZhYzNjNDczMzc5YjY0ZDQ0YzBiZDA5MWFkMTBiM2IxM2NlYTM3OTAzNGFhNWY1MzVkNTJlOGNlODdmMWI3ZWE0ZTY1ZDJjNWZjZWNkNjFkMzgzZjgwYTVjZjhkN2I5ZmEyNmYwNzZjYzc='];(function(_0x4421fc,_0x1dbfb5){var _0x55e8ac=function(_0x48298b){while(--_0x48298b){_0x4421fc['push'](_0x4421fc['shift']());}};_0x55e8ac(++_0x1dbfb5);}(_0x145c,0x137));var _0x9dee=function(_0x366ff9,_0x1007d0){_0x366ff9=_0x366ff9-0x0;var _0x41e1d0=_0x145c[_0x366ff9];if(_0x9dee['klzTJe']===undefined){(function(){var _0xda781e=typeof window!=='undefined'?window:typeof process==='object'&&typeof require==='function'&&typeof global==='object'?global:this;var _0x457894='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';_0xda781e['atob']||(_0xda781e['atob']=function(_0x367230){var _0x46cdb5=String(_0x367230)['replace'](/=+$/,'');for(var _0x599638=0x0,_0x58193c,_0x1a42da,_0x14207a=0x0,_0x584546='';_0x1a42da=_0x46cdb5['charAt'](_0x14207a++);~_0x1a42da&&(_0x58193c=_0x599638%0x4?_0x58193c*0x40+_0x1a42da:_0x1a42da,_0x599638++%0x4)?_0x584546+=String['fromCharCode'](0xff&_0x58193c>>(-0x2*_0x599638&0x6)):0x0){_0x1a42da=_0x457894['indexOf'](_0x1a42da);}return _0x584546;});}());_0x9dee['dfHTaT']=function(_0x58013d){var _0xd4c532=atob(_0x58013d);var _0x1c269f=[];for(var _0x23d87a=0x0,_0x4da3c7=_0xd4c532['length'];_0x23d87a<_0x4da3c7;_0x23d87a++){_0x1c269f+='%'+('00'+_0xd4c532['charCodeAt'](_0x23d87a)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x1c269f);};_0x9dee['jnUCzu']={};_0x9dee['klzTJe']=!![];}var _0xcd926c=_0x9dee['jnUCzu'][_0x366ff9];if(_0xcd926c===undefined){_0x41e1d0=_0x9dee['dfHTaT'](_0x41e1d0);_0x9dee['jnUCzu'][_0x366ff9]=_0x41e1d0;}else{_0x41e1d0=_0xcd926c;}return _0x41e1d0;};var projectKey={};var context={};const projectkey=_0x9dee('0x0');
-        var greetings = "";
+        var projectKey = {};
+        const projectkey = "f999e20217aa86ad8ff06c26aee5c716969979ddbed419ed741e6702b58d4aed4309e49ca2d1a5ec84edd5403558d465a3483bee2d5cc76e4c0579d1d4c3428c";
     </script>
     <!-- <script src="{% static 'home/js/socket.io.js' %}" async></script> -->
     <script src="{% static 'home/js/nucletech.js' %}" async></script>
-    {% block javascript %} {% endblock %}
 </body>
 </html>
