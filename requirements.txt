@@ -3,3 +3,4 @@ httpagentparser
 gunicorn
 pymongo
 redis
+requests
