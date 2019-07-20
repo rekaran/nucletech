@@ -1,7 +1,7 @@
 // var projectKey = {};
 // var context = {};
 // const projectkey = "NDIyZDllNDZlOTRiYTFmOWNkZWEzNjZhYzNjNDczMzc5YjY0ZDQ0YzBiZDA5MWFkMTBiM2IxM2NlYTM3OTAzNGFhNWY1MzVkNTJlOGNlODdmMWI3ZWE0ZTY1ZDJjNWZjZWNkNjFkMzgzZjgwYTVjZjhkN2I5ZmEyNmYwNzZjYzc=";
-const url = "https://www.nuclechat.com/key/"+"nucletech.com";//+window.location.hostname;
+const url = "https://www.nuclechat.com/key/"+window.location.origin;
 const Http = new XMLHttpRequest();
 
 let resourceNegotiator = (url, sync, res) => {
@@ -27,7 +27,7 @@ let resourceNegotiator = (url, sync, res) => {
 };
 let getResourceList = res => {
     if(Object.keys(projectKey).length!==0){
-        let url = "https://www.nuclechat.com/resources/"+projectKey.domain;//+window.location.hostname;
+        let url = "https://www.nuclechat.com/resources/"+window.location.hostname;
         let Http = new XMLHttpRequest();
         Http.open("POST", url, true);
         Http.setRequestHeader("Content-Type", "application/json");
@@ -104,6 +104,6 @@ let startScript = () =>{
 //     startScript();
 // }
 startScript();
-// if ('serviceWorker' in navigator) {
-//     navigator.serviceWorker.register('http://127.0.0.1:4000/js/sw.js');
-// }
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('https://www.nuclechat.com/static/js/sw.js');
+}
