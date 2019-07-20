@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'home/css/index.css' %}">
+<link rel="stylesheet" href="{% static 'home/css/index.css' %}" media="none" onload="if(media!='all')media='all'">
 {% endblock %}
 
 {% block body %}

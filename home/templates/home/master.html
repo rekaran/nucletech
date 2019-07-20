@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{% static 'home/css/main.css' %}" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
     <!-- Google Font for Logo -->
     <link href="{% static 'home/css/fonts.css' %}" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+    {% block css %} {% endblock %}
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143786996-1"></script>
     <script>
@@ -23,8 +24,6 @@
         gtag('js', new Date());
         gtag('config', 'UA-143786996-1');
     </script>
-
-    {% block css %} {% endblock %}
 </head>
 <body>
     <!-- Navigation Bar uk-background-default-->
