@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
             window.removeEventListener("resize", lazyload);
             window.removeEventListener("orientationChange", lazyload);
           }
-      }, 20);
+      }, 0);
     }
     
     document.addEventListener("scroll", lazyload);
