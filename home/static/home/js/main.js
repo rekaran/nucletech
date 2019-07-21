@@ -71,4 +71,4 @@ $(".side-nav-toggle").click(function(){$("#side-nav").css("width", "100vw");$(th
       processScroll();
       addEventListener('scroll',processScroll);
   
-}(this);​
+  }(this);
