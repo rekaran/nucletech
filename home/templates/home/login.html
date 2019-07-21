@@ -48,6 +48,8 @@
         width: 66.67%;
     }.uk-width-1-4\@m {
         width: 33.33%;
+    }.uk-button-primary{
+        background: linear-gradient(to right,#005CFF,#0cf)
     }
 </style>
 {% endblock %}
@@ -58,7 +60,7 @@
     <div class="" uk-grid>
         <div class="uk-margin-xlarge-top uk-width-1-4@m nt-login-container">
             <h4>Login </h4>
-            <span class="nt-text-small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit</span>
+            <span class="nt-text-small">Welcome Back, to keep connected with us please login with you personal info.</span>
             <form class="nt-login" method="post">
                 {% csrf_token %}
                 {% for field in form %}
@@ -76,7 +78,7 @@
                         {{ field.errors }}
                     </div>
                 {% endfor %}
-                <a href="#" class="nt-text-small">Forgot Password?</a>
+                <a href="https://www.nucletech.com/passwordreset/" class="nt-text-small">Forgot Password?</a>
                 <button class="uk-button uk-button-primary uk-margin-top" type="submit">LOGIN <span uk-icon="icon: arrow-right; ratio: 1.1"></span></button><br>
                 <div class="uk-margin-small-top uk-text-center">
                     <a href="https://www.nucletech.com/register/" class="">Register Now</a>
