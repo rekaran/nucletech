@@ -45,8 +45,9 @@
         vertical-align: text-top;
     }.nt-text-small{
         font-size: 14px;
-    }h4{
+    }h3{
         margin-bottom: 0;
+        font-family: Poppins,sans-serif;
         border-bottom: solid 1px rgba(0, 0, 0, 0.2);
         width: max-content;
     }.nt-login-img{
@@ -75,7 +76,7 @@
             <img class="uk-margin-top" src="{% static 'home/img/login.png' %}" alt="Welcome Back, to keep connected with us please login with your personal info." srcset="">
         </div>
         <div class="uk-margin-xlarge-top uk-width-1-4@m nt-login-container">
-            <h4>Login </h4>
+            <h3>Login </h3>
             <span class="nt-text-small">Welcome Back, to keep connected with us please login with your personal info.</span>
             <form class="nt-login" method="post">
                 {% csrf_token %}
