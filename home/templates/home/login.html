@@ -60,7 +60,7 @@
     <div class="" uk-grid>
         <div class="uk-margin-xlarge-top uk-width-1-4@m nt-login-container">
             <h4>Login </h4>
-            <span class="nt-text-small">Welcome Back, to keep connected with us please login with you personal info.</span>
+            <span class="nt-text-small">Welcome Back, to keep connected with us please login with your personal info.</span>
             <form class="nt-login" method="post">
                 {% csrf_token %}
                 {% for field in form %}
@@ -86,7 +86,7 @@
             </form>
         </div>
         <div class="uk-width-3-4@m nt-login-img">
-            asdadad
+            <img src="{% static 'home/img/login.png' %}" alt="Welcome Back, to keep connected with us please login with your personal info." srcset="">
         </div>
     </div>
 </div>
