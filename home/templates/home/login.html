@@ -28,6 +28,7 @@
             display: none;
         }.nt-login-img.nt-small{
             display: block !important;
+            height: max-content !important;
         }
     }
     /* all */
@@ -68,8 +69,8 @@
 
 <div class="uk-container uk-container-expand">
     <div class="" uk-grid>
-        <div class="uk-width-3-4@m nt-login-img nt-small">
-            <img src="{% static 'home/img/login.png' %}" alt="Welcome Back, to keep connected with us please login with your personal info." srcset="">
+        <div class="uk-width-1-1@m nt-login-img nt-small">
+            <img class="uk-margin-top" src="{% static 'home/img/login.png' %}" alt="Welcome Back, to keep connected with us please login with your personal info." srcset="">
         </div>
         <div class="uk-margin-xlarge-top uk-width-1-4@m nt-login-container">
             <h4>Login </h4>
