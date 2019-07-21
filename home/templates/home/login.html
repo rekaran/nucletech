@@ -24,6 +24,10 @@
             display: none;
         }.uk-width-1-4\@m {
             width: 100% !important;
+        }.nt-login-img.nt-med{
+            display: none;
+        }.nt-login-img.nt-small{
+            display: block;
         }
     }
     /* all */
@@ -54,6 +58,8 @@
         margin-right: auto;
         margin-left: auto;
         display: block;
+    }.nt-login-img.nt-small{
+        display: none;
     }
 </style>
 {% endblock %}
@@ -62,6 +68,9 @@
 
 <div class="uk-container uk-container-expand">
     <div class="" uk-grid>
+        <div class="uk-width-3-4@m nt-login-img nt-small">
+            <img src="{% static 'home/img/login.png' %}" alt="Welcome Back, to keep connected with us please login with your personal info." srcset="">
+        </div>
         <div class="uk-margin-xlarge-top uk-width-1-4@m nt-login-container">
             <h4>Login </h4>
             <span class="nt-text-small">Welcome Back, to keep connected with us please login with your personal info.</span>
@@ -89,7 +98,7 @@
                 </div>
             </form>
         </div>
-        <div class="uk-width-3-4@m nt-login-img">
+        <div class="uk-width-3-4@m nt-login-img nt-med">
             <img class="uk-margin-xlarge-top" src="{% static 'home/img/login.png' %}" alt="Welcome Back, to keep connected with us please login with your personal info." srcset="">
         </div>
     </div>
