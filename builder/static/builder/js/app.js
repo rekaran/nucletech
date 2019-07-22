@@ -11,7 +11,7 @@ var app = new Vue({
         key: project_key.value,
         hash: project_hash.value,
       }
-      const url = "http://127.0.0.1:8000/datamanager/"+project_hash.value+"/";
+      const url = "https://www.nucletech.com/datamanager/"+project_hash.value+"/";
       const Http = new XMLHttpRequest();
       Http.open("POST", url, true);
       Http.setRequestHeader("token", user_key.value);
@@ -402,7 +402,7 @@ var app = new Vue({
           hash: project_hash.value,
         }
         console.log(data);
-        const url = "http://127.0.0.1:8000/datamanager/"+project_hash.value+"/savedata/";
+        const url = "https://www.nucletech.com/datamanager/"+project_hash.value+"/savedata/";
         const Http = new XMLHttpRequest();
         Http.open("POST", url, true);
         Http.setRequestHeader("token", user_key.value);

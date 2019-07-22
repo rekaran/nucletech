@@ -25,7 +25,7 @@ SECRET_KEY = '624m7xrg%#et&!qi)l*+^=u)gqxau9!w%m8^(+dbo@kp#42%dy'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["www.nucletech.com", "www.nuclechat.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["www.nucletech.com"]
 
 # CSRF headers settings
 
