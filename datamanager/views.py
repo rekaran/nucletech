@@ -175,7 +175,7 @@ def savedata(request, name):
             pheremone, p_size, intent, variation = mlTensor(train_data)
             train_time = time.time()-start_time
             timestamp = int(datetime.timestamp(datetime.today()))
-            post = requests.post(url="https://www.nuclechat.com/encode/nucletech.com".format(request.user.domain), data={"data": json.dumps(encode_data), "key": project_hash, "hash": project.project_key, "intent": json.dumps(intent), "variation": json.dumps(variation), "flow": json.dumps(flow_data_)}, headers={"Authorization": project_hash, "origin": "nucletech.com"})
+            post = requests.post(url="https://www.nuclechat.com/encode/nucletech.com".format(request.user.domain), data={"data": json.dumps(encode_data), "key": project_hash, "hash": project.project_key, "intent": json.dumps(intent), "variation": json.dumps(variation), "flow": json.dumps(flow_data_)}, headers={"Authorization": project_hash, "origin": "https://www.nucletech.com"})
             print(post.text)
             shielded = json.loads(post.text)
             post = dbflowpool.insert_one({"projectId": project_id, "projectHash": project_hash,"data": flow_data, "timestamp": timestamp, "domain": request.user.domain}).inserted_id
