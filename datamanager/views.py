@@ -177,7 +177,7 @@ def savedata(request, name):
             print(train_time, p_size)
             timestamp = int(datetime.timestamp(datetime.today()))
             post = requests.post(url="https://www.nuclechat.com/encode/nucletech.com".format(request.user.domain), data={"data": json.dumps(encode_data), "key": project_hash, "hash": project.project_key, "intent": json.dumps(intent), "variation": json.dumps(variation), "flow": json.dumps(flow_data_)}, headers={"Authorization": project_hash, "origin": "nucletech.com"})
-            shielded = json.loads(post.text)
+            shielded = json.loads(post.text.decode("utf-8"))
             post = dbflowpool.insert_one({"projectId": project_id, "projectHash": project_hash,"data": flow_data, "timestamp": timestamp, "domain": request.user.domain}).inserted_id
             post = dbfaqpool.insert_one({"projectId": project_id, "projectHash": project_hash, "data": faq_data, "timestamp": timestamp, "domain": request.user.domain}).inserted_id
             post = dbraw.insert_one({"projectId": project_id, "projectHash": project_hash, "data": train_data, "timestamp": timestamp, "domain": request.user.domain}).inserted_id
