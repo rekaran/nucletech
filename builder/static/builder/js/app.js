@@ -407,7 +407,7 @@ var app = new Vue({
         Http.open("POST", url, true);
         Http.setRequestHeader("token", user_key.value);
         Http.setRequestHeader("X-CSRFToken", csrf_key.value);
-        Http.send(data);
+        Http.send(JSON.stringify(data));
         Http.onload = () =>{
           if (Http.status == 200) {
             console.log(Http.responseText)
