@@ -145,6 +145,7 @@ def savedata(request, name):
     # try:
     api_key = request.META["HTTP_TOKEN"]
     if request.method == "POST":
+        print(request.body)
         data = json.loads(request.body)
         profile = Profile.objects.get(api_key=api_key)
         if profile.user.email == request.user.email:
