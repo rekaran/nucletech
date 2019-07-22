@@ -174,7 +174,6 @@ def savedata(request, name):
                     encode_data["faq_"+st["name"]] = st["answer"]
             pheremone, p_size, intent, variation = mlTensor(train_data)
             train_time = time.time()-start_time
-            print(train_time, p_size)
             timestamp = int(datetime.timestamp(datetime.today()))
             post = requests.post(url="https://www.nuclechat.com/encode/nucletech.com".format(request.user.domain), data={"data": json.dumps(encode_data), "key": project_hash, "hash": project.project_key, "intent": json.dumps(intent), "variation": json.dumps(variation), "flow": json.dumps(flow_data_)}, headers={"Authorization": project_hash, "origin": "nucletech.com"})
             shielded = json.loads(post.text.decode("utf-8"))
@@ -188,6 +187,7 @@ def savedata(request, name):
             keymap = dbkeymapper.find_one_and_update({"hash": project_hash}, {"$set": {"saveTimestamp": timestamp}})
             # post = dbkeymapper.
             post = save_ipref(request)
+            print(train_time, p_size)
             return JsonResponse({"status": 200})
         print("Here")
         raise Http404
