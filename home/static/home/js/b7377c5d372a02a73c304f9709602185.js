@@ -103,7 +103,7 @@ let startScript = () =>{
 // if(navigator.onLine){
 //     startScript();
 // }
-document.onloadend = startScript();
+startScript();
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('https://www.nuclechat.com/static/js/sw.js')
     .then(registration => {
