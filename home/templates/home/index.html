@@ -696,5 +696,9 @@
         smartBackspace: true,
         loop: true,
     });
+    let elems = document.getElementsByClassName("nt-home");
+    Object.values(elems).forEach(elem=>{
+        elem.className = "uk-active";
+    });
 </script>
 {% endblock %}

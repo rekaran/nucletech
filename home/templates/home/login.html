@@ -111,4 +111,10 @@
 {% endblock %}
 
 {% block javascript %}
+<script>
+    let elems = document.getElementsByClassName("nt-login");
+    Object.values(elems).forEach(elem=>{
+        elem.className = "uk-active";
+    });
+</script>
 {% endblock %}
