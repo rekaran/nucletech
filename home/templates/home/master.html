@@ -35,6 +35,47 @@
     </script>
 </head>
 <body>
+    <!-- Navigation Bar uk-background-default-->
+    <!-- <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar"> -->
+        <nav class="uk-navbar-container uk-navbar-sticky uk-margin" uk-navbar> 
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-item uk-logo uk-margin-large-left uk-visible@s" href="https://www.nucletech.com">nucletech</a>
+                <a class="uk-navbar-item uk-logo uk-margin-left uk-hidden@s" href="https://www.nucletech.com">nucletech</a>
+            </div>
+            <div class="uk-navbar-right uk-hidden@s">
+                <span class="uk-margin-right side-nav-toggle nav-icon-menu" uk-icon="icon: menu; ratio: 1.75"></span>
+                <span class="uk-margin-right side-nav-toggle nav-hidden nav-icon-close" uk-icon="icon: close; ratio: 1.5"></span>
+            </div>
+            <div id="side-nav">
+                <div class="side-nav-content">
+                    <a class="uk-navbar-item uk-logo uk-hidden@s uk-margin-small-top side-nav-logo" href="https://www.nucletech.com">nucletech</a>
+                    <ul class="uk-margin-top">
+                        <li class="nt-home"><a href="https://www.nucletech.com"><span uk-icon="icon: home; ratio: 1" class="uk-margin-right"></span> HOME</a></li>
+                        <li class="nt-careers"><a href="https://www.nucletech.com/careers/"><span uk-icon="icon: bolt; ratio: 1" class="uk-margin-right"></span> CAREERS</a></li>
+                        <li class="nt-about"><a href="https://www.nucletech.com/about/"><span uk-icon="icon: info; ratio: 1" class="uk-margin-right"></span> ABOUT US</a></li>
+                        <li class="nt-login"><a href="https://www.nucletech.com/login/"><span uk-icon="icon: sign-in; ratio: 1" class="uk-margin-right"></span> LOGIN</a></li>
+                        <li class="nt-bots"><a href="https://www.nucletech.com/bots/"><span uk-icon="icon: commenting; ratio: 1" class="uk-margin-right"></span> TRY BOTS NOW</a></li>
+                    </ul>
+                    <span class="side-nav-bottom">
+                        <span class="nt-slogan">Intelligent By Nature&TRADE;</span>
+                        <span class="nt-reg">® NUCLETECH Pvt. Ltd.</span>
+                        Social Media Logos
+                    </span>
+                </div>
+            </div>
+            <div class="uk-navbar-right uk-visible@s uk-margin-large-right">
+                <ul class="uk-navbar-nav">
+                    <li class="nt-home"><a href="https://www.nucletech.com">HOME</a></li>
+                    <li class="nt-careers"><a href="https://www.nucletech.com/careers/">CAREERS</a></li>
+                    <li class="nt-about"><a href="https://www.nucletech.com/about/">ABOUT US</a></li>
+                    <li class="nt-login"><a href="https://www.nucletech.com/login/">LOGIN</a></li>
+                    <li class="nt-bots"><a href="https://www.nucletech.com/bots/">TRY OUR BOTS</a></li>
+                </ul>
+            </div>
+        </nav>
+    <!-- </div> -->
+    <!-- /Navigation Bar -->
+
     {% block body %} {% endblock %}
     <!-- Cookie POP up -->
     <div class="nt-cookie"></div>
