@@ -107,9 +107,11 @@
 
 {% block javascript %}
 <script>
-    let elems = document.getElementsByClassName("nt-about");
-    Object.values(elems).forEach(elem=>{
-        elem.className = "uk-active";
-    });
+    document.onload = () =>{
+        let elems = document.getElementsByClassName("nt-about");
+        Object.values(elems).forEach(elem=>{
+            elem.className = "uk-active";
+        });
+    }
 </script>
 {% endblock %}
