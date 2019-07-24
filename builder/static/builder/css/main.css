@@ -265,7 +265,7 @@
     margin-top: 20px;
 }.uk-grid+.uk-grid, .uk-grid>.uk-grid-margin, *+.uk-grid-margin {
     margin-top: 10px;
-}.nt-flow-builder .uk-input{
+}.nt-flow-builder .uk-input, .nt-setting .uk-input{
     border: solid 1px rgba(0,0,0,0.05);
 }.nt-flow-builder .uk-select{
     border: solid 1px rgba(0,0,0,0.05);
