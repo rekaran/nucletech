@@ -138,6 +138,8 @@ def getdata(request, name):
                     data_keys = dbkeymapper.find({"projectId": project_id, "projectHash": project_hash})
                     data_keys = data_keys.next()
                     print(data_keys, project_id, project_hash)
+                    print(project_id)
+                    print(project_hash)
                     del data_keys["_id"]
                 except Exception as e:
                     print(e)
