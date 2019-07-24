@@ -655,19 +655,21 @@
                     <div class="uk-width-3-4@m">
                         <div class="uk-margin nt-setting">
                             <div class="nt-heading">BOT MESSAGES</div>
-                            <div class="uk-width-1-2@m">
-                                <div class="nt-content">
-                                    <label for="nt-validation-type">FIRST MESSAGE TYPE</label>
-                                    <select class="uk-select" v-model="settings.firstmessage_type" uk-tooltip="title: Set the type of first message you want to send to the user.; pos: left">
-                                        <option>Static</option>
-                                        <option>Dynamic</option>
-                                    </select>
+                            <div uk-grid>
+                                <div class="uk-width-1-2@m">
+                                    <div class="nt-content">
+                                        <label for="nt-validation-type">FIRST MESSAGE TYPE</label>
+                                        <select class="uk-select" v-model="settings.firstmessage_type" uk-tooltip="title: Set the type of first message you want to send to the user.; pos: left">
+                                            <option>Static</option>
+                                            <option>Dynamic</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="uk-width-1-2@m">
-                                <div class="nt-content">
-                                    <label for="faq-variation">FIRST MESSAGE</label> 
-                                    <input class="uk-input" type="text" id="company-name" v-model="settings.company_name"> 
+                                <div class="uk-width-1-2@m">
+                                    <div class="nt-content">
+                                        <label for="faq-variation">FIRST MESSAGE</label> 
+                                        <input class="uk-input" type="text" id="company-name" v-model="settings.company_name"> 
+                                    </div>
                                 </div>
                             </div>
                         </div>
