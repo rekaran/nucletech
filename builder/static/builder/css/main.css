@@ -569,5 +569,11 @@
     width: 25px;
     margin-right: 10px;
 }.nt-setting .nt-content{
+    padding: 0.5rem 1rem;
+}.nt-setting .nt-content:first-child{
     padding: 1rem;
+    padding-bottom: 0;
+}.nt-setting .nt-content:last-child{
+    padding: 1rem;
+    padding-top: 0;
 }
