@@ -396,9 +396,7 @@ var app = new Vue({
         let message = document.getElementById("first-message");
         if(message_urls.indexOf(url.value)==-1){
           self.message_urls.push(message.value);
-          let tempdata = {}
-          tempdata[url.value] = message.value
-          self.settings.firstmessages.push(tempdata);
+          self.settings.firstmessages[url.value] = message.value;
           url.value = "";
           message.value = "";
         }else{

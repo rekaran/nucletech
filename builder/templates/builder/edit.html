@@ -672,7 +672,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div v-if="settings.firstmessage_type=='Dynamic'&&settings.firstmessages.length!=0">
+                            <div v-if="settings.firstmessage_type=='Dynamic'&&message_urls.length!=0">
                                 <div uk-grid>
                                     <div class="uk-width-1-2@s">
                                         <div class="nt-content">URL</div>
@@ -682,6 +682,17 @@
                                     </div>
                                     <div class="uk-width-1-5@s" style="padding-left: 0 !important;">
                                         <div class="nt-content">DELETE</div>
+                                    </div>
+                                </div>
+                                <div uk-grid v-for="(u, idx) in message_urls">
+                                    <div class="uk-width-1-2@s">
+                                        <div class="nt-content"><% u %></div>
+                                    </div>
+                                    <div class="uk-width-1-4@s" style="padding-left: 0 !important;">
+                                        <div class="nt-content"><% settings.firstmessages[u] %></div>
+                                    </div>
+                                    <div class="uk-width-1-5@s" style="padding-left: 0 !important;">
+                                        <div class="nt-content uk-text-danger"><span uk-icon="icon: trash; ratio: 0.8"></span></div>
                                     </div>
                                 </div>
                             </div>
