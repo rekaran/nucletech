@@ -58,6 +58,7 @@ var app = new Vue({
       user_valid_next: "",
       invalid_message: "",
       user_validation_type_: "no",
+      message_urls: [],
       bot_says_error: "",
       bot_buttons_error: "",
       bot_carousels_error: "",
@@ -66,6 +67,7 @@ var app = new Vue({
       faq_variation_validation_error: "",
       faq_answer_validation_error: "",
       faq_name_validation_error: "",
+      message_urls_error: "",
     },
     methods: {
       enable_flow(type){
@@ -386,6 +388,21 @@ var app = new Vue({
           }else{
             self.flow[self.flow_index] = data;
           }
+        }
+      },
+      addFirstMessage(){
+        let self = this;
+        let url = document.getElementById("first-url");
+        let message = document.getElementById("first-message");
+        if(message_urls.indexOf(url.value)==-1){
+          self.message_urls.push(message.value);
+          let tempdata = {}
+          tempdata[url.value] = message.value
+          self.settings.firstmessages.push(tempdata);
+          url.value = "";
+          message.value = "";
+        }else{
+          self.message_urls_error = "Link is already present. Kindly add a new link."
         }
       },
       save_changes(){
