@@ -18,6 +18,7 @@ dbData = client['dataManager']
 randomPool = string.ascii_uppercase + string.ascii_lowercase + string.digits
 
 def extract_request_info(request):
+    print(request)
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
     if x_forwarded_for:
         ip = x_forwarded_for.split(',')[0]
@@ -25,6 +26,7 @@ def extract_request_info(request):
         ip = request.META.get('REMOTE_ADDR')
     userAgent = request.META.get('HTTP_USER_AGENT')
     user_details = httpagentparser.detect(userAgent)
+    print(ip, userAgent, user_details)
     return (ip, userAgent, user_details)
 
 def get_geoloc(ipaddress):

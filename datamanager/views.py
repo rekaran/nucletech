@@ -142,58 +142,57 @@ def getdata(request, name):
 
 
 def savedata(request, name):
-    # try:
-    api_key = request.META["HTTP_TOKEN"]
-    if request.method == "POST":
-        print(type(request.body.decode("utf-8")))
-        data = json.loads(request.body.decode("utf-8"))
-        profile = Profile.objects.get(api_key=api_key)
-        if profile.user.email == request.user.email:
-            flow_data = data["flow"]
-            faq_data = data["faq"]
-            st_data = data["smalltalks"]
-            project_hash = data["key"]
-            project_id = data["hash"]
-            project = Project.objects.get(user=request.user, project_id=project_id, project_hash=project_hash)
-            start_time = time.time()
-            train_data = {}
-            encode_data = {}
-            flow_data_ = {}
-            for flow in flow_data:
-                flow_name = "flow_"+flow["name"].replace(" ", "_").lower()
-                train_data[flow_name] = flow["variation"]
-                stage_data = {idx: stage for idx, stage in enumerate(flow["stages"])}
-                flow_data_[flow_name] = stage_data
-            for faq in faq_data:
-                if faq["active"]:
-                    train_data["faq_"+faq["name"]] = faq["variation"]
-                    encode_data["faq_"+faq["name"]] = faq["answer"]
-            for st in st_data:
-                if st["active"]:
-                    train_data["faq_"+st["name"]] = st["variation"]
-                    encode_data["faq_"+st["name"]] = st["answer"]
-            pheremone, p_size, intent, variation = mlTensor(train_data)
-            train_time = time.time()-start_time
-            timestamp = int(datetime.timestamp(datetime.today()))
-            post = requests.post(url="https://www.nuclechat.com/encode/{}".format(request.user.domain), data={"data": json.dumps(encode_data), "key": project_hash, "hash": project.project_key, "intent": json.dumps(intent), "variation": json.dumps(variation), "flow": json.dumps(flow_data_)}, headers={"Authorization": project_hash, "origin": "https://www.nucletech.com"})
-            shielded = json.loads(post.text)
-            post = dbflowpool.insert_one({"projectId": project_id, "projectHash": project_hash,"data": flow_data, "timestamp": timestamp, "domain": request.user.domain}).inserted_id
-            post = dbfaqpool.insert_one({"projectId": project_id, "projectHash": project_hash, "data": faq_data, "timestamp": timestamp, "domain": request.user.domain}).inserted_id
-            post = dbraw.insert_one({"projectId": project_id, "projectHash": project_hash, "data": train_data, "timestamp": timestamp, "domain": request.user.domain}).inserted_id
-            post = dbsmalltalks.insert_one({"projectId": project_id, "projectHash": project_hash, "data": st_data, "timestamp": timestamp, "domain": request.user.domain}).inserted_id
-            post = dbdatapools.insert_one({"projectId": project_id, "projectHash": project_hash, "trainTime": train_time, "metamorphSize": p_size, "trainTimestamp": timestamp, "timestamp": timestamp, "domain": request.user.domain}).inserted_id
-            post = dbmetamorph.insert_one({"projectId": project_id, "projectHash": project_hash, "data": pheremone, "timestamp": timestamp}).inserted_id
-            post = dbshielded.insert_one(shielded).inserted_id
-            keymap = dbkeymapper.find_one_and_update({"hash": project_hash}, {"$set": {"saveTimestamp": timestamp}})
-            # post = dbkeymapper.
-            post = save_ipref(request)
-            print(train_time, p_size)
-            return JsonResponse({"status": 200})
-        print("Here")
+    try:
+        api_key = request.META["HTTP_TOKEN"]
+        if request.method == "POST":
+            print(type(request.body.decode("utf-8")))
+            data = json.loads(request.body.decode("utf-8"))
+            profile = Profile.objects.get(api_key=api_key)
+            if profile.user.email == request.user.email:
+                flow_data = data["flow"]
+                faq_data = data["faq"]
+                st_data = data["smalltalks"]
+                project_hash = data["key"]
+                project_id = data["hash"]
+                project = Project.objects.get(user=request.user, project_id=project_id, project_hash=project_hash)
+                start_time = time.time()
+                train_data = {}
+                encode_data = {}
+                flow_data_ = {}
+                for flow in flow_data:
+                    flow_name = "flow_"+flow["name"].replace(" ", "_").lower()
+                    train_data[flow_name] = flow["variation"]
+                    stage_data = {idx: stage for idx, stage in enumerate(flow["stages"])}
+                    flow_data_[flow_name] = stage_data
+                for faq in faq_data:
+                    if faq["active"]:
+                        train_data["faq_"+faq["name"]] = faq["variation"]
+                        encode_data["faq_"+faq["name"]] = faq["answer"]
+                for st in st_data:
+                    if st["active"]:
+                        train_data["faq_"+st["name"]] = st["variation"]
+                        encode_data["faq_"+st["name"]] = st["answer"]
+                pheremone, p_size, intent, variation = mlTensor(train_data)
+                train_time = time.time()-start_time
+                timestamp = int(datetime.timestamp(datetime.today()))
+                post = requests.post(url="https://www.nuclechat.com/encode/{}".format(request.user.domain), data={"data": json.dumps(encode_data), "key": project_hash, "hash": project.project_key, "intent": json.dumps(intent), "variation": json.dumps(variation), "flow": json.dumps(flow_data_)}, headers={"Authorization": project_hash, "origin": "https://www.nucletech.com"})
+                shielded = json.loads(post.text)
+                post = dbflowpool.insert_one({"projectId": project_id, "projectHash": project_hash,"data": flow_data, "timestamp": timestamp, "domain": request.user.domain}).inserted_id
+                post = dbfaqpool.insert_one({"projectId": project_id, "projectHash": project_hash, "data": faq_data, "timestamp": timestamp, "domain": request.user.domain}).inserted_id
+                post = dbraw.insert_one({"projectId": project_id, "projectHash": project_hash, "data": train_data, "timestamp": timestamp, "domain": request.user.domain}).inserted_id
+                post = dbsmalltalks.insert_one({"projectId": project_id, "projectHash": project_hash, "data": st_data, "timestamp": timestamp, "domain": request.user.domain}).inserted_id
+                post = dbdatapools.insert_one({"projectId": project_id, "projectHash": project_hash, "trainTime": train_time, "metamorphSize": p_size, "trainTimestamp": timestamp, "timestamp": timestamp, "domain": request.user.domain}).inserted_id
+                post = dbmetamorph.insert_one({"projectId": project_id, "projectHash": project_hash, "data": pheremone, "timestamp": timestamp}).inserted_id
+                post = dbshielded.insert_one(shielded).inserted_id
+                keymap = dbkeymapper.find_one_and_update({"hash": project_hash}, {"$set": {"saveTimestamp": timestamp}})
+                post = save_ipref(request)
+                print(train_time, p_size)
+                return JsonResponse({"status": 200})
+            print("Here")
+            raise Http404
+    except Exception as e:
+        print(e)
         raise Http404
-    # except Exception as e:
-    #     print(e)
-    #     raise Http404
 
 
 def index(request):
