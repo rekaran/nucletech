@@ -422,6 +422,7 @@ var app = new Vue({
           key: project_key.value,
           name: project_name.value,
           hash: project_hash.value,
+          settings: self.settings,
         }
         console.log(data);
         const url = "https://www.nucletech.com/datamanager/"+project_hash.value+"/savedata/";
