@@ -656,11 +656,13 @@
                         <div class="uk-margin nt-setting">
                             <div class="nt-heading">BOT MESSAGES</div>
                             <div class="uk-width-1-2@m">
-                                <label for="nt-validation-type">FIRST MESSAGE TYPE</label>
-                                <select class="uk-select" v-model="settings.firstmessage_type" uk-tooltip="title: Set the type of first message you want to send to the user.; pos: left">
-                                    <option>Static</option>
-                                    <option>Dynamic</option>
-                                </select>
+                                <div class="nt-content">
+                                    <label for="nt-validation-type">FIRST MESSAGE TYPE</label>
+                                    <select class="uk-select" v-model="settings.firstmessage_type" uk-tooltip="title: Set the type of first message you want to send to the user.; pos: left">
+                                        <option>Static</option>
+                                        <option>Dynamic</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="uk-width-1-2@m">
                                 <div class="nt-content">
