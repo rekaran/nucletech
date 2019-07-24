@@ -22,6 +22,10 @@ def extract_request_info(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR', None)
     ip=""
     print(x_forwarded_for)
+    print(request.META.get('HTTP_X_REAL_IP'))
+    print(x_forwarded_for)
+    print(x_forwarded_for)
+    print(x_forwarded_for)
     if x_forwarded_for:
         ip = x_forwarded_for.split(',')[0]
     else:
