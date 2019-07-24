@@ -395,13 +395,17 @@ var app = new Vue({
         let url = document.getElementById("first-url");
         let message = document.getElementById("first-message");
         if(self.message_urls.indexOf(url.value)==-1){
-          self.message_urls.push(url.value);
-          self.settings.firstmessages[url.value] = message.value;
-          url.value = "";
-          message.value = "";
-          self.message_urls_error="";
+          if(url.value!==""&&message.value!==""){
+            self.message_urls.push(url.value);
+            self.settings.firstmessages[url.value] = message.value;
+            url.value = "";
+            message.value = "";
+            self.message_urls_error="";
+          }else{
+            self.message_urls_error = "Fields cannot be empty"
+          }
         }else{
-          self.message_urls_error = "Link is already present. Kindly add a new link."
+          self.message_urls_error = "Link is already present. Kindly add a new link.";
         }
       },
       save_changes(){
