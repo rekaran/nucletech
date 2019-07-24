@@ -135,11 +135,9 @@ def getdata(request, name):
                 except Exception as e:
                     data_martix = {}
                 try:
-                    data_keys = dbkeymapper.find_one({"projectId": project_hash, "projectHash": project_hash})
-                    print(data_keys, project_hash, project_hash)
+                    data_keys = dbkeymapper.find_one({"projectId": project_id, "projectHash": project_hash})
                     del data_keys["_id"]
                 except Exception as e:
-                    print(e)
                     data_keys = {}
                 return JsonResponse({"success": 200, "flow": flow_data["data"], "faq": faq_data["data"], "smalltalk": st_data["data"], "datamatrix": dict(data_martix), "keymapper": dict(data_keys)}, safe=False)
         raise Http404
