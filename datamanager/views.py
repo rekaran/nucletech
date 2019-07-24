@@ -144,7 +144,7 @@ def getdata(request, name):
                     del data_keys["saveTimestamp"]
                 except Exception as e:
                     data_keys = {}
-                return JsonResponse({"success": 200, "flow": flow_data["data"], "faq": faq_data["data"], "smalltalk": st_data["data"], "datamatrix": dict(data_martix), "keymapper": dict(data_keys)}, safe=False)
+                return JsonResponse({"success": 200, "flow": flow_data["data"], "faq": faq_data["data"], "smalltalk": st_data["data"], "datamatrix": dict(data_martix), "settings": dict(data_keys)}, safe=False)
         raise Http404
     except Exception as e:
         print(e)
