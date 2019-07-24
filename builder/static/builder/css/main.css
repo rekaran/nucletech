@@ -568,4 +568,6 @@
     border-radius: 50%;
     width: 25px;
     margin-right: 10px;
+}.nt-setting .nt-content{
+    padding: 1rem;
 }
