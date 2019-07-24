@@ -672,15 +672,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div uk-grid v-if="settings.firstmessage_type=='Dynamic'">
-                                <div class="uk-width-1-2@s">
-                                    <div class="nt-content">URL</div>
-                                </div>
-                                <div class="uk-width-1-4@s" style="padding-left: 0 !important;">
-                                    <div class="nt-content">MESSAGE</div>
-                                </div>
-                                <div class="uk-width-1-5@s" style="padding-left: 0 !important;">
-                                    <div class="nt-content">DELETE</div>
+                            <div v-if="settings.firstmessage_type=='Dynamic'">
+                                <div uk-grid>
+                                    <div class="uk-width-1-2@s">
+                                        <div class="nt-content">URL</div>
+                                    </div>
+                                    <div class="uk-width-1-4@s" style="padding-left: 0 !important;">
+                                        <div class="nt-content">MESSAGE</div>
+                                    </div>
+                                    <div class="uk-width-1-5@s" style="padding-left: 0 !important;">
+                                        <div class="nt-content">DELETE</div>
+                                    </div>
                                 </div>
                             </div>
                             <div uk-grid  v-if="settings.firstmessage_type=='Dynamic'">
