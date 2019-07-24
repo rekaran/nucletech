@@ -556,6 +556,16 @@
                         <div class="uk-margin nt-setting">
                             <div class="nt-heading">GLOBAL SETTINGS</div>
                             <div uk-grid>
+                                <div class="uk-width-1-2@m">
+                                    <label for="faq-variation">BOT NAME</label> 
+                                    <input class="uk-input" type="text" id="bot-name" v-model="settings.bot_name"> 
+                                </div>
+                                <div class="uk-width-1-2@m">
+                                    <label for="faq-variation">COMPANY NAME</label> 
+                                    <input class="uk-input" type="text" id="company-name" v-model="settings.company_name"> 
+                                </div>
+                            </div>
+                            <div uk-grid>
                                 <div class="uk-width-1-3@m">
                                     <div class="nt-content">
                                         <div uk-grid>
@@ -633,7 +643,7 @@
                     </div>
                     <div class="uk-width-1-4@m">
                         <div class="nt-builder-card nt-flow">
-                            Creating a flow will increase you customer experience and add a conversational element to your page. It will help you in establishing the credibility with your customer.
+                            Manage your projects settings according to your need so that you can your use your chatbot at its maximum potential.
                         </div>
                     </div>
                 </div>
