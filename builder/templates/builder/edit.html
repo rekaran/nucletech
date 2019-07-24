@@ -673,20 +673,22 @@
                                 </div>
                             </div>
                             <div uk-grid  v-if="settings.firstmessage_type=='Dynamic'">
-                                <div class="uk-width-1-3@m">
+                                <div class="uk-width-1-2@m">
                                     <div class="nt-content">
                                         <label for="faq-variation">URL</label> 
                                         <input class="uk-input" type="text" id="first-url"> 
                                     </div>
                                 </div>
-                                <div class="uk-width-1-3@m">
+                                <div class="uk-width-1-4@m" style="padding-left: 0 !important;">
                                     <div class="nt-content">
                                         <label for="faq-variation">MESSAGE</label> 
                                         <input class="uk-input" type="text" id="first-message"> 
                                     </div>
                                 </div>
-                                <div class="uk-width-1-3@m">
-                                    <button class="uk-button nt-add-variation" v-on:click="addFirstMessage()"><span class="uk-margin-small-right" uk-icon="icon: plus-circle; ratio: 0.8"></span> ADD MESSAGE</button>
+                                <div class="uk-width-1-4@m" style="padding-left: 0 !important;">
+                                    <div class="nt-content">
+                                        <button class="uk-button nt-add-variation" v-on:click="addFirstMessage()"><span class="uk-margin-small-right" uk-icon="icon: plus-circle; ratio: 0.8"></span> ADD MESSAGE</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
