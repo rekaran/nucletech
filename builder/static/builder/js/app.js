@@ -399,6 +399,7 @@ var app = new Vue({
           self.settings.firstmessages[url.value] = message.value;
           url.value = "";
           message.value = "";
+          self.message_urls_error="";
         }else{
           self.message_urls_error = "Link is already present. Kindly add a new link."
         }
