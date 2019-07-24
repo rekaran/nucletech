@@ -135,7 +135,8 @@ def getdata(request, name):
                 except Exception as e:
                     data_martix = {}
                 try:
-                    data_keys = dbkeymapper.find_one({"projectId": project_id, "projectHash": project_hash})
+                    data_keys = dbkeymapper.find({"projectId": project_id, "projectHash": project_hash})
+                    data_keys = data_keys.next()
                     print(data_keys, project_id, project_hash)
                     del data_keys["_id"]
                 except Exception as e:
