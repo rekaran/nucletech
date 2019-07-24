@@ -137,6 +137,11 @@ def getdata(request, name):
                 try:
                     data_keys = dbkeymapper.find_one({"projectId": project_id, "hash": project_hash})
                     del data_keys["_id"]
+                    del data_keys["domain"]
+                    del data_keys["projectId"]
+                    del data_keys["hash"]
+                    del data_keys["key"]
+                    del data_keys["saveTimestamp"]
                 except Exception as e:
                     data_keys = {}
                 return JsonResponse({"success": 200, "flow": flow_data["data"], "faq": faq_data["data"], "smalltalk": st_data["data"], "datamatrix": dict(data_martix), "keymapper": dict(data_keys)}, safe=False)
