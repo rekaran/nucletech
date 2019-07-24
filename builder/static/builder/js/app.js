@@ -24,6 +24,7 @@ var app = new Vue({
           self.faq = data.faq;
           self.smalltalks = data.smalltalk;
           self.datamatrix = data.datamatrix;
+          self.settings = data.settings;
         }
       }
     },
@@ -32,6 +33,7 @@ var app = new Vue({
       faq: [],// Side nav faq display,
       smalltalks: [],// Small talks display in FAQ Sections
       datamatrix: {},// Keeps track of data
+      settings: {},// Keeps track of data
       current_faq: [],//Toggle between faq and smalltalks
       current_faq_type: "",
       current_flow_name: "",
