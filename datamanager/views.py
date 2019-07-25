@@ -164,6 +164,7 @@ def savedata(request, name):
                 st_data = data["smalltalks"]
                 project_hash = data["key"]
                 project_id = data["hash"]
+                settings = data["settings"]
                 project = Project.objects.get(user=request.user, project_id=project_id, project_hash=project_hash)
                 start_time = time.time()
                 train_data = {}
@@ -194,7 +195,8 @@ def savedata(request, name):
                 post = dbdatapools.insert_one({"projectId": project_id, "projectHash": project_hash, "trainTime": train_time, "metamorphSize": p_size, "trainTimestamp": timestamp, "timestamp": timestamp, "domain": request.user.domain}).inserted_id
                 post = dbmetamorph.insert_one({"projectId": project_id, "projectHash": project_hash, "data": pheremone, "timestamp": timestamp}).inserted_id
                 post = dbshielded.insert_one(shielded).inserted_id
-                keymap = dbkeymapper.find_one_and_update({"hash": project_hash}, {"$set": {"saveTimestamp": timestamp}})
+                settings["saveTimestamp"] = timestamp
+                keymap = dbkeymapper.find_one_and_update({"hash": project_hash}, {"$set": settings})
                 post = save_ipref(request)
                 print(train_time, p_size)
                 return JsonResponse({"status": 200})
