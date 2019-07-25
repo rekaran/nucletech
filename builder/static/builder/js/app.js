@@ -419,6 +419,7 @@ var app = new Vue({
         }
       },
       enablePushModel(){
+        let self = this;
         if(self.pushmessage_urls.indexOf(self.pushmessage_url)==-1){
           let el = document.getElementById("#nt-pushmodel");
           UIkit.modal(el).show();
