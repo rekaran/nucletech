@@ -447,7 +447,7 @@ var app = new Vue({
         let btn_txt = document.getElementById("pop-button-text");
         let btn_val = document.getElementById("pop-button-value");
         if(btn_txt.value!=""&&btn_val.value!=""){
-          self.popbutton.push({text: btn_txt.value, value: btn_val.value});
+          self.popbutton.push({text: btn_txt.value, data: btn_val.value});
           btn_txt.value = "";
           btn_val.value = "";
           self.popbutton_error = "";
