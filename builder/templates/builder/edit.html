@@ -772,6 +772,27 @@
                                         <button class="uk-button uk-button-primary uk-modal-close" type="button" v-on:click="addPushMessage()">SAVE</button>
                                     </p>
                                 </div>
+                                <div class="uk-modal-dialog uk-modal-body" v-if="pushmessage_type=='Slider'">
+                                    <div uk-grid>
+                                        <div class="uk-width-1-1@s">
+                                            <div class="uk-margin nt-setting">
+                                                <% pushmessage_static %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div uk-grid>
+                                        <div class="uk-width-1-1@s">
+                                            <div class="uk-margin nt-setting">
+                                                <label for="faq-variation">PUSH MESSAGE</label> 
+                                                <input class="uk-input" type="text" v-model="pushmessage_static"> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="uk-text-right">
+                                        <button class="uk-button uk-button-default uk-modal-close" type="button">CANCEL</button>
+                                        <button class="uk-button uk-button-primary uk-modal-close" type="button" v-on:click="addPushMessage()">SAVE</button>
+                                    </p>
+                                </div>
                             </div>
                             <!-- / FAQ modal -->
                             <div v-if="pushmessage_urls.length!=0">

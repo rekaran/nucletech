@@ -64,6 +64,7 @@ var app = new Vue({
       pushmessage_urls: [],
       popmessage: [],
       popbutton: [],
+      pushmessage_static: "",
       bot_says_error: "",
       bot_buttons_error: "",
       bot_carousels_error: "",
@@ -461,7 +462,7 @@ var app = new Vue({
             self.settings.pushmessage[self.pushmessage_url] = {type: self.pushmessage_type, message: self.popmessage, button: self.popbutton};
             self.pushmessage_urls.push(self.pushmessage_url);
           }else{
-
+            self.settings.pushmessage[self.pushmessage_url] = {type: self.pushmessage_type, message: self.pushmessage_static};
           }
           self.pushmessage_url = "";
           self.popbutton = [];
