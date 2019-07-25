@@ -61,6 +61,9 @@ var app = new Vue({
       message_urls: [],
       pushmessage_type: "Pop-ups",
       pushmessage_url: "",
+      pushmessage_urls: [],
+      popmessage: [],
+      popbutton: [],
       bot_says_error: "",
       bot_buttons_error: "",
       bot_carousels_error: "",
@@ -70,6 +73,9 @@ var app = new Vue({
       faq_answer_validation_error: "",
       faq_name_validation_error: "",
       message_urls_error: "",
+      popmessage_error: "",
+      popbutton_error: "",
+      pushmessage_error: "",
     },
     methods: {
       enable_flow(type){
@@ -111,6 +117,8 @@ var app = new Vue({
         self.is_home = false;
         self.is_flow = false;
         self.is_settings = true;
+        self.message_urls = Object.keys(self.settings.firstmessages);
+        self.pushmessage_urls = Object.keys(settings.pushmessage);
       },
       home_view(type){
         let self = this;
@@ -404,14 +412,57 @@ var app = new Vue({
             message.value = "";
             self.message_urls_error="";
           }else{
-            self.message_urls_error = "Fields cannot be empty"
+            self.message_urls_error = "Fields cannot be empty";
           }
         }else{
           self.message_urls_error = "Link is already present. Kindly add a new link.";
         }
       },
+      addPopMessage(){
+        let self = this;
+        let pop_message = document.getElementById("pop-message");
+        if(pop_message.value!=""){
+          if(self.popmessage.indexOf(pop_message.value)==-1){
+            self.popmessage.push(pop_message.value);
+            pop_message.value = "";
+            self.popmessage_error = "";
+          }else{
+            self.popmessage_error = "Push Message cannot be same.";
+          }
+        }else{
+          self.popmessage_error = "Push Message cannot be empty.";
+        }
+      },
+      addPopButton(){
+        let self = this;
+        let btn_txt = document.getElementById("pop-button-text");
+        let btn_val = document.getElementById("pop-button-value");
+        if(btn_txt.value!=""&&btn_val.value!=""){
+          self.popbutton.push({text: btn_txt.value, value: btn_val.value});
+          btn_txt.value = "";
+          btn_val.value = "";
+          self.popbutton_error = "";
+        }else{
+          self.popbutton_error = "Button Field cannot be empty.";
+        }
+      },
       addPushMessage(){
         let self = this;
+        if(self.pushmessage_urls.indexOf(self.pushmessage_url)==-1){
+          if(pushmessage_type=="Pop-ups"){
+            self.settings.pushmessage[self.pushmessage_url] = {type: self.pushmessage_type, message: self.popmessage, button: self.popbutton};
+            self.pushmessage_urls.push(self.pushmessage_url);
+          }else{
+
+          }
+          self.pushmessage_url = "";
+          self.popbutton = [];
+          self.popmessage = [];
+          self.pushmessage_type = "Pop-ups";
+        }else{
+          self.pushmessage_error = "Push message already exists for the URL"
+        }
+        console.log(self.settings);
       },
       save_changes(){
         let self = this;
