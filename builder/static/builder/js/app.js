@@ -418,6 +418,14 @@ var app = new Vue({
           self.message_urls_error = "Link is already present. Kindly add a new link.";
         }
       },
+      enablePushModel(){
+        if(self.pushmessage_urls.indexOf(self.pushmessage_url)==-1){
+          let el = document.getElementById("#nt-pushmodel");
+          UIkit.modal(el).show();
+        }else{
+          self.pushmessage_error = "Push message already exists for the URL";
+        }
+      },
       addPopMessage(){
         let self = this;
         let pop_message = document.getElementById("pop-message");
@@ -460,7 +468,7 @@ var app = new Vue({
           self.popmessage = [];
           self.pushmessage_type = "Pop-ups";
         }else{
-          self.pushmessage_error = "Push message already exists for the URL"
+          self.pushmessage_error = "Push message already exists for the URL";
         }
         console.log(self.settings);
       },

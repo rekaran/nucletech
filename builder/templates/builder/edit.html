@@ -786,9 +786,10 @@
                                 </div>
                                 <div class="uk-width-1-4@s" style="padding-left: 0 !important;">
                                     <div class="nt-content">
-                                        <button class="uk-button nt-add-variation" uk-toggle="target: #nt-pushmodel"><span class="uk-margin-small-right" uk-icon="icon: plus-circle; ratio: 0.8"></span> PUSH MESSAGE</button>
+                                        <button class="uk-button nt-add-variation" v-on:click="enablePushModel()"><span class="uk-margin-small-right" uk-icon="icon: plus-circle; ratio: 0.8"></span> PUSH MESSAGE</button>
                                     </div>
                                 </div>
+                                <div v-if="pushmessage_error!=''"><div class="nt-content uk-text-danger"><% pushmessage_error %></div></div>
                             </div>
                         </div>
                     </div>
