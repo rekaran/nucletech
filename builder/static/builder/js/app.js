@@ -118,7 +118,7 @@ var app = new Vue({
         self.is_flow = false;
         self.is_settings = true;
         self.message_urls = Object.keys(self.settings.firstmessages);
-        self.pushmessage_urls = Object.keys(settings.pushmessage);
+        self.pushmessage_urls = Object.keys(self.settings.pushmessage);
       },
       home_view(type){
         let self = this;
@@ -449,7 +449,7 @@ var app = new Vue({
       addPushMessage(){
         let self = this;
         if(self.pushmessage_urls.indexOf(self.pushmessage_url)==-1){
-          if(pushmessage_type=="Pop-ups"){
+          if(self.pushmessage_type=="Pop-ups"){
             self.settings.pushmessage[self.pushmessage_url] = {type: self.pushmessage_type, message: self.popmessage, button: self.popbutton};
             self.pushmessage_urls.push(self.pushmessage_url);
           }else{
