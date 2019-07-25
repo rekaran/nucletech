@@ -59,6 +59,8 @@ var app = new Vue({
       invalid_message: "",
       user_validation_type_: "no",
       message_urls: [],
+      pushmessage_type: "Pop-ups",
+      pushmessage_url: "",
       bot_says_error: "",
       bot_buttons_error: "",
       bot_carousels_error: "",
@@ -407,6 +409,9 @@ var app = new Vue({
         }else{
           self.message_urls_error = "Link is already present. Kindly add a new link.";
         }
+      },
+      addPushMessage(){
+        let self = this;
       },
       save_changes(){
         let self = this;
