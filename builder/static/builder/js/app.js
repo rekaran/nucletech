@@ -470,7 +470,6 @@ var app = new Vue({
         }else{
           self.pushmessage_error = "Push message already exists for the URL";
         }
-        console.log(self.settings);
       },
       save_changes(){
         let self = this;
@@ -488,7 +487,6 @@ var app = new Vue({
           hash: project_hash.value,
           settings: self.settings,
         }
-        console.log(data);
         const url = "https://www.nucletech.com/datamanager/"+project_hash.value+"/savedata/";
         const Http = new XMLHttpRequest();
         Http.open("POST", url, true);
