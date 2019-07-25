@@ -731,6 +731,12 @@
                             <!-- FAQ modal -->
                             <div id="nt-pushmodel" uk-modal>
                                 <div class="uk-modal-dialog uk-modal-body" v-if="pushmessage_type=='Pop-ups'">
+                                    <div uk-grid>
+                                        <div class="uk-width-1-1@m">
+                                            <div class="nt-push-message" v-for="msg in popmessage"><% msg %></div>
+                                            <div class="nt-push-button" v-for="btn in popbutton"><% btn %></div>
+                                        </div>
+                                    </div>
                                     <div uk-grid v-if="popmessage.length<2">
                                         <div class="uk-width-2-3@s">
                                             <div class="uk-margin nt-setting">
@@ -744,13 +750,13 @@
                                     </div>
                                     <div uk-grid v-if="popbutton.length<2">
                                         <div class="uk-width-1-4@s">
-                                            <div class="uk-margin">
+                                            <div class="uk-margin nt-setting">
                                                 <label for="faq-variation">BUTTON TEXT</label> 
                                                 <input class="uk-input" type="text" id="pop-button-text"> 
                                             </div>
                                         </div>
                                         <div class="uk-width-1-2@s">
-                                            <div class="uk-margin">
+                                            <div class="uk-margin nt-setting">
                                                 <label for="faq-variation">BUTTON VALUE</label> 
                                                 <input class="uk-input" type="text" id="pop-button-value"> 
                                             </div>
@@ -768,6 +774,30 @@
                                 </div>
                             </div>
                             <!-- / FAQ modal -->
+                            <div v-if="pushmessage_urls.length!=0">
+                                <div uk-grid>
+                                    <div class="uk-width-1-2@s">
+                                        <div class="nt-content">URL</div>
+                                    </div>
+                                    <div class="uk-width-1-4@s" style="padding-left: 0 !important;">
+                                        <div class="nt-content">TYPE</div>
+                                    </div>
+                                    <div class="uk-width-1-5@s" style="padding-left: 0 !important;">
+                                        <div class="nt-content">DELETE</div>
+                                    </div>
+                                </div>
+                                <div uk-grid v-for="(u, idx) in message_urls">
+                                    <div class="uk-width-1-2@s">
+                                        <div class="nt-content"><% u %></div>
+                                    </div>
+                                    <div class="uk-width-1-4@s" style="padding-left: 0 !important;">
+                                        <div class="nt-content"><% settings.pushmessage[u].type %></div>
+                                    </div>
+                                    <div class="uk-width-1-5@s" style="padding-left: 0 !important;">
+                                        <div class="nt-content uk-text-danger"><span uk-icon="icon: trash; ratio: 0.8"></span></div>
+                                    </div>
+                                </div>
+                            </div>
                             <div uk-grid>
                                 <div class="uk-width-1-2@s">
                                     <div class="nt-content">
