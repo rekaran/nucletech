@@ -463,6 +463,7 @@ var app = new Vue({
             self.pushmessage_urls.push(self.pushmessage_url);
           }else{
             self.settings.pushmessage[self.pushmessage_url] = {type: self.pushmessage_type, message: self.pushmessage_static};
+            self.pushmessage_urls.push(self.pushmessage_url);
           }
           self.pushmessage_url = "";
           self.popbutton = [];
