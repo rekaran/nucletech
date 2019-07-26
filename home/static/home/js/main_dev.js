@@ -53,10 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 200);
       }
     };
-  
     document.addEventListener("scroll", lazyLoad);
     window.addEventListener("resize", lazyLoad);
     window.addEventListener("orientationchange", lazyLoad);
-    let fi = document.querySelectorAll("img[data-src]")[0];
-    if (fi) fi.src = fi.dataset.src;
 });
