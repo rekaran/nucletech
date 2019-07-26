@@ -537,7 +537,7 @@
                                             <div class="nt-knobs"></div>
                                             <div class="nt-layer"></div>
                                         </div>
-                                        <span class="uk-margin-small-right uk-margin-small-left" uk-icon="icon: pencil; ratio: 0.8;" v-if="current_faq_type!='SMALLTALK'"></span><span class="uk-text-danger" uk-icon="icon: trash; ratio: 0.8;" v-if="current_faq_type!='SMALLTALK'"></span>
+                                        <span class="uk-margin-small-right uk-margin-small-left nt-pointer" uk-icon="icon: pencil; ratio: 0.8;" v-if="current_faq_type!='SMALLTALK'" v-on:click=""></span><span class="uk-text-danger" uk-icon="icon: trash; ratio: 0.8;" v-if="current_faq_type!='SMALLTALK'"></span>
                                     </td>
                                 </tr>
                             </tbody>
@@ -728,7 +728,7 @@
                     <div class="uk-width-3-4@m">
                         <div class="uk-margin nt-setting">
                             <div class="nt-heading">PUSH MESSAGES</div>
-                            <!-- FAQ modal -->
+                            <!-- push modal -->
                             <div id="nt-pushmodel" uk-modal>
                                 <div class="uk-modal-dialog uk-modal-body" v-if="pushmessage_type=='Pop-ups'">
                                     <div uk-grid>
@@ -794,7 +794,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <!-- / FAQ modal -->
+                            <!-- / push modal -->
                             <div v-if="pushmessage_urls.length!=0">
                                 <div uk-grid>
                                     <div class="uk-width-1-2@s">
