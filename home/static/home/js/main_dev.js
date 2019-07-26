@@ -30,17 +30,40 @@ $(document).ready(function() {
     }
 });
 document.addEventListener("DOMContentLoaded", function() {
-    var e, t = document.querySelectorAll("img[data-src]");
-
-    function o() {
-        e && clearTimeout(e), e = setTimeout(function() {
-            var n = window.pageYOffset;
-            t.forEach(function(e) {
-                e.offsetTop < window.innerHeight + n + 100 && (e.src = e.dataset.src)
-            }), (document.removeEventListener("scroll", o), window.removeEventListener("resize", o), window.removeEventListener("orientationChange", o))
-        }, 0);
-    }
-    document.addEventListener("scroll", o), window.addEventListener("resize", o), window.addEventListener("orientationChange", o)
+    let lazyImages = [].slice.call(document.querySelectorAll("img[data-src]"));
+    let active = false;
+  
+    const lazyLoad = function() {
+      if (active === false) {
+        active = true;
+  
+        setTimeout(function() {
+          lazyImages.forEach(function(lazyImage) {
+            if ((lazyImage.getBoundingClientRect().top <= window.innerHeight && lazyImage.getBoundingClientRect().bottom >= 0) && getComputedStyle(lazyImage).display !== "none") {
+              lazyImage.src = lazyImage.dataset.src;
+              lazyImage.srcset = lazyImage.dataset.srcset;
+              lazyImage.classList.remove("lazy");
+  
+              lazyImages = lazyImages.filter(function(image) {
+                return image !== lazyImage;
+              });
+  
+              if (lazyImages.length === 0) {
+                document.removeEventListener("scroll", lazyLoad);
+                window.removeEventListener("resize", lazyLoad);
+                window.removeEventListener("orientationchange", lazyLoad);
+              }
+            }
+        });
+  
+          active = false;
+        }, 200);
+        }
+    };
+  
+    document.addEventListener("scroll", lazyLoad);
+    window.addEventListener("resize", lazyLoad);
+    window.addEventListener("orientationchange", lazyLoad);
     let fi = document.querySelectorAll("img[data-src]")[0];
     if (fi) fi.src = fi.dataset.src;
 });
