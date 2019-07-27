@@ -196,7 +196,7 @@ def savedata(request, name):
                 post = dbmetamorph.insert_one({"projectId": project_id, "projectHash": project_hash, "data": pheremone, "timestamp": timestamp}).inserted_id
                 post = dbshielded.insert_one(shielded).inserted_id
                 settings["saveTimestamp"] = timestamp
-                keymap = dbkeymapper.find_one_and_update({"hash": project_hash}, {"$set": settings})
+                keymap = dbkeymapper.find_one_and_update({"projectId": project_id, "hash": project_hash}, {"$set": settings})
                 post = save_ipref(request)
                 print(train_time, p_size)
                 return JsonResponse({"status": 200})
