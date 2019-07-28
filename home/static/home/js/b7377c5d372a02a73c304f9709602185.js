@@ -1,6 +1,6 @@
 // var projectKey = {};
 // var context = {};
-// const projectkey = "NDIyZDllNDZlOTRiYTFmOWNkZWEzNjZhYzNjNDczMzc5YjY0ZDQ0YzBiZDA5MWFkMTBiM2IxM2NlYTM3OTAzNGFhNWY1MzVkNTJlOGNlODdmMWI3ZWE0ZTY1ZDJjNWZjZWNkNjFkMzgzZjgwYTVjZjhkN2I5ZmEyNmYwNzZjYzc=";
+// const projectkey = "U2FsdGVkX19MPl9PptQJfToPOsrAu8kGoKYbx9tPRXRA4dth4BONBSEXtSzExZfcYyTiUbSiKQgpP0Gh/Xa3z0bSOuHogI+ItTXLQn0kw03IXf7WDNGMZt6ADNBDds4zlrigBcrLbPueIBwSN95r7kLALLqlYvqq+N/VwCUI1xMBJBOhOcQP99ViunpxsKj0";
 const url = "https://www.nuclechat.com/key/"+window.location.hostname;
 const Http = new XMLHttpRequest();
 
