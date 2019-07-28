@@ -1,7 +1,7 @@
 // var projectKey = {};
 // var context = {};
 // const projectkey = "NDIyZDllNDZlOTRiYTFmOWNkZWEzNjZhYzNjNDczMzc5YjY0ZDQ0YzBiZDA5MWFkMTBiM2IxM2NlYTM3OTAzNGFhNWY1MzVkNTJlOGNlODdmMWI3ZWE0ZTY1ZDJjNWZjZWNkNjFkMzgzZjgwYTVjZjhkN2I5ZmEyNmYwNzZjYzc=";
-// const projectHash = ""
+// const projectHash = "U2FsdGVkX1+tETMxYy+6K69yNiYCtrFQi+1zuMlAXDzmej4Uilv3P/UIC/hy7hj+RGxqLCgkcX/zVoOuRPgnL2P+JUwWKL6wxVbqTtTlIAk7y7BvKZn9r4zD3iA23pNPOcPRol1mrlaLNrny0XIAX7aoETo7pv3LMx573fZiGgPO5QV23i1CbPz7nmZ4Sxdo"
 const url = "https://www.nuclechat.com/key/"+window.location.hostname;
 const Http = new XMLHttpRequest();
 
@@ -32,8 +32,8 @@ let getResourceList = res => {
         let Http = new XMLHttpRequest();
         Http.open("POST", url, true);
         Http.setRequestHeader("Content-Type", "application/json");
-        Http.setRequestHeader("Authorization", projectkey);
-        Http.send(JSON.stringify({key: projectKey.hash, timestamp: projectKey.timestamp, keys: projectKey.key}));
+        Http.setRequestHeader("Authorization", projectHash);
+        Http.send(JSON.stringify({key: projectHash, timestamp: projectKey.timestamp}));
         Http.onload = () =>{
             if (Http.status == 200) {
                 let response = JSON.parse(Http.responseText);
@@ -58,8 +58,8 @@ let startScript = () =>{
             if(primaryAnchor[0].getAttribute("href")=="https://www.nucletech.com"){
                 Http.open("POST", url, true);
                 Http.setRequestHeader("Content-Type", "application/json");
-                Http.setRequestHeader("Authorization", projectkey);
-                Http.send(JSON.stringify({key: projectkey}));
+                Http.setRequestHeader("Authorization", projectHash);
+                Http.send(JSON.stringify({key: projectHash}));
                 Http.onload = () =>{
                     if (Http.status == 200) {
                         projectKey = JSON.parse(Http.responseText);
