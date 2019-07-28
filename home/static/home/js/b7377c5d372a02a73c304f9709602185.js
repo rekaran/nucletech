@@ -1,7 +1,6 @@
 // var projectKey = {};
 // var context = {};
-// const projectkey = "U2FsdGVkX19MPl9PptQJfToPOsrAu8kGoKYbx9tPRXRA4dth4BONBSEXtSzExZfcYyTiUbSiKQgpP0Gh/Xa3z0bSOuHogI+ItTXLQn0kw03IXf7WDNGMZt6ADNBDds4zlrigBcrLbPueIBwSN95r7kLALLqlYvqq+N/VwCUI1xMBJBOhOcQP99ViunpxsKj0";
-// const projectkey_ = "422d9e46e94ba1f9cdea366ac3c473379b64d44c0bd091ad10b3b13cea379034aa5f535d52e8ce87f1b7ea4e65d2c5fcecd61d383f80a5cf8d7b9fa26f076cc7";
+// const projectkey = "NDIyZDllNDZlOTRiYTFmOWNkZWEzNjZhYzNjNDczMzc5YjY0ZDQ0YzBiZDA5MWFkMTBiM2IxM2NlYTM3OTAzNGFhNWY1MzVkNTJlOGNlODdmMWI3ZWE0ZTY1ZDJjNWZjZWNkNjFkMzgzZjgwYTVjZjhkN2I5ZmEyNmYwNzZjYzc=";
 const url = "https://www.nuclechat.com/key/"+window.location.hostname;
 const Http = new XMLHttpRequest();
 
@@ -33,11 +32,10 @@ let getResourceList = res => {
         Http.open("POST", url, true);
         Http.setRequestHeader("Content-Type", "application/json");
         Http.setRequestHeader("Authorization", projectkey);
-        Http.send(JSON.stringify({key: projectkey, timestamp: projectKey.timestamp, keys: projectKey.key}));
+        Http.send(JSON.stringify({key: projectKey.hash, timestamp: projectKey.timestamp, keys: projectKey.key}));
         Http.onload = () =>{
             if (Http.status == 200) {
-                let decData = CryptoJS.RabbitLegacy.decrypt(Http.responseText, projectKey.hash);
-                let response = JSON.parse(decData.toString(CryptoJS.enc.Utf8));
+                let response = JSON.parse(Http.responseText);
                 response.async.forEach(data=>{
                     resourceNegotiator(data, true, res);
                 });
@@ -63,8 +61,7 @@ let startScript = () =>{
                 Http.send(JSON.stringify({key: projectkey}));
                 Http.onload = () =>{
                     if (Http.status == 200) {
-                        let decData = CryptoJS.RabbitLegacy.decrypt(Http.responseText, projectkey_);
-                        projectKey = JSON.parse(decData.toString(CryptoJS.enc.Utf8));
+                        projectKey = JSON.parse(Http.responseText);
                         context = projectKey.context;
                         delete projectKey.context;
                         if(Object.keys(projectKey).length!==0){
