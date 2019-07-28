@@ -70,13 +70,11 @@ def index(request):
             whirlpool = hashlib.new('whirlpool')
             whirlpool.update(digest)
             hashKey = whirlpool.hexdigest()
-            post = requests.post(url="https://www.nuclechat.com/hash_encode/{}".format(request.user.domain), data={"hash": hashKey})
             project = Project()
             project.user = request.user
             project.project_id = projectId
             project.project_name = projectName
             project.project_hash = hashKey
-            project.project_hash_enc = post.text
             project.project_key = projectKey
             project.language = json.dumps(["en"])
             project.timezone = "UTC"
