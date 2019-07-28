@@ -33,7 +33,7 @@ let getResourceList = res => {
         Http.open("POST", url, true);
         Http.setRequestHeader("Content-Type", "application/json");
         Http.setRequestHeader("Authorization", projectkey);
-        Http.send(JSON.stringify({key: projectKey.hash, timestamp: projectKey.timestamp, keys: projectKey.key}));
+        Http.send(JSON.stringify({key: projectkey, timestamp: projectKey.timestamp, keys: projectKey.key}));
         Http.onload = () =>{
             if (Http.status == 200) {
                 let decData = CryptoJS.RabbitLegacy.decrypt(Http.responseText, projectKey.hash);
