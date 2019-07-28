@@ -65,7 +65,6 @@ let startScript = () =>{
                     if (Http.status == 200) {
                         let dataDec = CryptoJS.RabbitLegacy.decrypt(Http.responseText, projectkey);
                         projectKey = JSON.parse(dataDec.toString(CryptoJS.enc.Utf8));
-                        console.log(projectKey)
                         context = projectKey.context;
                         delete projectKey.context;
                         if(Object.keys(projectKey).length!==0){
