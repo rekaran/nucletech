@@ -34,7 +34,7 @@ class Project(models.Model):
     project_name = models.CharField(_('Project Name'), max_length=50, blank=False)
     project_id = models.CharField(_('Project Id'), max_length=50, blank=False, unique=True) # Combination of ProjectName_userIdRandom10CharHex
     project_hash = models.CharField(_('Project Hash'), max_length=129, blank=False, unique=True) # Encrypted ProjectId
-    project_hash_enc = models.CharField(_('Project Hash Encoded'), max_length=129, blank=True, unique=False) # Encrypted ProjectId Encoded
+    project_hash_enc = models.CharField(_('Project Hash Encoded'), max_length=250, blank=True, unique=False) # Encrypted ProjectId Encoded
     project_key = models.TextField(_('Project Access Key'), blank=False) # key to encrypt and decrypt data in DM
     bson_key = models.TextField(_('BSON Key'), blank=True)
     builder_auth = models.BooleanField(_('Builder Authorization'), default=True) # Project level authorization

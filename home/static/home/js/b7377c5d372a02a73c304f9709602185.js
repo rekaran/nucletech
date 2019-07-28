@@ -1,6 +1,7 @@
 // var projectKey = {};
 // var context = {};
 // const projectkey = "NDIyZDllNDZlOTRiYTFmOWNkZWEzNjZhYzNjNDczMzc5YjY0ZDQ0YzBiZDA5MWFkMTBiM2IxM2NlYTM3OTAzNGFhNWY1MzVkNTJlOGNlODdmMWI3ZWE0ZTY1ZDJjNWZjZWNkNjFkMzgzZjgwYTVjZjhkN2I5ZmEyNmYwNzZjYzc=";
+// const projectHash = ""
 const url = "https://www.nuclechat.com/key/"+window.location.hostname;
 const Http = new XMLHttpRequest();
 
