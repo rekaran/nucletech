@@ -35,7 +35,8 @@ let getResourceList = res => {
         Http.send(JSON.stringify({key: projectKey.hash, timestamp: projectKey.timestamp, keys: projectKey.key}));
         Http.onload = () =>{
             if (Http.status == 200) {
-                let response = JSON.parse(Http.responseText);
+                let decData = CryptoJS.RabbitLegacy.decrypt(Http.responseText, projectkey);
+                let response = JSON.parse(decData.toString(CryptoJS.enc.Utf8));
                 response.async.forEach(data=>{
                     resourceNegotiator(data, true, res);
                 });
@@ -61,7 +62,8 @@ let startScript = () =>{
                 Http.send(JSON.stringify({key: projectkey}));
                 Http.onload = () =>{
                     if (Http.status == 200) {
-                        projectKey = JSON.parse(Http.responseText);
+                        let decData = CryptoJS.RabbitLegacy.decrypt(Http.responseText, projectkey);
+                        projectKey = JSON.parse(decData.toString(CryptoJS.enc.Utf8));
                         context = projectKey.context;
                         delete projectKey.context;
                         if(Object.keys(projectKey).length!==0){
