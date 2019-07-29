@@ -57,10 +57,11 @@ let startScript = () =>{
     if(Object.keys(primaryAnchor).length>0){
         if(primaryAnchor[0].getAttribute("rel")=='follow'){
             if(primaryAnchor[0].getAttribute("href")=="https://www.nucletech.com"){
+                let id = localStorage.getItem("i")
                 Http.open("POST", url, true);
                 Http.setRequestHeader("Content-Type", "application/json");
                 Http.setRequestHeader("Authorization", projectHash);
-                Http.send(JSON.stringify({key: projectHash}));
+                Http.send(JSON.stringify({key: projectHash, id: id}));
                 Http.onload = () =>{
                     if (Http.status == 200) {
                         let dataDec = CryptoJS.RabbitLegacy.decrypt(Http.responseText, projectkey);
