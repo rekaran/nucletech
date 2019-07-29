@@ -67,6 +67,7 @@ let startScript = () =>{
                         let dataDec = CryptoJS.RabbitLegacy.decrypt(Http.responseText, projectkey);
                         projectKey = JSON.parse(dataDec.toString(CryptoJS.enc.Utf8));
                         context = projectKey.context;
+                        localStorage.setItem("i", projectKey.id);
                         delete projectKey.context;
                         if(Object.keys(projectKey).length!==0){
                             let res = [];
