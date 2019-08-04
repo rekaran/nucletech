@@ -364,11 +364,11 @@
                             </div>
                             <div uk-grid>
                                 <div class="uk-width-3-5@s">
-                                    <div class="uk-margin" v-if="user_input_type=='Text'">
+                                    <div class="uk-margin" v-if="bot_input_option=='None'">
                                         <label for="nt-user-input">USER INPUT</label>
                                         <input type="text" id="ny-user-input" class="uk-input" disabled value="User will only give text as input.">
                                     </div>
-                                    <div class="uk-margin" v-if="user_input_type=='Text + Buttons'">
+                                    <div class="uk-margin" v-if="bot_input_option=='Buttons'">
                                         <label for="nt-user-input" style="display: block">USER INPUT BUTTONS</label>
                                         <div class="nt-user-buttons">
                                             <div v-for="(user_button, idx) in user_input_buttons" :data-describe="user_button.value" :uk-tooltip="'title: Button Value: '+user_button.value+';pos: top'"><% user_button.text %><span v-on:click="delete_button(idx)" class="uk-text-danger uk-margin-small-left" uk-icon="icon: trash; ratio: 0.8"></span></div>
@@ -398,7 +398,7 @@
                                         </div>
                                         <span class="uk-text-danger"><% bot_buttons_error %></span>
                                     </div>
-                                    <div class="uk-margin" v-if="user_input_type=='Text + Carousels'">
+                                    <div class="uk-margin" v-if="bot_input_option=='Carousels'">
                                         <label for="nt-user-input" style="display: block">USER INPUT CAROUSELS</label>
                                         <div class="nt-user-carousels">
                                             <div class="nt-carousel" v-for="(user_carousel, idx) in user_input_carousels" :data-describe="user_carousel.value"><% user_carousel.text %> <span class="nt-carousel-remove uk-text-danger" uk-icon="icon: trash; ratio: 0.7" v-on:click="delete_carousel(idx)"></span> <br><button :uk-tooltip="'title: Button Value: '+user_carousel.value+';pos: top'">SELECT</button></div>
