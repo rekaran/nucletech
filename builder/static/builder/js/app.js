@@ -330,6 +330,7 @@ var app = new Vue({
         let bot_greeting = "";
         let user_input = "";
         let bot_input_option = "";
+        let user_input_option = "";
         if(bot_message.value==""){
           self.bot_says_error="This field cannot be blank!";
           return;
