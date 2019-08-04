@@ -347,13 +347,13 @@ var app = new Vue({
             return;
           }
         }
-        if(self.user_input_type=="Text"){
+        if(self.user_input_option=="Text"){
           user_input_option = 'text';
-        }else if(self.user_input_type=="Date"){
+        }else if(self.user_input_option=="Date"){
           user_input_option = 'date';
-        }else if(self.user_input_type=="Number"){
+        }else if(self.user_input_option=="Number"){
           user_input_option = 'number';
-        }else if(self.user_input_type=="Password"){
+        }else if(self.user_input_option=="Password"){
           user_input_option = 'password';
         }
         if(self.bot_input_option=="Buttons"){
