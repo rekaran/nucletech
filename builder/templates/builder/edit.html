@@ -366,7 +366,7 @@
                                 <div class="uk-width-3-5@s">
                                     <div class="uk-margin" v-if="bot_input_option=='None'">
                                         <label for="nt-user-input">USER INPUT</label>
-                                        <input type="text" id="ny-user-input" class="uk-input" disabled value="User will only give text as input.">
+                                        <input type="text" id="ny-user-input" class="uk-input" disabled :value="user_input_option+' as input.'">
                                     </div>
                                     <div class="uk-margin" v-if="bot_input_option=='Buttons'">
                                         <label for="nt-user-input" style="display: block">USER INPUT BUTTONS</label>
