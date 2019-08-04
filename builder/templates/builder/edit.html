@@ -431,13 +431,24 @@
                                         <span class="uk-text-danger"><% bot_carousels_error %></span>
                                     </div>
                                 </div>
-                                <div class="uk-width-2-5@s">
+                                <div class="uk-width-1-5@s">
                                     <div class="uk-margin">
                                         <label for="nt-user-inpu-type">USER INPUT TYPE</label>
                                         <select class="uk-select" v-model="user_input_type" uk-tooltip="title: This specify the type of input user is going to enter.; pos: right" >
                                             <option>Text</option>
-                                            <option>Text + Buttons</option>
-                                            <option>Text + Carousels</option>
+                                            <option>Date</option>
+                                            <option>Number</option>
+                                            <option>Password</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="uk-width-1-5@s">
+                                    <div class="uk-margin">
+                                        <label for="nt-user-inpu-type">BOT INPUT OPTIONS</label>
+                                        <select class="uk-select" v-model="bot_input_option" uk-tooltip="title: This specify the type of input user is going to enter.; pos: right" >
+                                            <option>None</option>
+                                            <option>Buttons</option>
+                                            <option>Carousels</option>
                                         </select>
                                     </div>
                                 </div>

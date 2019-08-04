@@ -48,7 +48,8 @@ var app = new Vue({
       is_validation: false,
       is_bot_greetings: false,
       is_settings: false,
-      user_input_type: 'Text',
+      bot_input_option: 'Text',
+      user_input_option: 'None',
       user_add_button: false,
       user_input_buttons: [],
       user_add_carousel: false,
@@ -301,7 +302,8 @@ var app = new Vue({
       },
       clear_stage(){
         let self = this;
-        self.user_input_type = 'Text';
+        self.bot_input_option = 'None';
+        self.user_input_option = 'Text';
         self.user_validation_type = "No Validation";
         self.user_validation_type="No Validation";
         self.user_validation = "";
@@ -327,33 +329,39 @@ var app = new Vue({
         let bot_message = document.getElementById("nt-bot-says");
         let bot_greeting = "";
         let user_input = "";
-        let user_input_type = "";
+        let bot_input_option = "";
         if(bot_message.value==""){
           self.bot_says_error="This field cannot be blank!";
           return;
         }
-        if(self.user_input_type=="Text + Buttons"){
+        if(self.bot_input_option=="Buttons"){
           if(self.user_input_buttons.length==0){
             self.bot_buttons_error="This field cannot be blank!";
             return;
           }
         }
-        if(self.user_input_type=="Text + Carousels"){
+        if(self.bot_input_option=="Carousels"){
           if(self.user_input_carousels.length==0){
             self.bot_carousels_error="This field cannot be blank!";
             return;
           }
         }
         if(self.user_input_type=="Text"){
-          user_input = "text";
-          user_input_type = ['text'];
-        }else if(self.user_input_type=="Text + Buttons"){
+          user_input_option = 'text';
+        }else if(self.user_input_type=="Date"){
+          user_input_option = 'date';
+        }else if(self.user_input_type=="Number"){
+          user_input_option = 'number';
+        }else if(self.user_input_type=="Password"){
+          user_input_option = 'password';
+        }
+        if(self.bot_input_option=="Buttons"){
           user_input = self.user_input_buttons;
-          user_input_type = 'buttons';
+          bot_input_option = 'buttons';
           self.user_input_buttons = [];
-        }else if(self.user_input_type=="Text + Carousels"){
+        }else if(self.bot_input_option=="Carousels"){
           user_input = self.user_input_carousels;
-          user_input_type = 'carousels';
+          bot_input_option = 'carousels';
           self.user_input_carousels = [];
         }
         if(self.current_stages.length==0&&self.is_bot_greetings){
@@ -365,7 +373,8 @@ var app = new Vue({
           bot_message: bot_message.value,
           bot_greeting: bot_greeting,
           user_input: user_input,
-          user_input_type: user_input_type,
+          bot_input_option: bot_input_option,
+          user_input_option: user_input_option,
           input_validation: self.user_validation,
           input_validation_type: self.user_validation_type_,
           input_valid_next: self.user_valid_next,
