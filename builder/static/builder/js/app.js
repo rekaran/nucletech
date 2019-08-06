@@ -364,6 +364,14 @@ var app = new Vue({
           user_input = self.user_input_carousels;
           bot_input_option = 'carousels';
           self.user_input_carousels = [];
+        }else if(self.bot_input_option=="Buttons API"){
+          user_input = self.user_input_carousels;
+          bot_input_option = 'carousels';
+          self.user_input_carousels = [];
+        }else if(self.bot_input_option=="Carousels API"){
+          user_input = self.user_input_carousels;
+          bot_input_option = 'carousels';
+          self.user_input_carousels = [];
         }
         if(self.current_stages.length==0&&self.is_bot_greetings){
           bot_greeting = document.getElementById("nt-bot-greeting").value;
