@@ -50,6 +50,7 @@ var app = new Vue({
       is_settings: false,
       bot_input_option: 'Text',
       user_input_option: 'None',
+      user_input_api: "",
       user_add_button: false,
       user_input_buttons: [],
       user_add_carousel: false,
@@ -309,6 +310,7 @@ var app = new Vue({
         self.user_validation = "";
         self.user_valid_next = "";
         self.invalid_message = "";
+        self.user_input_api = "";
         self.user_validation_type_ = "no";
         self.bot_says_error= "";
         self.bot_buttons_error= "";
@@ -347,6 +349,12 @@ var app = new Vue({
             return;
           }
         }
+        if(self.bot_input_option=="Carousels API" || self.bot_input_option=="Buttons API"){
+          if(self.user_input_api==""){
+            self.bot_carousels_error="This field cannot be blank!";
+            return;
+          }
+        }
         if(self.user_input_option=="Text"){
           user_input_option = 'text';
         }else if(self.user_input_option=="Date"){
@@ -365,12 +373,12 @@ var app = new Vue({
           bot_input_option = 'carousels';
           self.user_input_carousels = [];
         }else if(self.bot_input_option=="Buttons API"){
-          user_input = self.user_input_carousels;
-          bot_input_option = 'carousels';
+          user_input = self.user_input_api;
+          bot_input_option = 'buttonsApi';
           self.user_input_carousels = [];
         }else if(self.bot_input_option=="Carousels API"){
-          user_input = self.user_input_carousels;
-          bot_input_option = 'carousels';
+          user_input = self.user_input_api;
+          bot_input_option = 'carouselsApi';
           self.user_input_carousels = [];
         }
         if(self.current_stages.length==0&&self.is_bot_greetings){

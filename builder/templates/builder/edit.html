@@ -368,6 +368,10 @@
                                         <label for="nt-user-input">USER INPUT</label>
                                         <input type="text" id="ny-user-input" class="uk-input" disabled :value="user_input_option+' as input.'">
                                     </div>
+                                    <div class="uk-margin" v-if="bot_input_option=='Carousels API'||bot_input_option=='Buttons API'">
+                                        <label for="nt-user-input">USER INPUT API</label>
+                                        <input type="text" id="nt-user-intpu-api" v-model="user_input_api" class="uk-input" disabled value="Your API URL: https://api.nucletech.com">
+                                    </div>
                                     <div class="uk-margin" v-if="bot_input_option=='Buttons'">
                                         <label for="nt-user-input" style="display: block">USER INPUT BUTTONS</label>
                                         <div class="nt-user-buttons">
