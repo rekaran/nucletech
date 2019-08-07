@@ -363,6 +363,8 @@ var app = new Vue({
           user_input_option = 'number';
         }else if(self.user_input_option=="Password"){
           user_input_option = 'password';
+        }else if(self.user_input_option=="Hidden"){
+          user_input_option = 'hidden';
         }
         if(self.bot_input_option=="Buttons"){
           user_input = self.user_input_buttons;
