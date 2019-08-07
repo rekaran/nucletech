@@ -399,6 +399,7 @@ var app = new Vue({
           input_valid_next: self.user_valid_next,
           invalid_message: self.invalid_message
         }
+        console.log(data);
         bot_message.value = "";
         stage_name.value = "";
         self.current_stages.push(data);
