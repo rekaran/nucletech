@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth import views as auth_views
 from django.contrib.auth import logout
-from django.conf.urls import url
+from django.conf.urls import url, include
 from . import views
 
 login_forbidden = user_passes_test(lambda u: u.is_anonymous, 'builder.index', redirect_field_name=None)
