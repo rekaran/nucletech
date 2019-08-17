@@ -7,3 +7,4 @@ requests
 pandas
 numpy
 pillow
+social-auth-app-django

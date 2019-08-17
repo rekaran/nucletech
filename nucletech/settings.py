@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
     'home.apps.HomeConfig', # Will contain all non-login pages, single page Vue application.
     'builder.apps.BuilderConfig', # A platform to create and manage the bot.
     'human.apps.HumanConfig', # A platform to manage unhandled queries by a agent.
@@ -61,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'nucletech.urls'
@@ -76,6 +78,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -153,3 +157,8 @@ LOGIN_URL = 'home.login'
 
 EMAIL_HOST = "localhost"
 EMAIL_PORT = 1025
+
+# Social/Auth
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "726356325527-c4ut01vuoevgn36cbtrl925u2d9q6bqm.apps.googleusercontent.com"
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "fQvVhkzRdteF1uKARXuPy06h"
