@@ -133,12 +133,12 @@
             <div class="uk-text-center nt-text-small">Or get access using</div>
             <div class="uk-margin-top" uk-grid>
                 <div class="uk-width-1-2@m">
-                    <a class="nt-social" href="">
+                    <a class="nt-social" href="{% url 'social:begin' 'google-oauth2' %}">
                         <div class="social-login"><img src="{% static 'home/img/google.png' %}" alt="Google Login"> <div class="uk-text-center">GOOGLE</div></div>
                     </a>
                 </div>
                 <div class="uk-width-1-2@m">
-                    <a class="nt-social" href="">
+                    <a class="nt-social" href="{% url 'social:begin' 'google-oauth2' %}">
                         <div class="social-login"><img src="{% static 'home/img/facebook.png' %}" alt="Facebook Login"> <div class="uk-text-center">FACEBOOK</div></div>
                     </a>
                 </div>
