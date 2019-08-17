@@ -69,7 +69,14 @@
     }.nt-login-img.nt-small{
         display: none;
     }.social-login img{
-        height: 30px;
+        padding: 5px 10px;
+        border: solid 1px rgba(0,0,0,0.3);
+        vertical-align: middle;
+        transition: all 0.3s ease-in-out;
+        background: white;
+    }.social-login:hover {
+        box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+        transform: translateY(-10px);
     }
 </style>
 {% endblock %}
@@ -108,7 +115,7 @@
                 </div>
             </form>
             <div class="uk-text-center nt-text-small">Or get access using</div>
-            <div uk-grid>
+            <div class="uk-margin-medium-top" uk-grid>
                 <div class="uk-width-1-2@m">
                     <a href="">
                         <div class="social-login"><img src="{% static 'home/img/google.png' %}" alt="Google Login"> GOOGLE</div>
