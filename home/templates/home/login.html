@@ -74,17 +74,22 @@
         vertical-align: middle;
         transition: all 0.3s ease-in-out;
         background: white;
+        font-size: 20px;
+        vertical-align: bottom;
     }.social-login img{
         height: 30px;
         -webkit-filter: grayscale(100%);
         filter: grayscale(100%);
         transition: all 0.3s ease-in-out;
+        vertical-align: bottom;
     }.social-login:hover {
         box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
         transform: translateY(-10px);
     }.social-login:hover img{
         -webkit-filter: grayscale(0%);
         filter: grayscale(0%);
+    }.nt-social{
+        color: rgba(0,0,0,0.75);
     }
 </style>
 {% endblock %}
@@ -125,12 +130,12 @@
             <div class="uk-text-center nt-text-small">Or get access using</div>
             <div class="uk-margin-medium-top" uk-grid>
                 <div class="uk-width-1-2@m">
-                    <a href="">
+                    <a class="nt-social" href="">
                         <div class="social-login"><img src="{% static 'home/img/google.png' %}" alt="Google Login"> GOOGLE</div>
                     </a>
                 </div>
                 <div class="uk-width-1-2@m">
-                    <a href="">
+                    <a class="nt-social" href="">
                         <div class="social-login"><img src="{% static 'home/img/facebook.png' %}" alt="Facebook Login"> FACEBOOK</div>
                     </a>
                 </div>
