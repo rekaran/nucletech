@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="shortcut icon" type="image/png" href="{% static 'home/img/favicon.png' %}"/>
+    <title>Bots @ Nucletech</title>
+    <!-- CSS Code -->
+    <link rel="stylesheet" href="{% static 'home/css/nucletech.css' %}" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+    <link rel="stylesheet" href="{% static 'home/css/main.css' %}" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+    <!-- Google Font for Logo -->
+    <link href="{% static 'home/css/fonts.css' %}" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143786996-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-143786996-1');
+    </script>
+    <style>
+        :focus{
+            outline: none !important;
+        }.nt-anchor{
+            color: #FFFFFF;
+        }.nt-anchor:hover{
+            text-decoration: none;
+            color: #FFFFFF;
+        }.nt-bot-display{
+            height: 350px;
+            width: 100%;
+            background-size: cover;
+            background-position: center center;
+            transition: all 0.3s ease-in-out;
+            -webkit-transition: all 0.3s ease-in-out;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+            display: block;
+            border-radius: 1rem;
+        }.nt-bot-display:hover{
+            transform: translateY(-10px);
+            -webkit-transform: translateY(-10px);
+            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.65);
+        }.nt-bot-display h3{
+            color: #FFFFFF;
+            font-size: 28px;
+            padding-left: 1rem;
+            padding-top: 250px;
+            font-weight: 800;
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.75);
+        }.nt-realestate{
+            background-image: url("{% static 'bot/img/realestate_display.png' %}");
+        }.nt-food{
+            background-image: url("{% static 'bot/img/food_display.png' %}");
+        }.nt-shopping{
+            background-image: url("{% static 'bot/img/shopping_display.png' %}");
+        }h2{
+            position: relative;
+            color: rgba(0, 0, 0, 0.75);
+            font-weight: 900;
+            font-family: 'Poppins', sans-serif;
+        }h2 .nt-heading-underline{
+            position: absolute;
+            width: 100px;
+            height: 5px;
+            bottom: 0;
+            background: linear-gradient(to right top,rgb(0, 162, 255), rgb(0, 204, 255));
+            transition: all 0.3s ease-in-out;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+        }h2:hover .nt-heading-underline{
+            transform: translateX(-20px);
+        }p{
+            color: rgba(0, 0, 0, 0.4);
+        }.uk-margin-large-top{
+            margin-top: 6.5rem !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar uk-background-default-->
+    <!-- <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar"> -->
+        <nav class="uk-navbar-container uk-navbar-sticky uk-margin" uk-navbar> 
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-item uk-logo uk-margin-large-left uk-visible@s" href="#">RealEstate Bot</a>
+                <a class="uk-navbar-item uk-logo uk-margin-left uk-hidden@s" href="#">RealEstate Bot</a>
+            </div>
+            <div class="uk-navbar-right uk-hidden@s">
+                <span class="uk-margin-right side-nav-toggle nav-icon-menu" uk-icon="icon: menu; ratio: 1.75"></span>
+                <span class="uk-margin-right side-nav-toggle nav-hidden nav-icon-close" uk-icon="icon: close; ratio: 1.5"></span>
+            </div>
+            <div id="side-nav">
+                <div class="side-nav-content">
+                    <a class="uk-navbar-item uk-logo uk-hidden@s uk-margin-small-top side-nav-logo" href="#">RealEstate Bot</a>
+                    <ul class="uk-margin-top">
+                        <li><a href="https://www.nucletech.com"><span uk-icon="icon: home; ratio: 1" class="uk-margin-right"></span>nucletech</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="uk-navbar-right uk-visible@s uk-margin-large-right">
+                <ul class="uk-navbar-nav">
+                    <li><a href="https://www.nucletech.com">nucletech</a></li>
+                </ul>
+            </div>
+        </nav>
+    <!-- </div> -->
+    <!-- /Navigation Bar -->
+    <div  class="uk-container uk-container-expand">
+        
+    </div>
+    <!-- Cookie POP up -->
+    <div class="nt-cookie"></div>
+    <!-- /Cookie POP up -->
+    <div id="nt-bot">
+        <a class="nt-primary-link" href="https://www.nucletech.com" rel="follow">We'r powered by Nucletech</a>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="uk-container uk-container-expand uk-padding-remove uk-margin-medium-top nt-footer">
+            <div class="uk-text-center uk-margin-medium-bottom" uk-grid>
+                <div class="uk-width-1-5@l">
+                    <a class="uk-logo" href="https://www.nucletech.com">nucletech</a><br>
+                    <div class="nt-footer-slogan">
+                        INTELLIGENT BY NATURE&TRADE;
+                    </div>
+                    <div class="nt-footer-copyright">
+                        &COPY; Copyright - 2019
+                    </div>
+                </div>
+                <div class="uk-width-3-5@l">
+                    <div class="uk-margin-bottom">&REG; NUCLETECH Pvt. Ltd. - 2019</div>
+                    <a href="https://www.nucletech.com/careers/" class="nt-footer-nav">Careers</a>
+                    <a href="https://www.nucletech.com/about/" class="nt-footer-nav">About Us</a>
+                    <a href="https://www.nucletech.com/contact/" class="nt-footer-nav">Contact Us</a>
+                    <a href="https://www.nucletech.com/faq/" class="nt-footer-nav">FAQ</a>
+                    <a href="https://www.nucletech.com/bots/" class="nt-footer-nav">Our Bots</a>
+                    <a href="https://www.nucletech.com/casestudy/" class="nt-footer-nav">Case Study</a>
+                    <a href="https://www.nucletech.com/blogs/" class="nt-footer-nav">Blogs</a>
+
+                    <div class="uk-margin-small-top">
+                        <a href="https://www.nucletech.com/sitemap/" class="nt-footer-subnav">Site Map</a> | 
+                        <a href="https://www.nucletech.com/termsofuse/" class="nt-footer-subnav">Terms Of Use</a> | 
+                        <a href="https://www.nucletech.com/privacy/" class="nt-footer-subnav">Privacy Policies</a> | 
+                        <a href="https://www.nucletech.com/press/" class="nt-footer-subnav">Press Resources</a>
+                    </div>
+                </div>
+                <div class="uk-width-1-5@l">Media Links</div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer -->
+    <!-- Javascript Code -->
+    <!-- <script src="{% static 'home/js/jquery.min.js' %}"></script> -->
+    <script src="{% static 'home/js/uikit.min.js' %}" async></script>
+    <script src="{% static 'home/js/uikit-icons.min.js' %}" async></script>
+    <!-- <script src="https://www.nuclechat.com/static/js/crypto-js.min.js"></script>
+    <script>
+        var _0x3d02=['CMO9V8KSwonCqcKpbw5YcMKxw5MTw4luwpzDmQTDtm0Iw5rCj8OGDMKmVHhCDGDChAxObmEAw7x0w4ocJMODFHZSw4bDslbCkcK/w5LDoQrCtcOHBsKowpfDm8K+NEzClybDqMOIwrZNYAnDt1FZImvCniTCnMKUwrQpWxTCg0wcwq3CnMKpFjLCtV7DjlDDpjPCnlXDhmdhFi9ZP8KJFsK8bsOvIcOFFcKTwp3Cs8KUwrdLdiUbwpvCoFw/Dw1Yw70sU8OMwr7CojgDMD1SUD/CucOmT8OHwr3Cm3gEZsOBd8O+wqnDsUXDi8Klw6xcVcK1PxEWNhtLwpvCuAfDp3bDiMKkUmM5woDCkXLCtUXClcOtaMKfGA==','EsO+wrfDvm89TMK9wqfCpcOzw67Cu8OmQUzDq8OWRTzDsRnClhXDtcOJDz3Do2fCg8Kuw7/Dm8K+GXZUQMKIOwhCw4vCpsOIeMOFw6RMe8KWwrUkFcObLcOuw5U2PXTDsR5Ow7F7IQ7CsVs2OkFIKS8fw7XCglB/dsOoMMKhU0DCpsKHD8KETBh3wrtSfTB6wp/DnT3DsMOnA8KJw4TDmFnCksOYDcO4DMK/wrLDksOew4LDvRLCtS1bE3Yy'];(function(_0x3d53ca,_0x57a2c0){var _0x26e249=function(_0x1642df){while(--_0x1642df){_0x3d53ca['push'](_0x3d53ca['shift']());}};_0x26e249(++_0x57a2c0);}(_0x3d02,0x18d));var _0x1a2c=function(_0x16b3cd,_0x3ff41a){_0x16b3cd=_0x16b3cd-0x0;var _0x39f739=_0x3d02[_0x16b3cd];if(_0x1a2c['zKytob']===undefined){(function(){var _0x9bd6ce=function(){var _0x513302;try{_0x513302=Function('return\x20(function()\x20'+'{}.constructor(\x22return\x20this\x22)(\x20)'+');')();}catch(_0x3369d0){_0x513302=window;}return _0x513302;};var _0x510d52=_0x9bd6ce();var _0x1fa42d='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';_0x510d52['atob']||(_0x510d52['atob']=function(_0x3f65ea){var _0x4fa5b4=String(_0x3f65ea)['replace'](/=+$/,'');for(var _0x1a259b=0x0,_0x13b1d3,_0x4dc5e6,_0xbe3c71=0x0,_0x556d83='';_0x4dc5e6=_0x4fa5b4['charAt'](_0xbe3c71++);~_0x4dc5e6&&(_0x13b1d3=_0x1a259b%0x4?_0x13b1d3*0x40+_0x4dc5e6:_0x4dc5e6,_0x1a259b++%0x4)?_0x556d83+=String['fromCharCode'](0xff&_0x13b1d3>>(-0x2*_0x1a259b&0x6)):0x0){_0x4dc5e6=_0x1fa42d['indexOf'](_0x4dc5e6);}return _0x556d83;});}());var _0x1dc38d=function(_0x20a56b,_0x3ff41a){var _0x5f5317=[],_0x2a8c82=0x0,_0xf88f45,_0x5bf1d7='',_0x50f186='';_0x20a56b=atob(_0x20a56b);for(var _0x20f86d=0x0,_0x4f3cd5=_0x20a56b['length'];_0x20f86d<_0x4f3cd5;_0x20f86d++){_0x50f186+='%'+('00'+_0x20a56b['charCodeAt'](_0x20f86d)['toString'](0x10))['slice'](-0x2);}_0x20a56b=decodeURIComponent(_0x50f186);for(var _0x4914ae=0x0;_0x4914ae<0x100;_0x4914ae++){_0x5f5317[_0x4914ae]=_0x4914ae;}for(_0x4914ae=0x0;_0x4914ae<0x100;_0x4914ae++){_0x2a8c82=(_0x2a8c82+_0x5f5317[_0x4914ae]+_0x3ff41a['charCodeAt'](_0x4914ae%_0x3ff41a['length']))%0x100;_0xf88f45=_0x5f5317[_0x4914ae];_0x5f5317[_0x4914ae]=_0x5f5317[_0x2a8c82];_0x5f5317[_0x2a8c82]=_0xf88f45;}_0x4914ae=0x0;_0x2a8c82=0x0;for(var _0x138148=0x0;_0x138148<_0x20a56b['length'];_0x138148++){_0x4914ae=(_0x4914ae+0x1)%0x100;_0x2a8c82=(_0x2a8c82+_0x5f5317[_0x4914ae])%0x100;_0xf88f45=_0x5f5317[_0x4914ae];_0x5f5317[_0x4914ae]=_0x5f5317[_0x2a8c82];_0x5f5317[_0x2a8c82]=_0xf88f45;_0x5bf1d7+=String['fromCharCode'](_0x20a56b['charCodeAt'](_0x138148)^_0x5f5317[(_0x5f5317[_0x4914ae]+_0x5f5317[_0x2a8c82])%0x100]);}return _0x5bf1d7;};_0x1a2c['jCgUFi']=_0x1dc38d;_0x1a2c['HJHvQC']={};_0x1a2c['zKytob']=!![];}var _0x36df6b=_0x1a2c['HJHvQC'][_0x16b3cd];if(_0x36df6b===undefined){if(_0x1a2c['hFGlqI']===undefined){_0x1a2c['hFGlqI']=!![];}_0x39f739=_0x1a2c['jCgUFi'](_0x39f739,_0x3ff41a);_0x1a2c['HJHvQC'][_0x16b3cd]=_0x39f739;}else{_0x39f739=_0x36df6b;}return _0x39f739;};var projectKey={};var context={};const projectkey=_0x1a2c('0x0','SXvO');const projectHash=_0x1a2c('0x1','2F26');
+    </script> -->
+    <!-- <script src="{% static 'home/js/socket.io.js' %}" async></script> -->
+    <!-- <script src="{% static 'home/js/nucletech.min.js' %}" async></script> -->
+</body>
+</html>
