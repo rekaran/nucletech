@@ -106,6 +106,14 @@ DATABASE_URL="mongodb://nt-test:cqEu8v4Un6VimhVo@nt-test-shard-00-00-0tdov.mongo
 
 AUTH_USER_MODEL = 'home.User'
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 # Password validation karan@nucletech.com: !nfamousSpeed@1012
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
