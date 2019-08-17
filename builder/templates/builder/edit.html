@@ -237,10 +237,10 @@
                                         <div class="nt-bot-greetings" v-if="stage.bot_greeting!=''"><% stage.bot_greeting %></div>
                                         <div><% stage.bot_message %></div>
                                     </div>
-                                    <div class="nt-bot-buttons" v-if="stage.user_input_type=='buttons'">
+                                    <div class="nt-bot-buttons" v-if="stage.bot_input_option=='buttons'">
                                         <div v-for="btn in stage.user_input"><% btn.text %></div>
                                     </div>
-                                    <div class="nt-bot-carousels" v-if="stage.user_input_type=='carousels'">
+                                    <div class="nt-bot-carousels" v-if="stage.bot_input_option=='carousels'">
                                         <div v-for="carousel in stage.user_input"><% carousel.text %><button>Select</button></div>
                                     </div>
                                 </div>
