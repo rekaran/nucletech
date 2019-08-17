@@ -174,14 +174,4 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "fQvVhkzRdteF1uKARXuPy06h"
 SOCIAL_AUTH_GITHUB_KEY = "d47bf4bb6e8c0f7698f2"
 SOCIAL_AUTH_GITHUB_SECRET = "7a62a4203797fd3acc942064b4930a9087ee481b"
 
-SOCIAL_AUTH_PIPELINE = (
-    'social_core.pipeline.social_auth.social_details',
-    'social_core.pipeline.social_auth.social_uid',
-    'social_core.pipeline.social_auth.social_user',
-    # 'social_core.pipeline.user.get_username',
-    'social_core.pipeline.user.create_user',
-    'social_core.pipeline.social_auth.associate_user',
-    'social_core.pipeline.social_auth.load_extra_data',
-    'social_core.pipeline.user.user_details',
-    'social_core.pipeline.social_auth.associate_by_email',
-)
+SOCIAL_AUTH_GITHUB_SCOPE = ["email"]
