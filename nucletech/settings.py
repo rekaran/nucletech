@@ -105,6 +105,7 @@ DATABASE_URL="mongodb://nt-test:cqEu8v4Un6VimhVo@nt-test-shard-00-00-0tdov.mongo
 # Authentication Model
 
 AUTH_USER_MODEL = 'home.User'
+SOCIAL_AUTH_USER_MODEL = 'home.User'
 
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',
