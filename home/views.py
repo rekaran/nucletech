@@ -21,6 +21,11 @@ def about(request):
 
 
 # @minified_response
+def termsofuse(request):
+    return render(request, 'home/termsofuse.html')
+
+
+# @minified_response
 def commingsoon(request):
     return render(request, 'home/comming.html')
 
