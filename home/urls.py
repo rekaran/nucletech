@@ -15,7 +15,7 @@ urlpatterns = [
     url(r"^casestudy/$", login_forbidden(views.commingsoon), name="home.casestudy"),
     url(r"^blogs/$", login_forbidden(views.commingsoon), name="home.blogs"),
     url(r"^sitemap /$", login_forbidden(views.commingsoon), name="home.sitemap"),
-    url(r"^termsofuse/$", login_forbidden(views.commingsoon), name="home.termsofuse"),
+    url(r"^termsofuse/$", login_forbidden(views.termsofuse), name="home.termsofuse"),
     url(r"^privacy/$", login_forbidden(views.commingsoon), name="home.privacy"),
     url(r"^press/$", login_forbidden(views.commingsoon), name="home.press"),
     url(r"^login/$", login_forbidden(auth_views.LoginView.as_view(template_name='home/login.html', redirect_authenticated_user=True)), name='home.login'),
