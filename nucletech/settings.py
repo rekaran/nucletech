@@ -109,7 +109,6 @@ AUTH_USER_MODEL = 'home.User'
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',
     'social_core.backends.google.GoogleOAuth2',
-    'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
@@ -173,5 +172,3 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "fQvVhkzRdteF1uKARXuPy06h"
 
 SOCIAL_AUTH_GITHUB_KEY = "d47bf4bb6e8c0f7698f2"
 SOCIAL_AUTH_GITHUB_SECRET = "7a62a4203797fd3acc942064b4930a9087ee481b"
-
-SOCIAL_AUTH_GITHUB_SCOPE = ["email"]
