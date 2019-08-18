@@ -25,60 +25,8 @@
     <style>
         :focus{
             outline: none !important;
-        }.nt-anchor{
-            color: #FFFFFF;
-        }.nt-anchor:hover{
-            text-decoration: none;
-            color: #FFFFFF;
-        }.nt-bot-display{
-            height: 350px;
-            width: 100%;
-            background-size: cover;
-            background-position: center center;
-            transition: all 0.3s ease-in-out;
-            -webkit-transition: all 0.3s ease-in-out;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
-            display: block;
-            border-radius: 1rem;
-        }.nt-bot-display:hover{
-            transform: translateY(-10px);
-            -webkit-transform: translateY(-10px);
-            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.65);
-        }.nt-bot-display h3{
-            color: #FFFFFF;
-            font-size: 28px;
-            padding-left: 1rem;
-            padding-top: 250px;
-            font-weight: 800;
-            font-family: 'Poppins', sans-serif;
-            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.75);
         }.nt-realestate{
             background-image: url("{% static 'bot/img/realestate_display.png' %}");
-        }.nt-food{
-            background-image: url("{% static 'bot/img/food_display.png' %}");
-        }.nt-shopping{
-            background-image: url("{% static 'bot/img/shopping_display.png' %}");
-        }h2{
-            position: relative;
-            color: rgba(0, 0, 0, 0.75);
-            font-weight: 900;
-            font-family: 'Poppins', sans-serif;
-        }h2 .nt-heading-underline{
-            position: absolute;
-            width: 100px;
-            height: 5px;
-            bottom: 0;
-            background: linear-gradient(to right top,rgb(0, 162, 255), rgb(0, 204, 255));
-            transition: all 0.3s ease-in-out;
-            -webkit-transition: all 0.3s ease-in-out;
-            -moz-transition: all 0.3s ease-in-out;
-            -o-transition: all 0.3s ease-in-out;
-        }h2:hover .nt-heading-underline{
-            transform: translateX(-20px);
-        }p{
-            color: rgba(0, 0, 0, 0.4);
-        }.uk-margin-large-top{
-            margin-top: 6.5rem !important;
         }
     </style>
 </head>
@@ -87,8 +35,8 @@
     <!-- <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar"> -->
         <nav class="uk-navbar-container uk-navbar-sticky uk-margin" uk-navbar> 
             <div class="uk-navbar-left">
-                <a class="uk-navbar-item uk-margin-large-left uk-visible@s" href="#">RealEstate Bot</a>
-                <a class="uk-navbar-item uk-margin-left uk-hidden@s" href="#">RealEstate Bot</a>
+                <a class="uk-navbar-item uk-margin-large-left uk-visible@s" href="#">realestate</a>
+                <a class="uk-navbar-item uk-margin-left uk-hidden@s" href="#">realestate</a>
             </div>
             <div class="uk-navbar-right uk-hidden@s">
                 <span class="uk-margin-right side-nav-toggle nav-icon-menu" uk-icon="icon: menu; ratio: 1.75"></span>
@@ -96,15 +44,15 @@
             </div>
             <div id="side-nav">
                 <div class="side-nav-content">
-                    <a class="uk-navbar-item uk-hidden@s uk-margin-small-top side-nav-logo" href="#">RealEstate Bot</a>
+                    <a class="uk-navbar-item uk-hidden@s uk-margin-small-top side-nav-logo" href="#">realestate</a>
                     <ul class="uk-margin-top">
-                        <li><a href="https://www.nucletech.com"><span uk-icon="icon: home; ratio: 1" class="uk-margin-right"></span>nucletech</a></li>
+                        <li>Powered by <a href="https://www.nucletech.com"><span uk-icon="icon: home; ratio: 1" class="uk-margin-right"></span>nucletech.com</a></li>
                     </ul>
                 </div>
             </div>
             <div class="uk-navbar-right uk-visible@s uk-margin-large-right">
                 <ul class="uk-navbar-nav">
-                    <li><a href="https://www.nucletech.com">nucletech</a></li>
+                    <li>Powered by <a href="https://www.nucletech.com">nucletech.com</a></li>
                 </ul>
             </div>
         </nav>
@@ -112,8 +60,8 @@
     <!-- /Navigation Bar -->
     <div  class="uk-container uk-container-expand" style="padding-right: 0px;">
         <div class="uk-flex-center" uk-grid>
-            <div class="uk-width-1-1@m" style="padding-left: 0px;">
-                <img src="{% static 'bot/img/realestate.jpg' %}" alt="">
+            <div class="uk-width-1-1@m nt-realestate">
+                <h1>Somw content to display</h1>
             </div>
         </div>
     </div>
