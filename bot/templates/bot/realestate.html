@@ -26,7 +26,11 @@
         :focus{
             outline: none !important;
         }.nt-realestate{
-            background-image: url("{% static 'bot/img/realestate_display.png' %}");
+            background-image: url("{% static 'bot/img/realestate.png' %}");
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-position-x: center;
+            padding-top: 33vh;
         }
     </style>
 </head>
@@ -35,8 +39,8 @@
     <!-- <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar"> -->
         <nav class="uk-navbar-container uk-navbar-sticky uk-margin" uk-navbar> 
             <div class="uk-navbar-left">
-                <a class="uk-navbar-item uk-margin-large-left uk-visible@s" href="#">realestate</a>
-                <a class="uk-navbar-item uk-margin-left uk-hidden@s" href="#">realestate</a>
+                <a class="uk-navbar-item uk-logo uk-margin-large-left uk-visible@s" href="#">realestate</a>
+                <a class="uk-navbar-item uk-logo uk-margin-left uk-hidden@s" href="#">realestate</a>
             </div>
             <div class="uk-navbar-right uk-hidden@s">
                 <span class="uk-margin-right side-nav-toggle nav-icon-menu" uk-icon="icon: menu; ratio: 1.75"></span>
@@ -44,15 +48,15 @@
             </div>
             <div id="side-nav">
                 <div class="side-nav-content">
-                    <a class="uk-navbar-item uk-hidden@s uk-margin-small-top side-nav-logo" href="#">realestate</a>
+                    <a class="uk-navbar-item uk-logo uk-hidden@s uk-margin-small-top side-nav-logo" href="#">realestate</a>
                     <ul class="uk-margin-top">
-                        <li>Powered by <a href="https://www.nucletech.com"><span uk-icon="icon: home; ratio: 1" class="uk-margin-right"></span>nucletech.com</a></li>
+                        <li>Powered by <a href="https://www.nucletech.com"><span uk-icon="icon: home; ratio: 1" class="uk-margin-right"></span>Powered by nucletech.com</a></li>
                     </ul>
                 </div>
             </div>
             <div class="uk-navbar-right uk-visible@s uk-margin-large-right">
                 <ul class="uk-navbar-nav">
-                    <li>Powered by <a href="https://www.nucletech.com">nucletech.com</a></li>
+                    <li><a href="https://www.nucletech.com">Powered by nucletech.com</a></li>
                 </ul>
             </div>
         </nav>
