@@ -241,7 +241,7 @@
                                         <div v-for="btn in stage.user_input" :uk-tooltip="'title: '+JSON.stringify(btn)+'; pos: top'"><% btn.text %></div>
                                     </div>
                                     <div class="nt-bot-carousels" v-if="stage.bot_input_option=='carousels'">
-                                        <div v-for="carousel in stage.user_input"><% carousel.text %><button>Select</button></div>
+                                        <div v-for="carousel in stage.user_input" :uk-tooltip="'title: '+JSON.stringify(carousel)+'; pos: top'"><% carousel.text %><button>Select</button></div>
                                     </div>
                                 </div>
                                 <div class="nt-user-says">
