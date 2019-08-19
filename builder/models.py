@@ -55,7 +55,7 @@ class Project(models.Model):
     human_takeover = models.BooleanField(_('Human Take Over'), default=False)
     date_created = models.DateTimeField(_('Date Created'), auto_now_add=True)
     billing_amount = models.CharField(_('Billing Amount'), max_length=30, blank=True)
-    avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
+    avatar = models.ImageField(upload_to='botavatars/', null=True, blank=True)
 
 
 # Query this Model to retrive all projects related to a user
