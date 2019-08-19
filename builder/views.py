@@ -104,3 +104,7 @@ def edit(request, name):
     except Exception as e:
         print(e)
         return redirect('builder.index')
+
+
+def profile(request):
+    return render(request, 'builder/profile.html')
