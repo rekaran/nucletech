@@ -32,15 +32,19 @@
             padding-top: 33vh;
             background-position-y: bottom;
             background-size: cover;
-        }h2, h4{
+        }h2{
+            box-shadow: 5px -5px 0 rgba(0, 0, 0, 0.2);
             font-weight: 700;
         }.uk-navbar-nav>li>a{
             font-size: 15px;
         }h4{
+            font-weight: 700;
             margin-bottom: 0;
             color: rgba(0, 0, 0, 0.6);
         }ul{
             margin-top: 0.5rem;
+        }.nt-realestate{
+            filter: blur(5px);
         }
     </style>
 </head>
@@ -88,7 +92,7 @@
                 </ul>
             </div>
             <div class="uk-width-1-2@m">
-                <img src="{% static 'bot/img/realestate.jpg' %}" alt="Conversational AI To Transform Real-Estate">
+                <img class="nt-realestate" src="{% static 'bot/img/realestate.jpg' %}" alt="Conversational AI To Transform Real-Estate">
             </div>
         </div>
     </div>
