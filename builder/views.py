@@ -107,5 +107,5 @@ def edit(request, name):
 
 
 def profile(request):
-    data = {"accesskey": "asd", "coupon": "FREE1K"}
+    data = {"accesskey": "asd", "coupon": None}
     return render(request, 'builder/profile.html', data)
