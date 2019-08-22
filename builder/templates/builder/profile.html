@@ -225,9 +225,14 @@
     document.getElementsByClassName("profile")[0].classList.add("uk-active");
     function copyKey() {
         var copyText = document.getElementById("nt-access");
-        copyText.select();
+        // copyText.select();
+        var selection = document.getSelection();
+        var range = document.createRange();
+        range.selectNode(copyText);
+        selection.removeAllRanges();
+        selection.addRange(range);
         document.execCommand("copy");
-        alert("Copied the text: " + copyText.value);
+        selection.removeAllRanges();
     } 
 </script>
 {% endblock %}
