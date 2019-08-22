@@ -106,8 +106,47 @@
             <div uk-grid>
                 <div class="uk-width-1-2@m">
                     <div class="nt-block">
-                        <span class="nt-block-heading">Personal Details</span>
-                        asd
+                        <form method="POST">
+                            <span class="nt-block-heading">Personal Details</span>
+                            <div uk-grid>
+                                <div class="uk-width-1-2@m">
+                                    <div class="uk-margin">
+                                        <label class="uk-form-label">First Name</label>
+                                        <div class="uk-form-controls">
+                                            <input class="uk-input" type="text" value="Karan" disabled>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="type" value="p3easddkxmajksd6asd5asdd5a5d2ad5asd5as5d5">
+                                    {% csrf_token %}
+                                </div>
+                                <div class="uk-width-1-2@m">
+                                    <div class="uk-margin">
+                                        <label class="uk-form-label">Last Name</label>
+                                        <div class="uk-form-controls">
+                                            <input class="uk-input" type="text" value="Sawant" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div uk-grid>
+                                <div class="uk-width-1-2@m">
+                                    <div class="uk-margin">
+                                        <label class="uk-form-label">Email Id</label>
+                                        <div class="uk-form-controls">
+                                            <input class="uk-input" type="email" value="karan@nucletech.com" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-width-1-2@m">
+                                    <div class="uk-margin">
+                                        <label class="uk-form-label" for="nt-mobile">Mobile Number</label>
+                                        <div class="uk-form-controls">
+                                            <input class="uk-input" id="nt-mobile" type="text" placeholder="9869651900">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="uk-width-1-2@m">
