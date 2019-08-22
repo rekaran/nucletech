@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpResponseBadRequest, JsonResponse
 from django.contrib.auth.decorators import login_required
 # from htmlmin.decorators import minified_response
 from django.shortcuts import render, redirect
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from .forms import SignUpForm
 from .models import User
 
@@ -50,6 +50,7 @@ def register(request):
 def loginas(request, uid):
     if request.user.is_superuser:
         user = User.objects.get(id=uid)
+        logout(request)
         login(request, user)
         return redirect('builder.index')
     else:
