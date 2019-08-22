@@ -18,6 +18,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     domain = models.CharField(_('Domain Name'), max_length=30, blank=True)
     is_active = models.BooleanField(_('Active'), default=True)
     is_verified = models.BooleanField(_('Verified'), default=False)
+    mobile_verified = models.BooleanField(_('Mobile Verified'), default=False)
     is_staff = models.BooleanField(_('Staff'), default=False)
     avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
 
