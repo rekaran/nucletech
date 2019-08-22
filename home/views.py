@@ -50,8 +50,7 @@ def register(request):
 def loginas(request, uid):
     if request.user.is_superuser:
         user = User.objects.get(id=uid)
-        logout(request)
-        login(request, user)
+        login(request, user, backend='django.contrib.auth.backends.ModelBackend')
         return redirect('builder.index')
     else:
         return redirect('home.logout')
