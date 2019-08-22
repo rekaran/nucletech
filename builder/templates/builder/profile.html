@@ -180,12 +180,13 @@
                                     <div class="uk-form-controls">
                                         {% if coupon %}
                                         <input class="uk-input" type="text" value="{{coupon}}" disabled>
+                                        <button class="uk-button uk-margin-top uk-margin-right" type="button">COPY KEY</button>
                                         {% else %}
                                         <form method="POST">
                                                 <input class="uk-input" type="text" name="ntcouponsc">
                                                 <input type="hidden" name="type" value="65sdf65sddf5sdfasf6sdf3ffsd3fa3sfs3d5df4">
                                                 {% csrf_token %}
-                                                <button class="uk-margin-top uk-button" type="submit">UPDATE</button><button class="uk-button uk-margin-top uk-margin-right">COPY KEY</button>
+                                                <button class="uk-margin-top uk-button" type="submit">UPDATE</button><button class="uk-button uk-margin-top uk-margin-right" type="button">COPY KEY</button>
                                         </form>
                                         {% endif %}
                                     </div>
