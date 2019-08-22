@@ -22,7 +22,7 @@ admin.site.site_title = "Nucletech | Intelligent By Nature"
 admin.site.index_title = "Application Models"
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin-nucletech/', admin.site.urls),
     url(r'^', include('home.urls')),
     url(r'^builder/', include('builder.urls')), # Bot builder to create the bot
     url(r'^datamanager/', include('datamanager.urls')), # Data Manager to manage the data
