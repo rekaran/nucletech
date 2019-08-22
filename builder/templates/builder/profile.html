@@ -6,14 +6,17 @@
 {% endblock %}
 
 {% block title %}
-    Nucletech | Profile
+    Nucletech | Builder
 {% endblock %}
 
 {% block css %}
 <style>
     /* mobile */
     @media (max-width: 767px) {
-
+        .nt-home-builder{
+            padding: 8rem 2.5rem !important;
+            padding-bottom: 2rem !important;
+        }
     }
 
     /* tablet */
@@ -25,13 +28,66 @@
     @media (min-width: 992px) {
 
     }
+    /* all */
+    .uk-navbar-container{
+        z-index: 999 !important;
+    }.nt-home-builder{
+        min-height: 100px;
+        padding: 8rem 5.3rem;
+        background: linear-gradient(to bottom,rgb(0, 162, 255), rgb(0, 204, 255));
+        color: rgba(0, 0, 0, 0.6);
+        z-index: 1 !important;
+        position: relative;
+    }.nt-right-home-builder h2{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 800;
+        margin-bottom: 0;
+        color: #FFF;
+    }.nt-right-home-builder .uk-button{
+        background-color: rgb(255, 230, 55);
+    } input{
+        background: #FFF !important;
+    }input:focus{
+        border: none !important;
+    }.uk-button{
+        width: 100%;
+    }.nt-right-home-builder .uk-button{
+        padding: 0 10px;
+    }.nt-right-home-builder .uk-button span{
+        vertical-align: text-top;
+        z-index: 1 !important;
+    }.nt-left-home-builder{
+        position: relative;
+        z-index: 1 !important;
+    }.nt-left-home-builder span{
+        color: #FFF;
+        position: absolute;
+        z-index: 1 !important;
+    }.nt-left-home-builder .nt-quote{
+        padding: 1rem;
+        padding-top: 1.5rem;
+        z-index: 1 !important;
+    }.nt-testimonial{
+        z-index: 1 !important;
+    }
 </style>
 {% endblock %}
 
 {% block body %}
 <div class="uk-container uk-container-expand uk-padding-remove">
     <div class="nt-home-builder" uk-grid>
-        Profile
+        <div class="uk-width-1-2@m nt-left-home-builder">
+            <div class="nt-testimonial">
+                <span uk-icon="icon: quote-right; ratio: 2"></span>
+                <div class="nt-quote uk-text-left uk-dropcap">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint iure nam facere. Rerum, dolor distinctio! Dolore nemo dignissimos laboriosam consequuntur accusantium repellat explicabo blanditiis a. Esse dolor nam rem maiores.
+                </div>
+            </div>
+        </div>
+        <div class="uk-width-1-2@m nt-right-home-builder">
+            <h2>Profile & Settings</h2>
+            <span>Aquiring, engaging and retaining customers was never easy before, what are you waiting for?</span><br>
+        </div>
     </div>
 </div>
 {% endblock %}
