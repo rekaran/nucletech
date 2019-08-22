@@ -47,7 +47,7 @@ def register(request):
 
 # @minified_response
 def loginas(request, uid):
-    if 'is_superuser' in list(request.user.keys()):
+    if request.user.is_superuser:
         user = User.objects.get(id=uid)
         request.user = user
         return redirect('builder.index')
