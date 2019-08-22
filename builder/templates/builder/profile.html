@@ -158,31 +158,36 @@
                 </div>
                 <div class="uk-width-1-2@m">
                     <div class="nt-block">
-                        <form method="POST">
-                            <span class="nt-block-heading">Access Key & Coupons</span>
-                            <div uk-grid>
-                                <div class="uk-width-1-1@m">
-                                    <div class="uk-margin">
-                                        <label class="uk-form-label">Access Key</label>
-                                        <div class="uk-form-controls">
-                                            <input class="uk-input" type="text" value="{{accesskey}}" disabled>
-                                        </div>
-                                    </div>
-                                    <input type="hidden" name="type" value="65sdf65sddf5sdfasf6sdf3ffsd3fa3sfs3d5df4">
-                                    {% csrf_token %}
-                                </div>
-                            </div>
-                            <div class="uk-margin-top-remove" uk-grid>
-                                <div class="uk-width-1-1@m">
-                                    <div class="uk-margin">
-                                        <label class="uk-form-label">Coupon Code</label>
-                                        <div class="uk-form-controls">
-                                            <input class="uk-input" type="text" value="{{coupon}}" {% if coupon %} disabled {% else %} name="ntcouponsc" {% endif %}>
-                                        </div>
+                        <span class="nt-block-heading">Access Key & Coupons</span>
+                        <div uk-grid>
+                            <div class="uk-width-1-1@m">
+                                <div class="uk-margin">
+                                    <label class="uk-form-label">Access Key</label>
+                                    <div class="uk-form-controls">
+                                        <input class="uk-input" type="text" value="{{accesskey}}" disabled>
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        </div>
+                        <div class="uk-margin-top-remove" uk-grid>
+                            <div class="uk-width-1-1@m">
+                                <div class="uk-margin">
+                                    <label class="uk-form-label">Coupon Code</label>
+                                    <div class="uk-form-controls">
+                                        {% if coupon %}
+                                        <input class="uk-input" type="text" value="{{coupon}}" disabled>
+                                        {% else %}
+                                        <form method="POST">
+                                                <input class="uk-input" type="text" name="ntcouponsc">
+                                                <input type="hidden" name="type" value="65sdf65sddf5sdfasf6sdf3ffsd3fa3sfs3d5df4">
+                                                {% csrf_token %}
+                                                <button>Submit</button>
+                                        </form>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
