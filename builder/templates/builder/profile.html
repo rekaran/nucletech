@@ -152,7 +152,7 @@
                                         </div>
                                     </div>
                                     <button class="uk-button" type="submit">UPDATE</button>
-                                    {% if mobile and request.user.mobile_verified %}
+                                    {% if mobile and not request.user.mobile_verified %}
                                     <button class="uk-button" type="button" id="nt-verify">VERIFY</button>
                                     {% endif %}
                                 </div>
