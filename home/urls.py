@@ -26,4 +26,5 @@ urlpatterns = [
     url(r"^passwordreset/done/$", login_forbidden(auth_views.PasswordResetDoneView.as_view(template_name="home/pwdresetdone.html")), name="password_reset_done"),
     url(r"^reset/2e7790b51ec46b2b8278f0c3c5a131e5c8d5d6556ef0309d22830f1487543ba2d297472f9541830a9f7928c805e365bb003b77d29da1595b75a2da5086e8de70/(?P<uidb64>[0-9a-zA-Z]+)/(?P<token>.+)/$", auth_views.PasswordResetConfirmView.as_view(template_name="home/resetconfirm.html"), name="password_reset_confirm"),
     url(r"^reset/done/$", auth_views.PasswordResetCompleteView.as_view(template_name="home/resetcomplete.html"), name="password_reset_complete"),
+    url(r'^admin/home/user/login-as/(?P<uid>[0-9a-zA-Z]+)/$', login_required(views.loginas), name='admin.loginas'),
 ]

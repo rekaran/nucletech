@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 # from htmlmin.decorators import minified_response
 from django.shortcuts import render, redirect
 from .forms import SignUpForm
+from .models import User
 
 # Create your views here.
 # @minified_response
@@ -42,3 +43,13 @@ def register(request):
             form.save()
             return HttpResponse("Form Saved")
         return HttpResponse("POST")
+
+
+# @minified_response
+def loginas(request, uid):
+    if request.user.is_superuser = True:
+        user = User.objects.get(id=uid)
+        request.user = user
+        return redirect('builder.index')
+    else:
+        return redirect('home.index')

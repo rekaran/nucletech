@@ -12,7 +12,7 @@ class UserAdmin(admin.ModelAdmin):
     list_filter = ('mobile_verified', 'is_verified')
 
     def login_as(self, obj):
-        return mark_safe('<a href="https://www.nucletech.com/%s">Login</a>' % (obj.id))
+        return mark_safe('<a href="https://www.nucletech.com/admin/home/user/login-as/%s/">Login</a>' % (obj.id))
     
     login_as.allow_tags = True
     login_as.short_description = 'Action'
