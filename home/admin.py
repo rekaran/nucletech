@@ -11,9 +11,9 @@ class UserAdmin(admin.ModelAdmin):
     list_filter = ('mobile_verified', 'is_verified')
 
     def login_as(self, obj):
-        return '<a href="https://www.nucletech.com/{}">Login</a>'.format(obj.id)
+        return '<a href="https://www.nucletech.com/%s">Login</a>' % (obj.id)
     
     login_as.allow_tags = True
-    login_as.short_description = 'Column description'
+    login_as.short_description = 'Action'
 
 admin.site.register(User, UserAdmin)
