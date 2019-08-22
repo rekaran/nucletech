@@ -151,6 +151,7 @@
                                             <input class="uk-input" id="nt-mobile" name="ntmobile" type="text" placeholder="9869651900" value="{{request.user.mobile}}">
                                         </div>
                                     </div>
+                                    <button class="uk-button" type="submit">Update</button>
                                 </div>
                             </div>
                         </form>
@@ -170,7 +171,7 @@
                             </div>
                         </div>
                         <div class="uk-margin-top-remove" uk-grid>
-                            <div class="uk-width-1-1@m">
+                            <div class="uk-margin-top uk-width-1-1@m">
                                 <div class="uk-margin">
                                     <label class="uk-form-label">Coupon Code</label>
                                     <div class="uk-form-controls">
@@ -181,7 +182,7 @@
                                                 <input class="uk-input" type="text" name="ntcouponsc">
                                                 <input type="hidden" name="type" value="65sdf65sddf5sdfasf6sdf3ffsd3fa3sfs3d5df4">
                                                 {% csrf_token %}
-                                                <button>Submit</button>
+                                                <button class="uk-button" type="submit">Update</button>
                                         </form>
                                         {% endif %}
                                     </div>
