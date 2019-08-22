@@ -205,6 +205,19 @@
                     <div class="nt-block">
                         <form method="POST">
                             <span class="nt-block-heading">Additional Settings</span>
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="nt-company">Company Name</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" type="text" value="{{company}}" id="nt-company">
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="nt-domain">Domains List</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" type="text" value="{{request.user.domain}}" id="nt-domain">
+                                </div>
+                                <button class="uk-button" type="submit">UPDATE</button>
+                            </div>
                         </form>
                     </div>
                 </div>
