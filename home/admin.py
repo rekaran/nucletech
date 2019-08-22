@@ -1,3 +1,4 @@
+from django.utils.safestring import mark_safe
 from django.contrib import admin
 
 # Register your models here.
@@ -11,7 +12,7 @@ class UserAdmin(admin.ModelAdmin):
     list_filter = ('mobile_verified', 'is_verified')
 
     def login_as(self, obj):
-        return '<a href="https://www.nucletech.com/%s">Login</a>' % (obj.id)
+        return mark_safe('<a href="https://www.nucletech.com/%s">Login</a>' % (obj.id))
     
     login_as.allow_tags = True
     login_as.short_description = 'Action'
