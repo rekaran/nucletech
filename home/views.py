@@ -52,4 +52,4 @@ def loginas(request, uid):
         request.user = user
         return redirect('builder.index')
     else:
-        return redirect('home.index')
+        return redirect('home.logout')
