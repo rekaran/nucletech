@@ -39,6 +39,13 @@
         left: 2rem;
     }.uk-text-justify{
         position: relative;
+    }.nt-clients{
+        display: inline-block;
+        height: 75px;
+        filter: grayscale(100);
+        transition: all 0.3s ease-in-out;
+    }.nt-clients:hover{
+        filter: grayscale(0);
     }
 </style>
 {% endblock %}
@@ -105,8 +112,8 @@
     </div>
     <div class="uk-flex-center" uk-grid>
         <div class="uk-text-justify uk-text-center uk-width-3-4@m">
-            <h3 class="uk-margin-large-top uk-margin-bottom">Our Happy Clients</h3>
-
+            <h3 class="uk-margin-top uk-margin-bottom">Our Happy Clients</h3>
+            <img class="nt-clients" src="{% static 'home/img/logo/aro.jpg' %}" alt="Aroofover" uk-tooltip="title: Aroofover; pos: bottom">
         </div>
     </div>
 </div>
