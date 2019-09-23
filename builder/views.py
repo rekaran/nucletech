@@ -52,7 +52,7 @@ def index(request):
     if request.method == "GET":
         # if request.user.is_verified:
         project_list=[]
-        projects = ProjectAuth.objects.filter(user=request.user).order_by("date_created")
+        projects = ProjectAuth.objects.filter(user=request.user).order_by("-date_created")
         for project in projects:
             p = Project.objects.get(id=project.project.id)
             tmpProject = {"name": p.project_name, "status": p.is_live, "chats": 123456, "user": 1234, "analyze": project.analytics_view, "human": project.human_view, "retrain": p.retrain_date, "key": p.project_key}
