@@ -538,7 +538,8 @@ window.onbeforeunload = () => {
 }
 
 let copyCode = () =>{
-  let code = document.getElementsByTagName("code")[0];
+  let code = document.getElementsByClassName("code-display")[0];
+  console.log(code);
   code.select();
   code.setSelectionRange(0, 99999);
   document.execCommand("copy");
