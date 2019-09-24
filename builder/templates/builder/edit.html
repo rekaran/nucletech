@@ -157,7 +157,25 @@
                     </div>
                     <div class="uk-width-3-4@m">
                         <div class="nt-bot-card">
-                            Presonality Builder
+                            <div uk-grid>
+                                <div class="uk-width-1-3@m">
+                                    <% settings.usercount %>
+                                    <p>USER THIS MONTH</p>
+                                </div>
+                                <div class="uk-width-1-3@m">
+                                    <% settings.globalcount %>
+                                    <p>TOTAL USER TILL NOW</p>
+                                </div>
+                                <div class="uk-width-1-3@m">
+                                    <% settings.userlimit %>
+                                    <p>USER LIMIT</p>
+                                </div>
+                            </div>
+                            <div class="uk-flex-center" uk-grid>
+                                <div class="uk-width-1-2@m">
+                                    <img src="{% static 'home/img/user.png' %}" alt="">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
