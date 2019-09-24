@@ -576,4 +576,6 @@
 }.nt-setting .nt-content:last-child{
     padding: 1rem;
     padding-top: 0;
+}code{
+    display: block;
 }
