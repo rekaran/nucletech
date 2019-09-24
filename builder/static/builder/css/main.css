@@ -578,4 +578,6 @@
     padding-top: 0;
 }code{
     display: block;
+}.nt-copy-code{
+    background: linear-gradient(to right top, rgb(255, 217, 0), rgb(255, 244, 93));
 }

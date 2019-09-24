@@ -536,3 +536,11 @@ var app = new Vue({
 window.onbeforeunload = () => {
   return false;
 }
+
+let copyCode = () =>{
+  let code = document.getElementsByTagName("code")[0];
+  code.select();
+  code.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.getElementsByClassName("nt-copy-code")[0].innerHTML = "COPIED";
+};
