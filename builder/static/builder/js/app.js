@@ -538,10 +538,13 @@ window.onbeforeunload = () => {
 }
 
 let copyCode = () =>{
-  let code = document.getElementsByClassName("code-display")[0];
+  let code = document.getElementsByClassName("code-display")[0].textContent;
   console.log(code);
-  code.select();
-  code.setSelectionRange(0, 99999);
-  document.execCommand("copy");
+  var ccode = document.createElement('input');
+  document.body.appendChild(ccode);
+  ccode.value = code;
+  ccode.select();
+  document.execCommand("copy", false);
+  ccode.remove();
   document.getElementsByClassName("nt-copy-code")[0].innerHTML = "COPIED";
 };
